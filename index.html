@@ -11,16 +11,39 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh; color: #1a202c; padding: 16px;
   }
-  .container { max-width: 860px; margin: 0 auto; }
-  header {
-    text-align: center; color: #fff; margin-bottom: 24px; padding: 20px;
-  }
+  .container { max-width: 900px; margin: 0 auto; }
+  header { text-align: center; color: #fff; margin-bottom: 24px; padding: 20px; }
   header h1 { font-size: 1.8rem; margin-bottom: 6px; }
   header p { opacity: .9; font-size: .95rem; }
   .card {
     background: #fff; border-radius: 16px; padding: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,.15); margin-bottom: 16px;
   }
+  .section-title { font-size: 1.1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+
+  /* Category cards */
+  .cat-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .cat-card {
+    background: linear-gradient(135deg, #f7fafc, #edf2f7);
+    border: 2px solid #e2e8f0; border-radius: 14px;
+    padding: 18px; cursor: pointer; transition: all .2s;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .cat-card:hover { border-color: #667eea; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(102,126,234,.2); }
+  .cat-card .icon { font-size: 2rem; }
+  .cat-card .cat-name { font-weight: 700; font-size: 1.05rem; color: #2d3748; }
+  .cat-card .cat-desc { font-size: .82rem; color: #718096; line-height: 1.4; }
+  .cat-card .cat-stats { display: flex; gap: 10px; margin-top: 6px; font-size: .78rem; }
+  .cat-card .cat-stats span {
+    background: #fff; padding: 4px 10px; border-radius: 20px;
+    color: #4a5568; border: 1px solid #e2e8f0;
+  }
+  .cat-card .cat-stats .best { background: #c6f6d5; color: #22543d; border-color: #9ae6b4; font-weight: 600; }
+
+  /* Subtopics */
   .topic-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 12px;
@@ -31,15 +54,16 @@
     display: flex; flex-direction: column; gap: 6px;
   }
   .topic-card:hover { border-color: #667eea; background: #eef2ff; transform: translateY(-2px); }
-  .topic-card .group { font-size: .72rem; color: #718096; text-transform: uppercase; letter-spacing: .5px; font-weight: 600; }
   .topic-card .name { font-weight: 600; font-size: .95rem; color: #2d3748; }
   .topic-card .count { font-size: .8rem; color: #667eea; font-weight: 500; }
+  .topic-card .topic-progress { font-size: .78rem; color: #38a169; font-weight: 600; }
+  .topic-card .topic-progress.none { color: #a0aec0; font-weight: 400; }
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 6px;
     background: #667eea; color: #fff; border: none; padding: 12px 22px;
     border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer;
-    transition: all .2s; text-decoration: none;
+    transition: all .2s; text-decoration: none; font-family: inherit;
   }
   .btn:hover { background: #5a67d8; transform: translateY(-1px); }
   .btn.secondary { background: #edf2f7; color: #4a5568; }
@@ -52,20 +76,17 @@
   .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
 
   .big-test-btn {
-    width: 100%; padding: 20px; font-size: 1.1rem;
+    width: 100%; padding: 22px; font-size: 1.1rem;
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   }
   .big-test-btn:hover { background: linear-gradient(135deg, #ec84f5 0%, #f0465c 100%); }
 
-  .progress-bar {
-    height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;
-    margin-bottom: 20px;
-  }
+  .progress-bar { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-bottom: 20px; }
   .progress-bar > div {
     height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);
     transition: width .3s ease;
   }
-  .q-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: .85rem; color: #718096; }
+  .q-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: .85rem; color: #718096; flex-wrap: wrap; gap: 6px; }
   .q-text { font-size: 1.15rem; line-height: 1.6; margin-bottom: 18px; font-weight: 500; color: #1a202c; }
 
   .options { display: flex; flex-direction: column; gap: 10px; }
@@ -95,9 +116,17 @@
   }
   .explanation strong { color: #c05621; }
 
-  .result-summary {
-    text-align: center; padding: 24px;
+  /* Result */
+  .result-summary { text-align: center; padding: 24px; }
+  .grade-badge {
+    display: inline-block; padding: 8px 22px; border-radius: 30px;
+    font-size: 1.4rem; font-weight: 800; margin-bottom: 8px;
   }
+  .grade-Aplus, .grade-A { background: #c6f6d5; color: #22543d; }
+  .grade-B { background: #bee3f8; color: #2c5282; }
+  .grade-C { background: #fefcbf; color: #744210; }
+  .grade-D { background: #feebc8; color: #7b341e; }
+  .grade-F { background: #fed7d7; color: #822727; }
   .result-summary .score {
     font-size: 3.5rem; font-weight: 800;
     background: linear-gradient(135deg, #667eea, #764ba2);
@@ -106,6 +135,31 @@
   }
   .result-summary .label { font-size: 1rem; color: #718096; margin-bottom: 12px; }
   .result-summary .msg { font-size: 1.1rem; font-weight: 600; color: #2d3748; margin-top: 8px; }
+
+  .stat-row {
+    display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 18px 0;
+  }
+  .stat-box {
+    background: #f7fafc; padding: 12px 20px; border-radius: 12px;
+    border: 1px solid #e2e8f0; min-width: 90px;
+  }
+  .stat-box .num { font-size: 1.5rem; font-weight: 700; }
+  .stat-box .lbl { font-size: .75rem; color: #718096; text-transform: uppercase; letter-spacing: .5px; }
+  .stat-box.ok .num { color: #38a169; }
+  .stat-box.bad .num { color: #e53e3e; }
+  .stat-box.skip .num { color: #a0aec0; }
+
+  .breakdown-title { font-size: 1rem; margin: 20px 0 10px; color: #4a5568; font-weight: 600; }
+  .breakdown-item {
+    display: flex; align-items: center; gap: 12px; padding: 8px 12px;
+    background: #f7fafc; border-radius: 8px; margin-bottom: 6px; font-size: .88rem;
+  }
+  .breakdown-item .bname { flex: 1; color: #2d3748; font-weight: 500; }
+  .breakdown-item .bscore { font-weight: 700; }
+  .breakdown-bar { width: 120px; height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+  .breakdown-bar > div { height: 100%; background: #38a169; }
+  .breakdown-bar.mid > div { background: #ed8936; }
+  .breakdown-bar.low > div { background: #e53e3e; }
 
   .review-item {
     background: #f7fafc; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px;
@@ -119,10 +173,7 @@
   .review-item .ra.wrong { color: #c53030; }
   .review-item .re { color: #4a5568; font-style: italic; margin-top: 6px; padding-top: 6px; border-top: 1px dashed #cbd5e0; }
 
-  .status-pill {
-    display: inline-block; padding: 4px 10px; border-radius: 20px;
-    font-size: .75rem; font-weight: 600;
-  }
+  .status-pill { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: .75rem; font-weight: 600; }
   .pill-test { background: #fed7e2; color: #97266d; }
   .pill-practice { background: #c6f6d5; color: #22543d; }
 
@@ -133,10 +184,18 @@
   .q-nav button {
     aspect-ratio: 1; border-radius: 8px; border: 1px solid #cbd5e0;
     background: #fff; cursor: pointer; font-size: .85rem; font-weight: 600;
-    color: #4a5568;
+    color: #4a5568; font-family: inherit;
   }
   .q-nav button.answered { background: #bee3f8; border-color: #4299e1; color: #2c5282; }
   .q-nav button.current { outline: 3px solid #667eea; }
+
+  /* History table */
+  .history-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .history-table th, .history-table td { padding: 10px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+  .history-table th { color: #718096; font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .5px; }
+  .history-table .sc-good { color: #38a169; font-weight: 700; }
+  .history-table .sc-mid { color: #ed8936; font-weight: 700; }
+  .history-table .sc-bad { color: #e53e3e; font-weight: 700; }
 
   .hidden { display: none !important; }
 
@@ -144,6 +203,7 @@
     header h1 { font-size: 1.4rem; }
     .card { padding: 18px; }
     .q-text { font-size: 1rem; }
+    .breakdown-bar { width: 70px; }
   }
 </style>
 </head>
@@ -151,7 +211,7 @@
 <div class="container">
   <header>
     <h1>📚 Luyện Ngữ Pháp B1–B2</h1>
-    <p>Chọn chủ điểm để luyện tập, hoặc làm bài kiểm tra 40 câu ngẫu nhiên</p>
+    <p>Chọn mục lớn → chọn chủ điểm nhỏ, hoặc làm bài kiểm tra 40 câu ngẫu nhiên</p>
   </header>
 
   <!-- ==================== HOME ==================== -->
@@ -160,10 +220,32 @@
       <button class="btn big-test-btn" onclick="startTest()">
         🎯 BẮT ĐẦU BÀI KIỂM TRA 40 CÂU NGẪU NHIÊN
       </button>
+      <div id="best-test-info" style="text-align:center;margin-top:12px;font-size:.88rem;color:#718096;"></div>
     </div>
 
     <div class="card">
-      <h2 style="margin-bottom:14px;font-size:1.1rem;">📖 Luyện theo chủ điểm</h2>
+      <h2 class="section-title">📂 Chọn mục lớn</h2>
+      <div class="cat-grid" id="cat-grid"></div>
+    </div>
+
+    <div class="card" id="history-card">
+      <h2 class="section-title">📊 Lịch sử kiểm tra</h2>
+      <div id="history-content"></div>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <button class="btn danger" onclick="resetProgress()">🗑️ Xoá toàn bộ tiến độ</button>
+    </div>
+  </div>
+
+  <!-- ==================== CATEGORY ==================== -->
+  <div id="category-view" class="hidden">
+    <div class="card">
+      <div class="btn-row" style="margin-top:0;">
+        <button class="btn secondary" onclick="goHome()">← Trang chủ</button>
+      </div>
+      <h2 class="section-title" style="margin-top:18px;" id="cat-title"></h2>
+      <p id="cat-desc" style="color:#718096;font-size:.9rem;margin-bottom:16px;"></p>
       <div class="topic-grid" id="topic-grid"></div>
     </div>
   </div>
@@ -184,7 +266,7 @@
       <div class="options" id="p-options"></div>
       <div class="explanation hidden" id="p-exp"></div>
       <div class="btn-row">
-        <button class="btn secondary" onclick="goHome()">← Trang chủ</button>
+        <button class="btn secondary" onclick="backToCategory()">← Danh sách chủ điểm</button>
         <button class="btn" id="p-next" disabled onclick="practiceNext()">Câu tiếp →</button>
       </div>
     </div>
@@ -217,16 +299,22 @@
   <!-- ==================== RESULT ==================== -->
   <div id="result-view" class="hidden">
     <div class="card result-summary">
-      <div class="label">Kết quả của bạn</div>
+      <div class="label">Kết quả bài kiểm tra</div>
       <div class="score"><span id="r-score">0</span> / 40</div>
+      <div id="r-grade"></div>
       <div class="msg" id="r-msg"></div>
+      <div class="stat-row" id="r-stats"></div>
       <div class="btn-row" style="justify-content:center;">
         <button class="btn" onclick="startTest()">🔁 Làm lại</button>
         <button class="btn secondary" onclick="goHome()">← Trang chủ</button>
       </div>
     </div>
     <div class="card">
-      <h2 style="margin-bottom:14px;font-size:1.1rem;">📋 Xem lại & giải thích</h2>
+      <h2 class="section-title">📊 Phân tích theo mục lớn</h2>
+      <div id="r-breakdown"></div>
+    </div>
+    <div class="card">
+      <h2 class="section-title">📋 Xem lại &amp; giải thích</h2>
       <div id="r-list"></div>
     </div>
   </div>
@@ -234,8 +322,7 @@
 
 <script>
 /* =========================================================
-   DỮ LIỆU CÂU HỎI
-   Format: [câu hỏi, [A,B,C,D], chỉ số đáp án đúng, giải thích]
+   DỮ LIỆU CÂU HỎI  (giữ nguyên — mỗi câu: [q, [A,B,C,D], idx, exp])
    ========================================================= */
 const T = [
 /* ---------- GIỚI TỪ ---------- */
@@ -249,7 +336,7 @@ const T = [
 ["He usually works ___ the evening.",["at","on","in","by"],2,"'in the evening' là cụm cố định."],
 ["We always visit our grandparents ___ Christmas.",["on","in","at","by"],2,"'at Christmas' chỉ dịp lễ nói chung."],
 ["They had a big family dinner ___ Christmas Day.",["at","in","on","by"],2,"'on' + ngày cụ thể (on Christmas Day)."],
-["I was woken up by a strange noise ___ the night.",["at","in","on","by"],1,"'in the night' = trong đêm (khoảng thời gian)."]
+["I was woken up by a strange noise ___ the night.",["at","in","on","by"],1,"'in the night' = trong đêm."]
 ]},
 {group:"Giới từ", name:"Giới từ — last/next/this/every + in + period", qs:[
 ["I'll call you ___ next Monday.",["on","at","in","—"],3,"Trước 'next Monday' không dùng giới từ."],
@@ -270,9 +357,9 @@ const T = [
 ["___ first, I didn't like the course.",["At","In","On","By"],0,"'at first' = lúc đầu."]
 ]},
 {group:"Giới từ", name:"Giới từ — Nơi chốn (in/at/on)", qs:[
-["There is nobody ___ the room.",["at","on","in","by"],2,"'in' dùng cho không gian khép kín (in the room)."],
+["There is nobody ___ the room.",["at","on","in","by"],2,"'in' dùng cho không gian khép kín."],
 ["I'll meet you ___ the bus stop.",["in","on","at","by"],2,"'at' dùng cho điểm hẹn cụ thể."],
-["There is a book ___ the table.",["at","in","on","by"],2,"'on' = trên bề mặt (on the table)."],
+["There is a book ___ the table.",["at","in","on","by"],2,"'on' = trên bề mặt."],
 ["She lives ___ Can Tho.",["at","on","in","by"],2,"'in' + thành phố/quốc gia."],
 ["Someone is waiting ___ the door.",["in","on","at","by"],2,"'at the door' = ở cửa."],
 ["There is a notice ___ the door.",["at","in","on","by"],2,"'on the door' = trên cánh cửa."],
@@ -292,7 +379,7 @@ const T = [
 ["The children are ___ the queue.",["on","at","in","by"],2,"'in the queue' = trong hàng đợi."]
 ]},
 {group:"Giới từ", name:"Giới từ — top/bottom/end/front/back/corner", qs:[
-["Write your name ___ the top of the page.",["in","on","at","by"],2,"'at the top of' = ở đỉnh/đầu trang."],
+["Write your name ___ the top of the page.",["in","on","at","by"],2,"'at the top of' = ở đầu trang."],
 ["My house is ___ the end of the street.",["in","at","on","by"],1,"'at the end of' = ở cuối đường."],
 ["The TV is ___ the corner of the room.",["at","on","in","by"],2,"'in the corner' = ở trong góc phòng."],
 ["We sat ___ the back of the cinema.",["in","at","on","by"],1,"'at the back of' = ở phía sau."],
@@ -372,7 +459,7 @@ const T = [
 ["There are trees ___ the park.",["between","throughout","beside","past"],1,"'throughout' = khắp nơi."]
 ]},
 {group:"Giới từ", name:"Giới từ — Cụm cố định (noun + prep)", qs:[
-["There has been an increase ___ prices.",["on","at","in","for"],2,"'increase in' = sự tăng lên về cái gì."],
+["There has been an increase ___ prices.",["on","at","in","for"],2,"'increase in' = sự tăng lên về."],
 ["We need to find a solution ___ this problem.",["of","to","for","with"],1,"'solution to' = giải pháp cho."],
 ["There is a great demand ___ this product.",["to","of","for","in"],2,"'demand for' = nhu cầu về."],
 ["What was the cause ___ the accident?",["to","for","in","of"],3,"'cause of' = nguyên nhân của."],
@@ -399,9 +486,9 @@ const T = [
 ["Can you look ___ my cat while I'm away?",["for","about","after","at"],2,"'look after' = chăm sóc."],
 ["We discussed the problem.",["about","on","—","for"],2,"'discuss' không cần giới từ."],
 ["I don't care ___ what other people think.",["for","about","to","at"],1,"'care about' = quan tâm về."],
-["I've never heard ___ that singer.",["about","from","of","at"],2,"'hear of' = nghe nói đến (biết đến)."],
+["I've never heard ___ that singer.",["about","from","of","at"],2,"'hear of' = nghe nói đến."],
 ["Have you heard ___ John recently?",["of","about","from","at"],2,"'hear from sb' = nhận tin từ ai."],
-["I need to think ___ your suggestion.",["of","about","at","for"],1,"'think about' = suy nghĩ về (cân nhắc)."],
+["I need to think ___ your suggestion.",["of","about","at","for"],1,"'think about' = suy nghĩ về."],
 ["What do you think ___ this film?",["about","of","at","for"],1,"'think of' = có ý kiến về."],
 ["She dreams ___ becoming an English teacher.",["about","of","at","for"],1,"'dream of' = mơ ước trở thành."],
 ["He was accused ___ stealing money.",["for","of","about","with"],1,"'accused of' = bị buộc tội về."],
@@ -527,17 +614,17 @@ const T = [
 ["There was a letter on the floor, so I ______ it ______.",["picked / up","picked / off","picked / away","picked / down"],0,"'pick up' = nhặt lên."],
 ["Alan ______ and walked out.",["stood up","stood down","stood off","stood away"],0,"'stand up' = đứng dậy."],
 ["I can't hear the TV. Can you ______ it ______?",["turn / up","turn / off","turn / away","turn / out"],0,"'turn up' = tăng âm lượng."],
-["I didn't like the picture, so I ______ it ______.",["took / down","took / up","took / away from","took / off"],0,"'take down' = hạ xuống, tháo xuống."],
+["I didn't like the picture, so I ______ it ______.",["took / down","took / up","took / away from","took / off"],0,"'take down' = hạ xuống."],
 ["I stopped writing and ______ my pen.",["put down","put up","put off","put away"],0,"'put down' = đặt xuống."],
 ["I bent ______ to tie my shoelace.",["down","up","off","away"],0,"'bend down' = cúi xuống."],
-["The oven is too hot. ______ it ______ to 150 degrees.",["Turn / down","Turn / up","Turn / off","Turn / away"],0,"'turn down' = giảm (nhiệt độ, âm lượng)."],
-["The old houses were ______ to make way for a new shopping centre.",["knocked down","knocked up","knocked off","knocked away"],0,"'knock down' = đập đổ (nhà)."],
+["The oven is too hot. ______ it ______ to 150 degrees.",["Turn / down","Turn / up","Turn / off","Turn / away"],0,"'turn down' = giảm."],
+["The old houses were ______ to make way for a new shopping centre.",["knocked down","knocked up","knocked off","knocked away"],0,"'knock down' = đập đổ."],
 ["Why did you ______ the tree?",["cut down","cut up","cut off","cut away"],0,"'cut down' = đốn (cây)."],
 ["You're driving too fast. ______!",["Slow down","Slow up","Slow off","Slow away"],0,"'slow down' = đi chậm lại."],
 ["______. There's no point getting angry.",["Calm down","Calm up","Calm off","Calm away"],0,"'calm down' = bình tĩnh lại."],
 ["I'm trying to ______ coffee.",["cut down on","cut down to","cut off with","cut up on"],0,"'cut down on' = giảm bớt."],
 ["The car ______ on the motorway.",["broke down","broke up","broke out","broke away"],0,"'break down' = hỏng (xe)."],
-["The company had to ______ several stores.",["close down","close up with","close off with","close away"],0,"'close down' = đóng cửa (kinh doanh)."],
+["The company had to ______ several stores.",["close down","close up with","close off with","close away"],0,"'close down' = đóng cửa."],
 ["You can always rely on Paul. He'll never ______ you ______.",["let / down","let / off","let / up","let / away"],0,"'let sb down' = làm ai thất vọng."],
 ["My application was ______.",["turned down","turned up","turned away from","turned off"],0,"'turn down' = từ chối."],
 ["I wrote Ben's address ______, but now I can't find it.",["down","up","off","away"],0,"'write down' = ghi lại."]
@@ -577,10 +664,10 @@ const T = [
 ["My friend was attacked and ______.",["beaten up","beaten out","beaten away","beaten off"],0,"'beat sb up' = đánh đập ai."],
 ["Kate and Paul have ______.",["split up","split off","split out","split away"],0,"'split up' = chia tay."],
 ["______ your coat before you go outside.",["Do up","Do out","Do away","Do off"],0,"'do up' = cài/kéo khóa."],
-["The kitchen looks great now that it has been ______.",["done up","done out","done off","done away"],0,"'do up' = trang hoàng, sửa sang."],
+["The kitchen looks great now that it has been ______.",["done up","done out","done off","done away"],0,"'do up' = trang hoàng."],
 ["If you don't know the meaning of a word, ______ in a dictionary.",["look it up","look up it","look it out","look out it"],0,"'look up' — đại từ chen giữa."],
 ["We live on a busy road, so we have to ______ a lot of noise.",["put up with","put up to","put out with","put away with"],0,"'put up with' = chịu đựng."],
-["I don't want to ______ you ______, so I'll leave now.",["hold / up","hold / off","hold / away","hold / down"],0,"'hold sb up' = giữ chân ai (làm chậm)."],
+["I don't want to ______ you ______, so I'll leave now.",["hold / up","hold / off","hold / away","hold / down"],0,"'hold sb up' = giữ chân ai."],
 ["People often ______ the two brothers ______.",["mix / up","mix / out","mix / away","mix / down"],0,"'mix sb/sth up' = nhầm lẫn."]
 ]},
 {group:"Phrasal Verbs", name:"Phrasal Verbs — Away / Back (Unit 145)", qs:[
@@ -597,7 +684,7 @@ const T = [
 ["I waved to her and she ______.",["waved back","waved away","waved off","waved up"],0,"'wave back' = vẫy lại."],
 ["I can't talk now. I'll ______ you ______ in ten minutes.",["call / back","call / away","call / up with","call / off"],0,"'call sb back' = gọi lại."],
 ["I sent him an email, but he never ______ me.",["got back to","got away with","got up to","got off with"],0,"'get back to sb' = hồi âm."],
-["Looking ______ my childhood, I realise I learnt a lot.",["back on","away from","up to","out of"],0,"'look back on' = nhìn lại (quá khứ)."],
+["Looking ______ my childhood, I realise I learnt a lot.",["back on","away from","up to","out of"],0,"'look back on' = nhìn lại."],
 ["If you borrow money, you have to ______ it ______.",["pay / back","pay / away","pay / off with","pay / out"],0,"'pay back' = trả lại tiền."],
 ["Thanks for lending me the money. I'll ______ you ______ next week.",["pay / back","pay / off","pay / away","pay / out"],0,"'pay sb back' = trả nợ ai."]
 ]},
@@ -621,7 +708,7 @@ const T = [
 ["We need to ______ this problem before it gets worse.",["sort out","sort off","sort away","sort back"],0,"'sort out' = giải quyết."],
 ["I was tired, so I ______ during the film.",["dozed off","dozed out","dozed away","dozed back"],0,"'doze off' = ngủ gật."],
 ["She ______ the invitation because she was too busy.",["turned down","turned up","turned on","turned out"],0,"'turn down' = từ chối."],
-["He made a mistake but managed to ______ it.",["get away with","get away from","get back to","get up with"],0,"'get away with' = thoát khỏi (trách nhiệm)."],
+["He made a mistake but managed to ______ it.",["get away with","get away from","get back to","get up with"],0,"'get away with' = thoát khỏi."],
 ["Please ______ the information ______. You may need it later.",["write / down","write / up","write / off","write / away"],0,"'write down' = ghi lại."],
 ["I couldn't hear him, so I asked him to ______.",["speak up","speak off","speak away","speak back"],0,"'speak up' = nói to hơn."],
 ["They ______ after being together for five years.",["split up","split off","split out","split away"],0,"'split up' = chia tay."],
@@ -631,7 +718,7 @@ const T = [
 ["The children ______ their mother's instructions.",["carried out","carried on","carried away","carried up"],0,"'carry out' = thực hiện."],
 ["He ______ an excuse because he didn't want to tell the truth.",["made up","made out","made off","made away"],0,"'make up' = bịa ra."],
 ["The hotel was expensive, so we couldn't ______ staying there.",["go on","get by","keep up","get away"],0,"'go on' = tiếp tục."],
-["I've been working all day. I need to ______ for a while.",["slow down","slow up with","slow off","slow away"],0,"'slow down' = nghỉ ngơi, chậm lại."]
+["I've been working all day. I need to ______ for a while.",["slow down","slow up with","slow off","slow away"],0,"'slow down' = nghỉ ngơi."]
 ]},
 
 /* ---------- VERB PATTERNS ---------- */
@@ -659,7 +746,7 @@ const T = [
 ["They admitted ______ the money.",["steal","to steal","stealing","stolen"],2,"'admit + V-ing'."],
 ["They admitted ______ the money.",["having stolen","have stolen","to having stolen","having steal"],0,"Perfect gerund: having + V3."],
 ["Which is also correct?",["They denied that they had done anything wrong.","They denied to do anything wrong.","They denied do anything wrong.","They denied to doing anything wrong."],0,"'deny that + clause' cũng đúng."],
-["Chris suggested that we ______ to the cinema.",["went","going","go","to go"],2,"'suggest that + S + V (bare).'"]
+["Chris suggested that we ______ to the cinema.",["went","going","go","to go"],2,"'suggest that + S + V (bare)'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — V + to-infinitive (Unit 54)", qs:[
 ["We decided ______ a taxi home.",["take","taking","to take","took"],2,"'decide + to V'."],
@@ -672,8 +759,8 @@ const T = [
 ["Which verb normally takes -ing, not to-infinitive?",["decide","agree","enjoy","promise"],2,"'enjoy + V-ing'."],
 ["Andy suggested ______ for coffee.",["meet","meeting","to meet","met"],1,"'suggest + V-ing'."],
 ["Are you thinking of ______ a car?",["buy","buying","to buy","bought"],1,"'think of + V-ing'."],
-["I didn't dare ______ him.",["tell","to telling","telling","told"],0,"'dare + bare V' hoặc 'dare to V'."],
-["I didn't dare ______ him.",["to tell","telling","told","to telling"],0,"'dare to V' cũng chấp nhận."],
+["I didn't dare ______ him.",["tell","to telling","telling","told"],0,"'dare + bare V'."],
+["I didn't dare ______ him.",["to tell","telling","told","to telling"],0,"'dare to V'."],
 ["I daren't ______ him what happened.",["to tell","telling","tell","told"],2,"'daren't + bare V'."],
 ["They seem ______ plenty of money.",["have","having","to have","had"],2,"'seem + to V'."],
 ["Ann pretended ______ me.",["not see","not to see","not seeing","didn't see"],1,"'pretend not to V'."],
@@ -684,9 +771,9 @@ const T = [
 {group:"Verb Patterns", name:"Verb Patterns — Question word + to", qs:[
 ["We asked ______ to get to the station.",["what","how","which","who"],1,"'how to get' = cách đi đến."],
 ["Have you decided ______ on holiday?",["what to go","where to go","where going","to where go"],1,"'where to go' = đi đâu."],
-["I don't know ______.",["what to do","what do","what doing","to what do"],0,"'what to do' = làm gì."],
-["Do you understand ______ the application?",["how to complete","how complete","how completing","to how complete"],0,"'how to complete' = cách hoàn thành."],
-["She explained ______ the machine.",["how to use","how use","how using","to how use"],0,"'how to use' = cách sử dụng."],
+["I don't know ______.",["what to do","what do","what doing","to what do"],0,"'what to do'."],
+["Do you understand ______ the application?",["how to complete","how complete","how completing","to how complete"],0,"'how to complete'."],
+["She explained ______ the machine.",["how to use","how use","how using","to how use"],0,"'how to use'."],
 ["Can you tell me ______?",["what to do","what do","what doing","to what do"],0,"'what to do'."],
 ["Ask Jack. He'll tell you ______.",["what do","what to do","to what do","what doing"],1,"'what to do'."]
 ]},
@@ -695,7 +782,7 @@ const T = [
 ["We expected Dan ______ late.",["be","being","to be","was"],2,"'expect sb to V'."],
 ["Would you like ______ with me?",["me to go","me go","me going","that I go"],0,"'would like sb to V'."],
 ["He doesn't want anybody ______.",["know","knowing","to know","knew"],2,"'want sb to V'."],
-["Can you help me ______ this table?",["move","to move","either A or B","moving only"],2,"'help sb (to) V' — cả hai đều đúng."],
+["Can you help me ______ this table?",["move","to move","either A or B","moving only"],2,"'help sb (to) V'."],
 ["I wouldn't advise you ______ there.",["stay","staying","to stay","stayed"],2,"'advise sb to V'."],
 ["Can you remind me ______ Sam tomorrow?",["call","calling","to call","called"],2,"'remind sb to V'."],
 ["The teacher warned us ______ the switch.",["not touch","not touching","not to touch","don't touch"],2,"'warn sb not to V'."],
@@ -703,7 +790,7 @@ const T = [
 ["They persuaded him ______ the job.",["accept","accepting","to accept","accepted"],2,"'persuade sb to V'."],
 ["Who taught you ______?",["drive","driving","to drive","drove"],2,"'teach sb to V'."],
 ["They don't allow people ______ here.",["park","parking","to park","parked"],2,"'allow sb to V'."],
-["Jane suggested ______ for advice.",["me to ask you","that I ask you","me asking you","that I to ask you"],1,"'suggest that + S + V (bare)'."],
+["Jane suggested ______ for advice.",["me to ask you","that I ask you","me asking you","that I to ask you"],1,"'suggest that + S + V'."],
 ["Which sentence is correct?",["Jane suggested me to ask you.","Jane suggested to me ask you.","Jane suggested that I ask you.","Jane suggested me ask you."],2,"'suggest that + S + V'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — make / let", qs:[
@@ -717,52 +804,52 @@ const T = [
 {group:"Verb Patterns", name:"Verb Patterns — remember / regret / go on (Unit 56)", qs:[
 ["I clearly remember ______ the door.",["lock","locking","to lock","locked"],1,"'remember + V-ing' = nhớ đã làm."],
 ["Remember ______ some bananas.",["buy","buying","to buy","bought"],2,"'remember + to V' = nhớ phải làm."],
-["I remembered ______ the door, so I locked it.",["to lock","locking","lock","locked"],0,"'remember to V' = nhớ làm (chưa làm)."],
-["I forgot ______ the windows.",["shut","shutting","to shut","shut to"],2,"'forget + to V' = quên làm."],
+["I remembered ______ the door, so I locked it.",["to lock","locking","lock","locked"],0,"'remember to V'."],
+["I forgot ______ the windows.",["shut","shutting","to shut","shut to"],2,"'forget + to V'."],
 ["I regret ______ what I said.",["say","saying","to say","said"],1,"'regret + V-ing' = hối tiếc đã làm."],
 ["I regret ______ you that your application was unsuccessful.",["tell","telling","to tell","told"],2,"'regret + to V' = tiếc phải thông báo."],
-["Do you regret not ______ to college?",["go","going","to go","went"],1,"'regret not V-ing' = hối tiếc đã không làm."],
+["Do you regret not ______ to college?",["go","going","to go","went"],1,"'regret not V-ing'."],
 ["The president paused and then went on ______.",["talk","to talk","talking","talked"],1,"'go on to V' = chuyển sang việc mới."],
-["We can't go on ______ like this.",["live","to live","living","lived"],2,"'go on + V-ing' = tiếp tục việc đang làm."],
-["After discussing the economy, he went on ______ about foreign policy.",["talk","talking","to talk","talked"],2,"'go on to V' = chuyển sang chủ đề mới."],
-["Which sentence means continue doing the same thing?",["He went on to talk.","He went on talking.","He went to talk on.","He continued to talked."],1,"'go on + V-ing' = tiếp tục."]
+["We can't go on ______ like this.",["live","to live","living","lived"],2,"'go on + V-ing' = tiếp tục."],
+["After discussing the economy, he went on ______ about foreign policy.",["talk","talking","to talk","talked"],2,"'go on to V'."],
+["Which sentence means continue doing the same thing?",["He went on to talk.","He went on talking.","He went to talk on.","He continued to talked."],1,"'go on + V-ing'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — Không khác nghĩa", qs:[
-["It started ______.",["raining","to rain","either A or B","rain"],2,"'start + V-ing / to V' không khác nghĩa."],
+["It started ______.",["raining","to rain","either A or B","rain"],2,"'start + V-ing / to V'."],
 ["Andy intends ______ a house.",["buy","buying","to buy","bought"],2,"'intend + to V'."],
 ["Andy intends ______ a house.",["buying","to buying","buy","bought"],0,"'intend + V-ing' cũng được."],
-["Don't bother ______ the door.",["lock","locking","to lock","B or C"],3,"'bother + V-ing / to V' đều được."],
-["Normally, we don't say:",["It's starting to rain.","It started raining.","It's starting raining.","It started to rain."],2,"'start + V-ing' không dùng với thì tiếp diễn 'is starting'."]
+["Don't bother ______ the door.",["lock","locking","to lock","B or C"],3,"'bother + V-ing / to V'."],
+["Normally, we don't say:",["It's starting to rain.","It started raining.","It's starting raining.","It started to rain."],2,"'start + V-ing' không dùng ở tiếp diễn."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — try (Unit 57)", qs:[
 ["I tried ______ my eyes open, but I couldn't.",["keep","keeping","to keep","kept"],2,"'try to V' = cố gắng làm."],
-["Please try ______ quiet.",["be","being","to be","been"],2,"'try to be' = cố gắng trở nên."],
-["These cakes look delicious. You should try ______.",["one","to one","trying one only","one to try"],0,"'try + N' = thử cái gì."],
-["The photocopier isn't working. Try ______ the green button.",["press","pressing","to pressing","pressed"],1,"'try + V-ing' = thử làm (xem kết quả)."],
-["I tried ______ the table, but it was too heavy.",["moving","to move","move","moved"],1,"'try to V' = cố gắng làm (bất thành)."],
-["I didn't like the furniture arrangement, so I tried ______ the table.",["move","to move","moving","moved"],2,"'try + V-ing' = thử làm."]
+["Please try ______ quiet.",["be","being","to be","been"],2,"'try to be'."],
+["These cakes look delicious. You should try ______.",["one","to one","trying one only","one to try"],0,"'try + N'."],
+["The photocopier isn't working. Try ______ the green button.",["press","pressing","to pressing","pressed"],1,"'try + V-ing' = thử làm."],
+["I tried ______ the table, but it was too heavy.",["moving","to move","move","moved"],1,"'try to V' = cố gắng."],
+["I didn't like the furniture arrangement, so I tried ______ the table.",["move","to move","moving","moved"],2,"'try + V-ing'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — need", qs:[
-["I need ______ harder.",["work","working","to work","worked"],2,"'need + to V' (chủ ngữ chủ động)."],
-["My phone needs ______.",["charge","charging","to charging","charged"],1,"'need + V-ing' = cần được làm (bị động)."],
-["My phone needs ______.",["to be charged","to charging","charge","being charge"],0,"'need to be + V3' cũng được."],
-["Does your suit need ______?",["clean","cleaning","to cleaning","cleaned"],1,"'need + V-ing' = cần được giặt."],
-["This problem needs ______ carefully.",["thinking about","to thinking about","think about","thought about"],0,"'need + V-ing' = cần được xem xét."]
+["I need ______ harder.",["work","working","to work","worked"],2,"'need + to V'."],
+["My phone needs ______.",["charge","charging","to charging","charged"],1,"'need + V-ing'."],
+["My phone needs ______.",["to be charged","to charging","charge","being charge"],0,"'need to be + V3'."],
+["Does your suit need ______?",["clean","cleaning","to cleaning","cleaned"],1,"'need + V-ing'."],
+["This problem needs ______ carefully.",["thinking about","to thinking about","think about","thought about"],0,"'need + V-ing'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — help / can't help", qs:[
-["Everybody helped ______ after the party.",["to clean up","clean up","A or B","cleaning up only"],2,"'help + (to) V' — cả hai đều đúng."],
+["Everybody helped ______ after the party.",["to clean up","clean up","A or B","cleaning up only"],2,"'help + (to) V'."],
 ["Can you help me ______ this table?",["move","to move","A or B","moving"],2,"'help sb (to) V'."],
-["I can't help ______ sorry for him.",["feel","to feel","feeling","felt"],2,"'can't help + V-ing' = không thể không."],
+["I can't help ______ sorry for him.",["feel","to feel","feeling","felt"],2,"'can't help + V-ing'."],
 ["She couldn't help ______.",["laugh","laughing","to laugh","laughed"],1,"'can't help + V-ing'."],
 ["I can't help it. I can't help ______ nervous.",["be","being","to be","been"],1,"'can't help + V-ing'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — like / love / hate (Unit 58)", qs:[
-["Do you like ______ up early?",["get","getting","to getting","got"],1,"'like + V-ing' = thích (sở thích chung)."],
+["Do you like ______ up early?",["get","getting","to getting","got"],1,"'like + V-ing'."],
 ["Stephanie hates ______.",["fly","flying","to flying","flew"],1,"'hate + V-ing'."],
 ["I love ______ new people.",["meet","meeting","to meeting","met"],1,"'love + V-ing'."],
-["Paul lives in Berlin and likes ______ there.",["live","to live","living","lived"],2,"'like + V-ing' = thích (thói quen)."],
-["I like ______ the kitchen. I actually enjoy it.",["clean","to clean","cleaning","cleaned"],2,"'like + V-ing' = thích thực sự."],
-["It's not my favourite job, but I like ______ the kitchen regularly.",["clean","cleaning","to clean","cleaned"],2,"'like + to V' = thấy nên làm (thói quen)."],
+["Paul lives in Berlin and likes ______ there.",["live","to live","living","lived"],2,"'like + V-ing'."],
+["I like ______ the kitchen. I actually enjoy it.",["clean","to clean","cleaning","cleaned"],2,"'like + V-ing'."],
+["It's not my favourite job, but I like ______ the kitchen regularly.",["clean","cleaning","to clean","cleaned"],2,"'like + to V'."],
 ["I enjoy ______ the kitchen.",["clean","to clean","cleaning","cleaned"],2,"'enjoy + V-ing'."],
 ["I don't mind ______ the kitchen.",["clean","to clean","cleaning","cleaned"],2,"'mind + V-ing'."]
 ]},
@@ -772,14 +859,14 @@ const T = [
 ["I'd love ______ your family.",["meet","meeting","to meet","met"],2,"'would love + to V'."],
 ["Would you prefer ______ now or later?",["eat","eating","to eat","ate"],2,"'would prefer + to V'."],
 ["Would you mind ______ the door?",["close","closing","to close","closed"],1,"'mind + V-ing'."],
-["I'd love ______ to the party, but it was impossible.",["go","going","to have gone","to going"],2,"'would love to have + V3' = ước đã làm trong quá khứ."],
+["I'd love ______ to the party, but it was impossible.",["go","going","to have gone","to going"],2,"'would love to have + V3'."],
 ["I would hate ______ in his position.",["be","being","to have been","have being"],2,"'would hate to have been'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — prefer (Unit 59)", qs:[
 ["I prefer ______ in the country.",["live","to live","living","B or C"],3,"'prefer + to V / V-ing'."],
 ["I prefer driving ______ travelling by train.",["than","to","from","with"],1,"'prefer A to B'."],
 ["I prefer driving rather than ______ by train.",["travel","travelling","to travel","travelled"],1,"'prefer V-ing rather than V-ing'."],
-["I prefer ______ rather than ______ by train.",["drive / travel","driving / travelling","to drive / travel","both B and C"],3,"'prefer to V rather than V' / V-ing rather than V-ing."],
+["I prefer ______ rather than ______ by train.",["drive / travel","driving / travelling","to drive / travel","both B and C"],3,"'prefer to V rather than V'."],
 ["Which is correct?",["I prefer this coat than the other one.","I prefer this coat to the other one.","I prefer this coat from the other one.","I prefer this coat with the other one."],1,"'prefer sth to sth'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — would prefer / would rather", qs:[
@@ -792,7 +879,7 @@ const T = [
 ["Which is correct?",["I'd prefer drive.","I'd prefer to drive.","I'd prefer driving only.","I'd prefer drove."],1,"'would prefer + to V'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — would rather + somebody", qs:[
-["I'd rather you ______.",["drove","drive","to drive","driving"],0,"'would rather + S + V (past)' — giả định."],
+["I'd rather you ______.",["drove","drive","to drive","driving"],0,"'would rather + S + V (past)'."],
 ["I'd rather you ______ dinner now.",["make","made","to make","making"],1,"'would rather you + V (past)'."],
 ["I'd rather you ______ anyone what I said.",["don't tell","didn't tell","not tell","not to tell"],1,"'would rather you didn't + V'."],
 ["'Are you going to tell Anna?' 'No. I'd rather she ______.'",["didn't know","doesn't know","not know","wouldn't know"],0,"'would rather + S + V (past)'."]
@@ -806,7 +893,7 @@ const T = [
 ["Why don't you go out ______ at home all the time?",["instead of stay","instead of staying","instead to stay","instead staying"],1,"'instead of + V-ing'."],
 ["Before ______ out, I phoned Sarah.",["go","going","to go","went"],1,"'before + V-ing'."],
 ["What did you do after ______ school?",["leave","leaving","to leave","left"],1,"'after + V-ing'."],
-["You can improve your English ______ more.",["by reading","by read","to reading","with read"],0,"'by + V-ing' = bằng cách."],
+["You can improve your English ______ more.",["by reading","by read","to reading","with read"],0,"'by + V-ing'."],
 ["She made herself ill ______ properly.",["by not eating","by not eat","without eat","to not eating"],0,"'by not + V-ing'."],
 ["We ran ten kilometres without ______.",["stop","stopping","to stop","stopped"],1,"'without + V-ing'."],
 ["I said it without ______.",["think","thinking","to think","thought"],1,"'without + V-ing'."]
@@ -815,7 +902,7 @@ const T = [
 ["Are you looking forward to ______ on holiday?",["go","going","to go","went"],1,"'look forward to + V-ing'."],
 ["I'm fed up with ______ by train.",["travel","travelling","to travel","travelled"],1,"'fed up with + V-ing'."],
 ["How about ______ away this weekend?",["go","going","to go","went"],1,"'how about + V-ing'."],
-["I prefer driving to ______ by train.",["travel","travelling","to travel","travelled"],1,"'prefer A to B' — cả hai là V-ing."],
+["I prefer driving to ______ by train.",["travel","travelling","to travel","travelled"],1,"'prefer A to B'."],
 ["Which sentence is correct?",["I'm looking forward to meet you.","I'm looking forward to meeting you.","I'm looking forward meeting you.","I'm looking forward to met you."],1,"'look forward to + V-ing'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — be/get used to (Unit 61)", qs:[
@@ -828,12 +915,12 @@ const T = [
 ["Which is correct?",["I'm used to live here.","I'm used to living here.","I'm used to to live here.","I'm used living here."],1,"'be used to + V-ing'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — used to vs be used to", qs:[
-["I ______ drive to work every day, but now I go by bike.",["am used to","used to","get used to","use to"],1,"'used to + bare V' = từng làm trong quá khứ."],
+["I ______ drive to work every day, but now I go by bike.",["am used to","used to","get used to","use to"],1,"'used to + bare V'."],
 ["I live in Britain, so I'm ______ driving on the left.",["used to","used to drive","use to","used driving"],0,"'be used to + V-ing'."],
-["We ______ live outside the town, but now we live near the centre.",["are used to","used to","get used to","are use to"],1,"'used to + bare V' = từng."],
-["It was strange at first, but I eventually ______ the noise.",["used to","am used to","got used to","used to get"],2,"'get used to + N' = dần quen."],
-["Which sentence means 'Tôi từng làm việc đó trong quá khứ nhưng bây giờ không còn làm nữa'?",["I am used to doing it.","I get used to doing it.","I used to do it.","I was used to do it."],2,"'used to + V' chỉ thói quen trong quá khứ."],
-["Which sentence means 'Việc đó không còn lạ đối với tôi'?",["I used to do it.","I am used to doing it.","I use to do it.","I used doing it."],1,"'be used to + V-ing' = đã quen."]
+["We ______ live outside the town, but now we live near the centre.",["are used to","used to","get used to","are use to"],1,"'used to + bare V'."],
+["It was strange at first, but I eventually ______ the noise.",["used to","am used to","got used to","used to get"],2,"'get used to + N'."],
+["Which sentence means 'Tôi từng làm việc đó trong quá khứ nhưng bây giờ không còn làm nữa'?",["I am used to doing it.","I get used to doing it.","I used to do it.","I was used to do it."],2,"'used to + V'."],
+["Which sentence means 'Việc đó không còn lạ đối với tôi'?",["I used to do it.","I am used to doing it.","I use to do it.","I used doing it."],1,"'be used to + V-ing'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — V + preposition + -ing (Unit 62)", qs:[
 ["He doesn't approve ______.",["of swear","of swearing","to swearing","of to swear"],1,"'approve of + V-ing'."],
@@ -883,21 +970,21 @@ const T = [
 ["We went ______ last year.",["ski","skiing","to skiing","skied"],1,"'go skiing'."],
 ["I've never been ______.",["sail","sailing","to sail","sailed"],1,"'go sailing'."],
 ["Tom isn't here. He's gone ______.",["shop","shopping","to shopping","shopped"],1,"'go shopping'."],
-["Which is correct?",["go to swimming","go swimming","go to swim only","go swiming"],1,"'go + V-ing' cho hoạt động."]
+["Which is correct?",["go to swimming","go swimming","go to swim only","go swiming"],1,"'go + V-ing'."]
 ]},
 {group:"Verb Patterns", name:"Verb Patterns — Mixed Review", qs:[
-["I remember ______ this film before.",["see","seeing","to see","seen"],1,"'remember + V-ing' = nhớ đã làm."],
-["Remember ______ the door when you leave.",["lock","locking","to lock","locked"],2,"'remember + to V' = nhớ phải làm."],
-["I regret ______ him the truth.",["tell","telling","to telling","told"],1,"'regret + V-ing' = hối tiếc đã làm."],
-["I regret ______ you that your application has been rejected.",["telling","to tell","tell","told"],1,"'regret + to V' = tiếc phải thông báo."],
-["He stopped ______ because the phone rang.",["work","working","to work","worked"],1,"'stop + V-ing' = dừng việc đang làm."],
-["He stopped ______ a cigarette.",["smoke","smoking","to smoke","smoked"],2,"'stop + to V' = dừng lại để làm gì."],
-["He went on ______ about the same problem.",["talk","talking","to talk","talked"],1,"'go on + V-ing' = tiếp tục."],
-["After explaining the first problem, he went on ______ another topic.",["discuss","discussing","to discuss","discussed"],2,"'go on + to V' = chuyển sang việc khác."],
-["Try ______ the computer off and on again.",["switch","switching","to switching","switched"],1,"'try + V-ing' = thử làm."],
-["I tried ______ him, but he wouldn't listen.",["persuade","persuading","to persuade","persuaded"],2,"'try + to V' = cố gắng làm."],
-["This shirt needs ______.",["iron","ironing","to ironing","ironed only"],1,"'need + V-ing' = cần được làm."],
-["I need ______ my shirt.",["iron","ironing","to iron","to ironing"],2,"'need + to V' (chủ động)."],
+["I remember ______ this film before.",["see","seeing","to see","seen"],1,"'remember + V-ing'."],
+["Remember ______ the door when you leave.",["lock","locking","to lock","locked"],2,"'remember + to V'."],
+["I regret ______ him the truth.",["tell","telling","to telling","told"],1,"'regret + V-ing'."],
+["I regret ______ you that your application has been rejected.",["telling","to tell","tell","told"],1,"'regret + to V'."],
+["He stopped ______ because the phone rang.",["work","working","to work","worked"],1,"'stop + V-ing'."],
+["He stopped ______ a cigarette.",["smoke","smoking","to smoke","smoked"],2,"'stop + to V'."],
+["He went on ______ about the same problem.",["talk","talking","to talk","talked"],1,"'go on + V-ing'."],
+["After explaining the first problem, he went on ______ another topic.",["discuss","discussing","to discuss","discussed"],2,"'go on + to V'."],
+["Try ______ the computer off and on again.",["switch","switching","to switching","switched"],1,"'try + V-ing'."],
+["I tried ______ him, but he wouldn't listen.",["persuade","persuading","to persuade","persuaded"],2,"'try + to V'."],
+["This shirt needs ______.",["iron","ironing","to ironing","ironed only"],1,"'need + V-ing'."],
+["I need ______ my shirt.",["iron","ironing","to iron","to ironing"],2,"'need + to V'."],
 ["I can't help ______ when I see that film.",["laugh","laughing","to laugh","laughed"],1,"'can't help + V-ing'."],
 ["I'd rather ______ at home tonight.",["stay","to stay","staying","stayed"],0,"'would rather + bare V'."],
 ["I'd rather you ______ here tomorrow.",["come","came","to come","coming"],1,"'would rather + S + V (past)'."],
@@ -915,10 +1002,10 @@ const T = [
 ["The children ______ in the garden are my cousins.",["played","playing","play","are played"],1,"Chủ động → V-ing."],
 ["The woman ______ to the manager is my mother.",["talked","talking","talks","talk"],1,"Chủ động → V-ing."],
 ["The boy ______ over there is my brother.",["stand","stood","standing","stands"],2,"Chủ động → V-ing."],
-["I saw a dog ______ across the road.",["run","ran","running","runs"],2,"Sau động từ tri giác (see) + V-ing (hành động đang diễn ra)."],
+["I saw a dog ______ across the road.",["run","ran","running","runs"],2,"Sau động từ tri giác + V-ing."],
 ["The students ______ for the exam looked nervous.",["preparing","prepared","prepare","were prepared"],0,"Chủ động → V-ing."],
 ["The people ______ outside are waiting for the bus.",["stood","standing","stand","are stood"],1,"Chủ động → V-ing."],
-["She watched the birds ______ in the sky.",["fly","flying","flew","flies"],1,"Sau 'watch' + V-ing (đang diễn ra)."],
+["She watched the birds ______ in the sky.",["fly","flying","flew","flies"],1,"Sau 'watch' + V-ing."],
 ["The man ______ a newspaper is my grandfather.",["read","reading","reads","was read"],1,"Chủ động → V-ing."],
 ["The woman ______ the piano is very talented.",["played","playing","plays","is played"],1,"Chủ động → V-ing."],
 ["We saw several tourists ______ photographs.",["taking","taken","took","take"],0,"Chủ động → V-ing."],
@@ -1012,7 +1099,7 @@ const T = [
 ["The laptop ______ by my sister is new.",["carrying","carried","carries","was carrying"],1,"Bị động → V3."],
 ["The workers ______ the road have finished their work.",["repairing","repaired","repair","were repaired"],0,"Chủ động → V-ing."],
 ["The road ______ by the workers is now open.",["repairing","repaired","repair","repairs"],1,"Bị động → V3."],
-["The children ______ in the park are playing football.",["seen","seeing","see","were seen"],0,"Bị động → V3 (được nhìn thấy)."],
+["The children ______ in the park are playing football.",["seen","seeing","see","were seen"],0,"Bị động → V3."],
 ["The children ______ in the photograph are my cousins.",["showing","shown","show","showed"],1,"Bị động → V3."],
 ["The man ______ next to me was very friendly.",["sitting","sat","sits","was sat"],0,"Chủ động → V-ing."],
 ["The seat ______ by the old man was uncomfortable.",["using","used","use","uses"],1,"Bị động → V3."],
@@ -1045,7 +1132,7 @@ const T = [
 ["______ the instructions, she completed the task successfully.",["Having followed","Followed","Following","Follows"],0,"Hành động xong trước → Having + V3."]
 ]},
 {group:"Participles", name:"Participles — Perfect participles", qs:[
-["______ his homework, Tom went out with his friends.",["Having finished","Finished","Finishing","Having finish"],0,"Having + V3 (hành động xong trước)."],
+["______ his homework, Tom went out with his friends.",["Having finished","Finished","Finishing","Having finish"],0,"Having + V3."],
 ["______ the email, she realised that she had made a mistake.",["Having sent","Sending","Sent","Having send"],0,"Having + V3."],
 ["______ the film before, I didn't want to see it again.",["Having seen","Seeing","Seen","Having see"],0,"Having + V3."],
 ["______ all the food, they left the restaurant.",["Having eaten","Eating","Eaten","Having eat"],0,"Having + V3."],
@@ -1055,7 +1142,7 @@ const T = [
 ["______ the truth, he decided to apologise.",["Having realised","Realising","Realised","Having realise"],0,"Having + V3."],
 ["______ the problem, they called a technician.",["Having discovered","Discovering","Discovered","Having discover"],0,"Having + V3."],
 ["______ the book, I returned it to the library.",["Having finished","Finishing","Finished","Having finish"],0,"Having + V3."],
-["______ about the storm, we stayed at home.",["Having been warned","Having warned","Warning","Warned"],0,"Having been + V3 (bị động)."],
+["______ about the storm, we stayed at home.",["Having been warned","Having warned","Warning","Warned"],0,"Having been + V3."],
 ["______ by the teacher, the students corrected their mistakes.",["Having been advised","Having advised","Advising","Advised"],0,"Having been + V3."],
 ["______ about the problem, she decided to take action.",["Having been informed","Having informed","Informing","Informed"],0,"Having been + V3."],
 ["______ the opportunity to study abroad, he accepted it immediately.",["Having been offered","Having offered","Offering","Offered"],0,"Having been + V3."],
@@ -1077,10 +1164,10 @@ const T = [
 /* ---------- SENTENCES ---------- */
 {group:"Sentences", name:"Sentences — Nhận diện câu đơn / ghép / phức", qs:[
 ["Which sentence is a simple sentence?",["I went home because I was tired.","I was tired, so I went home.","I went home after school.","I went home, and I watched TV."],2,"Câu đơn chỉ có 1 mệnh đề độc lập."],
-["Which sentence is a compound sentence?",["She stayed home because she was sick.","She was sick, so she stayed home.","Because she was sick, she stayed home.","Being sick, she stayed home."],1,"Câu ghép nối 2 mệnh đề độc lập bằng liên từ."],
-["Which sentence is a complex sentence?",["Tom studied hard, and he passed the exam.","Tom studied hard because he wanted to pass.","Tom studied hard every night.","Tom studied hard and passed the exam."],1,"Câu phức có mệnh đề phụ thuộc (because)."],
-["'I like coffee and tea.' This is a:",["simple sentence","compound sentence","complex sentence","compound-complex sentence"],0,"'coffee and tea' chỉ là danh từ ghép."],
-["'I like coffee, but my brother prefers tea.' This is a:",["simple sentence","compound sentence","complex sentence","fragment"],1,"Có liên từ kết hợp 'but' nối 2 mệnh đề."],
+["Which sentence is a compound sentence?",["She stayed home because she was sick.","She was sick, so she stayed home.","Because she was sick, she stayed home.","Being sick, she stayed home."],1,"Câu ghép nối 2 mệnh đề độc lập."],
+["Which sentence is a complex sentence?",["Tom studied hard, and he passed the exam.","Tom studied hard because he wanted to pass.","Tom studied hard every night.","Tom studied hard and passed the exam."],1,"Câu phức có mệnh đề phụ thuộc."],
+["'I like coffee and tea.' This is a:",["simple sentence","compound sentence","complex sentence","compound-complex sentence"],0,"Chỉ 1 mệnh đề độc lập."],
+["'I like coffee, but my brother prefers tea.' This is a:",["simple sentence","compound sentence","complex sentence","fragment"],1,"Có liên từ 'but' nối 2 mệnh đề."],
 ["'Although it was raining, we went out.' This is a:",["simple sentence","compound sentence","complex sentence","fragment"],2,"Có mệnh đề phụ thuộc 'Although'."],
 ["'She opened the door and walked inside.' This is a:",["simple sentence","compound sentence","complex sentence","compound-complex sentence"],0,"1 chủ ngữ, 2 động từ nối bằng 'and'."],
 ["'She opened the door, and she walked inside.' This is a:",["simple sentence","compound sentence","complex sentence","fragment"],1,"2 mệnh đề độc lập nối bằng 'and'."],
@@ -1104,15 +1191,15 @@ const T = [
 ]},
 {group:"Sentences", name:"Sentences — Coordinating conjunctions (FANBOYS)", qs:[
 ["I was hungry, ______ I made a sandwich.",["but","so","or","yet"],1,"'so' = vì vậy (kết quả)."],
-["She wanted to go out, ______ it was raining heavily.",["so","but","for","and"],1,"'but' = nhưng (tương phản)."],
-["You can take the bus, ______ you can walk.",["but","so","or","for"],2,"'or' = hoặc (lựa chọn)."],
-["He studied hard, ______ he passed the exam.",["so","but","yet","or"],0,"'so' = vì vậy (kết quả)."],
+["She wanted to go out, ______ it was raining heavily.",["so","but","for","and"],1,"'but' = nhưng."],
+["You can take the bus, ______ you can walk.",["but","so","or","for"],2,"'or' = hoặc."],
+["He studied hard, ______ he passed the exam.",["so","but","yet","or"],0,"'so' = vì vậy."],
 ["I like coffee, ______ I don't like tea.",["and","but","so","for"],1,"'but' = nhưng."],
-["She didn't go to school, ______ she was sick.",["but","or","for","yet"],2,"'for' = bởi vì (lý do)."],
-["Tom is tired, ______ he continues working.",["so","yet","or","for"],1,"'yet' = tuy vậy (tương phản)."],
+["She didn't go to school, ______ she was sick.",["but","or","for","yet"],2,"'for' = bởi vì."],
+["Tom is tired, ______ he continues working.",["so","yet","or","for"],1,"'yet' = tuy vậy."],
 ["Hurry up, ______ we will miss the bus.",["and","but","or","for"],2,"'or' = nếu không thì."],
 ["I wanted to call him, ______ I didn't have his number.",["so","but","and","for"],1,"'but' = nhưng."],
-["She speaks English well, ______ she also speaks French.",["but","or","and","yet"],2,"'and' = và (bổ sung)."],
+["She speaks English well, ______ she also speaks French.",["but","or","and","yet"],2,"'and' = và."],
 ["The restaurant was expensive, ______ the food was excellent.",["so","yet","or","for"],1,"'yet' = tuy vậy."],
 ["He didn't come to class, ______ he was feeling ill.",["for","but","or","yet"],0,"'for' = bởi vì."],
 ["We can watch a movie, ______ we can play a game.",["and","but","or","so"],2,"'or' = hoặc."],
@@ -1180,7 +1267,7 @@ const T = [
 ["Choose the correct sentence.",["When I arrived. They had left.","When I arrived, they had left.","When I arrived they had left because.","When I arrived, and they had left."],1,"'When + clause, main clause'."],
 ["Which sentence is grammatically correct?",["Although he was tired, but he continued working.","Although he was tired, he continued working.","Although he was tired, so he continued working.","Although tired, but he continued working."],1,"Không dùng 'although' và 'but' cùng lúc."],
 ["Which sentence is grammatically correct?",["Because it was raining, so we stayed home.","Because it was raining, we stayed home.","Because it was raining, but we stayed home.","Because raining, so we stayed home."],1,"Không dùng 'because' và 'so' cùng lúc."],
-["Which sentence correctly combines: 'She studied hard. She wanted to pass.'",["She studied hard because she wanted to pass.","She studied hard, because she wanted to pass.","She studied hard, she wanted to pass.","Because she studied hard."],0,"'because' = lý do, không cần dấu phẩy."],
+["Which sentence correctly combines: 'She studied hard. She wanted to pass.'",["She studied hard because she wanted to pass.","She studied hard, because she wanted to pass.","She studied hard, she wanted to pass.","Because she studied hard."],0,"'because' = lý do."],
 ["Which sentence is a complete sentence?",["While I was walking home.","Because I was tired.","When the teacher arrived.","While I was walking home, I saw my friend."],3,"Chỉ D có mệnh đề chính."],
 ["Which sentence is correct?",["I finished my homework, and I went to bed.","I finished my homework, I went to bed.","I finished my homework I went to bed.","I finished my homework, because I went to bed."],0,"'and' nối 2 mệnh đề độc lập."],
 ["Which sentence is correct?",["If you study hard, you will pass the exam.","If you study hard, so you will pass the exam.","If you study hard, but you will pass the exam.","If you study hard. You will pass the exam."],0,"'If + clause, main clause'."]
@@ -1188,45 +1275,189 @@ const T = [
 ];
 
 /* =========================================================
-   LOGIC ỨNG DỤNG
+   LOCAL STORAGE — LƯU TIẾN ĐỘ
+   ========================================================= */
+const STORAGE_KEY = 'grammar_app_progress_v1';
+
+function loadProgress(){
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return { practice:{}, tests:[] };
+    const p = JSON.parse(raw);
+    if(!p.practice) p.practice = {};
+    if(!Array.isArray(p.tests)) p.tests = [];
+    return p;
+  } catch { return { practice:{}, tests:[] }; }
+}
+function saveProgress(){
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(PROGRESS)); } catch(e){}
+}
+let PROGRESS = loadProgress();
+
+/* =========================================================
+   HELPERS
    ========================================================= */
 function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 
-// Random hóa thứ tự đáp án cho 1 câu
 function randomizeQuestion(q){
   const [text, opts, ansIdx, exp] = q;
   const pairs = opts.map((o,i)=>({o, correct: i===ansIdx}));
   const sh = shuffle(pairs);
-  const newOpts = sh.map(p=>p.o);
-  const newAns = sh.findIndex(p=>p.correct);
-  return { text, opts: newOpts, ans: newAns, exp };
+  return { text, opts: sh.map(p=>p.o), ans: sh.findIndex(p=>p.correct), exp };
 }
 
-// Đếm tổng số câu
-const totalQuestions = T.reduce((s,t)=>s+t.qs.length,0);
-document.getElementById('topic-grid').innerHTML = T.map((t, i)=>{
-  return `<div class="topic-card" onclick="startPractice(${i})">
-    <div class="group">${t.group}</div>
-    <div class="name">${t.name}</div>
-    <div class="count">${t.qs.length} câu</div>
-  </div>`;
-}).join('');
+/* Thông tin 5 mục lớn */
+const CATEGORY_INFO = {
+  "Giới từ":        { icon:"📖", name:"Giới từ (Prepositions)",  desc:"at/on/in, time, place, movement, spatial, collocations" },
+  "Phrasal Verbs":  { icon:"🔗", name:"Phrasal Verbs",           desc:"Units 137–145 — in/out/on/off/up/down/away/back" },
+  "Verb Patterns":  { icon:"🔧", name:"Verb Patterns",           desc:"Units 53–63 — V-ing, to-V, used to, prepositions" },
+  "Participles":    { icon:"✂️", name:"Participles",             desc:"V-ing, V3, -ing/-ed adjectives, participle clauses" },
+  "Sentences":      { icon:"📝", name:"Sentences",               desc:"Simple, compound, complex, fragments, run-ons" }
+};
 
-/* ---------- Điều hướng view ---------- */
-function show(id){ ['home-view','practice-view','test-view','result-view'].forEach(v=>{
-  document.getElementById(v).classList.toggle('hidden', v!==id);
-});
+/* Nhóm câu hỏi theo mục lớn */
+function buildCategoryMap(){
+  const map = {};
+  T.forEach((topic, idx) => {
+    if(!map[topic.group]) map[topic.group] = [];
+    map[topic.group].push({ ...topic, _idx: idx });
+  });
+  return map;
+}
+const CAT_MAP = buildCategoryMap();
+
+/* =========================================================
+   HOME
+   ========================================================= */
+function renderHome(){
+  // Category grid
+  const grid = document.getElementById('cat-grid');
+  grid.innerHTML = Object.keys(CATEGORY_INFO).map(catKey => {
+    const info = CATEGORY_INFO[catKey];
+    const topics = CAT_MAP[catKey] || [];
+    const totalQ = topics.reduce((s,t)=>s+t.qs.length, 0);
+    // Điểm tốt nhất trong nhóm (best/tổng câu của 1 topic; ở đây chỉ hiện tổng)
+    let attempted = 0, bestSum = 0;
+    topics.forEach(t => {
+      const p = PROGRESS.practice[t._idx];
+      if(p){ attempted += p.attempts; bestSum += (p.bestScore/p.total); }
+    });
+    const avgBest = topics.length ? Math.round(bestSum/topics.length*100) : 0;
+    const statsHTML = attempted > 0
+      ? `<span>📝 ${attempted} lần luyện</span><span class="best">🏆 TB tốt nhất ${avgBest}%</span>`
+      : `<span>Chưa luyện</span>`;
+    return `<div class="cat-card" onclick="openCategory('${catKey}')">
+      <div class="icon">${info.icon}</div>
+      <div class="cat-name">${info.name}</div>
+      <div class="cat-desc">${info.desc}</div>
+      <div class="cat-stats">
+        <span>${topics.length} chủ điểm</span>
+        <span>${totalQ} câu</span>
+      </div>
+      <div class="cat-stats">${statsHTML}</div>
+    </div>`;
+  }).join('');
+
+  // Best test
+  const bestInfo = document.getElementById('best-test-info');
+  if(PROGRESS.tests.length){
+    const best = Math.max(...PROGRESS.tests.map(t=>t.score));
+    const bestPct = Math.round(best/40*100);
+    bestInfo.innerHTML = `🏆 Điểm test cao nhất: <b style="color:#38a169;">${best}/40 (${bestPct}%)</b> · Đã làm ${PROGRESS.tests.length} bài`;
+  } else {
+    bestInfo.textContent = 'Bạn chưa làm bài test nào.';
+  }
+
+  // History
+  const historyCard = document.getElementById('history-card');
+  const histContent = document.getElementById('history-content');
+  if(PROGRESS.tests.length === 0){
+    historyCard.style.display = 'none';
+  } else {
+    historyCard.style.display = '';
+    const recent = PROGRESS.tests.slice(-10).reverse();
+    histContent.innerHTML = `
+      <table class="history-table">
+        <thead><tr><th>#</th><th>Ngày</th><th>Điểm</th><th>%</th><th>Xếp loại</th></tr></thead>
+        <tbody>
+          ${recent.map((t,i)=>{
+            const pct = Math.round(t.score/40*100);
+            const cls = pct >= 75 ? 'sc-good' : pct >= 50 ? 'sc-mid' : 'sc-bad';
+            return `<tr>
+              <td>${PROGRESS.tests.length - i}</td>
+              <td>${new Date(t.date).toLocaleString('vi-VN')}</td>
+              <td class="${cls}">${t.score}/40</td>
+              <td class="${cls}">${pct}%</td>
+              <td>${t.grade}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>`;
+  }
+}
+
+function resetProgress(){
+  if(!confirm('Bạn có chắc muốn xoá toàn bộ tiến độ (lịch sử test + điểm luyện tập)?')) return;
+  if(!confirm('Hành động này KHÔNG THỂ hoàn tác. Tiếp tục?')) return;
+  PROGRESS = { practice:{}, tests:[] };
+  saveProgress();
+  renderHome();
+  alert('Đã xoá toàn bộ tiến độ.');
+}
+
+/* =========================================================
+   CATEGORY VIEW
+   ========================================================= */
+let currentCategory = null;
+
+function openCategory(catKey){
+  currentCategory = catKey;
+  const info = CATEGORY_INFO[catKey];
+  document.getElementById('cat-title').textContent = `${info.icon} ${info.name}`;
+  document.getElementById('cat-desc').textContent = info.desc;
+  const topics = CAT_MAP[catKey] || [];
+  const grid = document.getElementById('topic-grid');
+  grid.innerHTML = topics.map(t => {
+    const p = PROGRESS.practice[t._idx];
+    let progressHTML = '<span class="topic-progress none">Chưa làm</span>';
+    if(p){
+      const pct = Math.round(p.bestScore / p.total * 100);
+      progressHTML = `<span class="topic-progress">🏆 ${p.bestScore}/${p.total} (${pct}%) · ${p.attempts} lần</span>`;
+    }
+    return `<div class="topic-card" onclick="startPractice(${t._idx})">
+      <div class="name">${t.name}</div>
+      <div class="count">${t.qs.length} câu</div>
+      ${progressHTML}
+    </div>`;
+  }).join('');
+  show('category-view');
+}
+
+function backToCategory(){
+  if(currentCategory) openCategory(currentCategory);
+  else goHome();
+}
+
+/* =========================================================
+   VIEW NAVIGATION
+   ========================================================= */
+function show(id){
+  ['home-view','category-view','practice-view','test-view','result-view'].forEach(v=>{
+    document.getElementById(v).classList.toggle('hidden', v!==id);
+  });
   window.scrollTo({top:0, behavior:'smooth'});
 }
-function goHome(){ show('home-view'); }
+function goHome(){ renderHome(); show('home-view'); }
 
-/* ==================== PRACTICE ==================== */
+/* =========================================================
+   PRACTICE
+   ========================================================= */
 let pState = null;
 
 function startPractice(topicIdx){
   const topic = T[topicIdx];
   const qs = shuffle(topic.qs.map(randomizeQuestion));
-  pState = { topic, qs, idx:0, score:0, answered:false, chosen:null };
+  pState = { topicIdx, topic, qs, idx:0, score:0, answered:false, chosen:null };
   document.getElementById('p-topic-name').textContent = topic.name;
   document.getElementById('p-total').textContent = qs.length;
   show('practice-view');
@@ -1238,7 +1469,7 @@ function renderPractice(){
   const q = s.qs[s.idx];
   document.getElementById('p-cur').textContent = s.idx+1;
   document.getElementById('p-score').textContent = s.score;
-  document.getElementById('p-progress').style.width = ((s.idx)/s.qs.length*100)+'%';
+  document.getElementById('p-progress').style.width = (s.idx/s.qs.length*100)+'%';
   document.getElementById('p-question').innerHTML = q.text.replace(/_+/g,'<u>&nbsp;&nbsp;&nbsp;&nbsp;</u>');
   const optEl = document.getElementById('p-options');
   optEl.innerHTML = '';
@@ -1253,8 +1484,7 @@ function renderPractice(){
   expEl.classList.add('hidden');
   expEl.innerHTML = '';
   document.getElementById('p-next').disabled = true;
-  const nextBtn = document.getElementById('p-next');
-  nextBtn.textContent = (s.idx === s.qs.length-1) ? '✔️ Hoàn thành' : 'Câu tiếp →';
+  document.getElementById('p-next').textContent = (s.idx === s.qs.length-1) ? '✔️ Hoàn thành' : 'Câu tiếp →';
   s.answered = false;
 }
 
@@ -1262,10 +1492,8 @@ function practiceAnswer(choice){
   const s = pState;
   if(s.answered) return;
   s.answered = true;
-  s.chosen = choice;
   const q = s.qs[s.idx];
-  const optEl = document.getElementById('p-options');
-  const btns = optEl.querySelectorAll('.option');
+  const btns = document.getElementById('p-options').querySelectorAll('.option');
   btns.forEach((b,i)=>{
     b.disabled = true;
     if(i === q.ans) b.classList.add('correct');
@@ -1275,12 +1503,10 @@ function practiceAnswer(choice){
   document.getElementById('p-score').textContent = s.score;
   const expEl = document.getElementById('p-exp');
   expEl.classList.remove('hidden');
-  const correctLetter = 'ABCD'[q.ans];
-  const yourLetter = 'ABCD'[choice];
   const isOk = choice === q.ans;
-  expEl.innerHTML = `<strong>${isOk?'✅ Chính xác!':'❌ Chưa đúng.'}</strong> 
-    Đáp án đúng: <b>${correctLetter}. ${q.opts[q.ans]}</b>
-    ${isOk?'':` — Bạn chọn: <i>${yourLetter}. ${q.opts[choice]}</i>`}
+  expEl.innerHTML = `<strong>${isOk?'✅ Chính xác!':'❌ Chưa đúng.'}</strong>
+    Đáp án đúng: <b>${'ABCD'[q.ans]}. ${q.opts[q.ans]}</b>
+    ${isOk?'':` — Bạn chọn: <i>${'ABCD'[choice]}. ${q.opts[choice]}</i>`}
     <br><br>💡 <b>Giải thích:</b> ${q.exp}`;
   document.getElementById('p-next').disabled = false;
 }
@@ -1288,25 +1514,41 @@ function practiceAnswer(choice){
 function practiceNext(){
   const s = pState;
   if(s.idx === s.qs.length-1){
-    alert(`🎉 Hoàn thành! Bạn đúng ${s.score}/${s.qs.length} câu (${Math.round(s.score/s.qs.length*100)}%).`);
-    goHome();
+    // Lưu tiến độ
+    const total = s.qs.length;
+    const old = PROGRESS.practice[s.topicIdx] || { bestScore:0, total, attempts:0 };
+    old.attempts += 1;
+    if(s.score > old.bestScore) old.bestScore = s.score;
+    old.total = total;
+    PROGRESS.practice[s.topicIdx] = old;
+    saveProgress();
+
+    const pct = Math.round(s.score/total*100);
+    const isNewBest = s.score >= old.bestScore;
+    alert(`🎉 Hoàn thành chủ điểm!\n\nĐúng: ${s.score}/${total} (${pct}%)\nSố lần luyện: ${old.attempts}\nĐiểm tốt nhất: ${old.bestScore}/${total}`);
+    backToCategory();
     return;
   }
   s.idx++;
   renderPractice();
 }
 
-/* ==================== TEST ==================== */
+/* =========================================================
+   TEST
+   ========================================================= */
 const TEST_COUNT = 40;
 let tState = null;
 
 function startTest(){
-  // Lấy tất cả câu từ tất cả topic
   const all = [];
+  // Lưu kèm category để phân tích sau
   T.forEach(topic=>{
-    topic.qs.forEach(q=> all.push(q));
+    topic.qs.forEach(q => all.push({ q, category: topic.group, topicName: topic.name }));
   });
-  const picked = shuffle(all).slice(0, TEST_COUNT).map(randomizeQuestion);
+  const picked = shuffle(all).slice(0, TEST_COUNT).map(item => {
+    const rq = randomizeQuestion(item.q);
+    return { ...rq, category: item.category, topicName: item.topicName };
+  });
   tState = {
     qs: picked,
     idx: 0,
@@ -1321,8 +1563,7 @@ function renderTest(){
   const s = tState;
   const q = s.qs[s.idx];
   document.getElementById('t-cur').textContent = s.idx+1;
-  const answeredCount = s.answers.filter(a=>a!==null).length;
-  document.getElementById('t-answered').textContent = answeredCount;
+  document.getElementById('t-answered').textContent = s.answers.filter(a=>a!==null).length;
   document.getElementById('t-progress').style.width = ((s.idx+1)/s.qs.length*100)+'%';
   document.getElementById('t-question').innerHTML = q.text.replace(/_+/g,'<u>&nbsp;&nbsp;&nbsp;&nbsp;</u>');
   const optEl = document.getElementById('t-options');
@@ -1335,8 +1576,6 @@ function renderTest(){
     btn.onclick = ()=> testChoose(i);
     optEl.appendChild(btn);
   });
-
-  // Nav
   const nav = document.getElementById('t-nav');
   nav.innerHTML = '';
   for(let i=0;i<s.qs.length;i++){
@@ -1347,8 +1586,6 @@ function renderTest(){
     b.onclick = ()=>{ tState.idx = i; renderTest(); };
     nav.appendChild(b);
   }
-
-  // Buttons
   document.getElementById('t-prev').disabled = s.idx === 0;
   document.getElementById('t-next').classList.toggle('hidden', s.idx === s.qs.length-1);
   document.getElementById('t-submit').classList.toggle('hidden', s.idx !== s.qs.length-1 || s.submitted);
@@ -1362,50 +1599,107 @@ function testChoose(i){
 function testPrev(){ if(tState.idx>0){ tState.idx--; renderTest(); } }
 function testNext(){
   if(tState.idx < tState.qs.length-1){
-    if(tState.answers[tState.idx]===null){
-      if(!confirm('Bạn chưa trả lời câu này. Vẫn tiếp tục?')) return;
-    }
+    if(tState.answers[tState.idx]===null && !confirm('Bạn chưa trả lời câu này. Vẫn tiếp tục?')) return;
     tState.idx++; renderTest();
   }
+}
+
+function getGrade(pct){
+  if(pct >= 90) return { label:'A+', cls:'grade-Aplus' };
+  if(pct >= 80) return { label:'A',  cls:'grade-A' };
+  if(pct >= 70) return { label:'B',  cls:'grade-B' };
+  if(pct >= 55) return { label:'C',  cls:'grade-C' };
+  if(pct >= 40) return { label:'D',  cls:'grade-D' };
+  return { label:'F', cls:'grade-F' };
 }
 
 function submitTest(){
   const s = tState;
   const unanswered = s.answers.filter(a=>a===null).length;
-  if(unanswered > 0){
-    if(!confirm(`Bạn còn ${unanswered} câu chưa trả lời. Vẫn nộp bài?`)) return;
-  } else {
-    if(!confirm('Nộp bài và xem kết quả?')) return;
-  }
+  const msg = unanswered > 0
+    ? `Bạn còn ${unanswered} câu chưa trả lời. Vẫn nộp bài?`
+    : 'Nộp bài và xem kết quả?';
+  if(!confirm(msg)) return;
+
   s.submitted = true;
-  // Tính điểm
-  let score = 0;
+
+  let score = 0, correct = 0, wrong = 0, skipped = 0;
+  const breakdown = {}; // category -> {correct, total}
   const reviewList = [];
+
   s.qs.forEach((q,i)=>{
     const chosen = s.answers[i];
     const isOk = chosen === q.ans;
-    if(isOk) score++;
-    reviewList.push({q, chosen, isOk});
-  });
-  document.getElementById('r-score').textContent = score;
-  let msg = '';
-  const pct = score/s.qs.length*100;
-  if(pct >= 90) msg = '🌟 Xuất sắc! Bạn nắm ngữ pháp rất vững.';
-  else if(pct >= 75) msg = '👍 Tốt lắm! Tiếp tục phát huy.';
-  else if(pct >= 60) msg = '🙂 Khá ổn. Cần luyện thêm vài chủ điểm.';
-  else if(pct >= 40) msg = '💪 Cố gắng lên! Ôn lại các chủ điểm yếu.';
-  else msg = '📚 Hãy luyện tập nhiều hơn nhé!';
-  document.getElementById('r-msg').textContent = msg;
+    if(isOk) { score++; correct++; } else if(chosen === null) skipped++; else wrong++;
 
-  const listEl = document.getElementById('r-list');
-  listEl.innerHTML = reviewList.map((r,i)=>{
+    if(!breakdown[q.category]) breakdown[q.category] = { correct:0, total:0 };
+    breakdown[q.category].total++;
+    if(isOk) breakdown[q.category].correct++;
+
+    reviewList.push({ q, chosen, isOk });
+  });
+
+  const pct = Math.round(score/s.qs.length*100);
+  const grade = getGrade(pct);
+
+  // Lưu lịch sử
+  PROGRESS.tests.push({
+    date: Date.now(),
+    score,
+    total: s.qs.length,
+    grade: grade.label,
+    breakdown
+  });
+  // Giữ tối đa 30 bài
+  if(PROGRESS.tests.length > 30) PROGRESS.tests = PROGRESS.tests.slice(-30);
+  saveProgress();
+
+  // Render result view
+  document.getElementById('r-score').textContent = score;
+  document.getElementById('r-grade').innerHTML = `<span class="grade-badge ${grade.cls}">Xếp loại: ${grade.label} (${pct}%)</span>`;
+
+  let msgText = '';
+  if(pct >= 90) msgText = '🌟 Xuất sắc! Bạn nắm ngữ pháp rất vững.';
+  else if(pct >= 75) msgText = '👍 Tốt lắm! Tiếp tục phát huy.';
+  else if(pct >= 60) msgText = '🙂 Khá ổn. Cần luyện thêm vài chủ điểm.';
+  else if(pct >= 40) msgText = '💪 Cố gắng lên! Ôn lại các chủ điểm yếu.';
+  else msgText = '📚 Hãy luyện tập nhiều hơn nhé!';
+  document.getElementById('r-msg').textContent = msgText;
+
+  document.getElementById('r-stats').innerHTML = `
+    <div class="stat-box ok"><div class="num">${correct}</div><div class="lbl">Đúng</div></div>
+    <div class="stat-box bad"><div class="num">${wrong}</div><div class="lbl">Sai</div></div>
+    <div class="stat-box skip"><div class="num">${skipped}</div><div class="lbl">Chưa làm</div></div>
+    <div class="stat-box"><div class="num">${pct}%</div><div class="lbl">Tỉ lệ đúng</div></div>
+  `;
+
+  // Breakdown theo category
+  const bdEl = document.getElementById('r-breakdown');
+  const bdKeys = Object.keys(breakdown).sort((a,b)=>{
+    const ra = breakdown[a].correct/breakdown[a].total;
+    const rb = breakdown[b].correct/breakdown[b].total;
+    return ra - rb; // yếu trước
+  });
+  bdEl.innerHTML = bdKeys.map(cat => {
+    const d = breakdown[cat];
+    const p = Math.round(d.correct/d.total*100);
+    const cls = p >= 75 ? '' : p >= 50 ? 'mid' : 'low';
+    return `<div class="breakdown-item">
+      <div class="bname">${CATEGORY_INFO[cat].icon} ${CATEGORY_INFO[cat].name}</div>
+      <div class="breakdown-bar ${cls}"><div style="width:${p}%"></div></div>
+      <div class="bscore" style="color:${p>=75?'#38a169':p>=50?'#ed8936':'#e53e3e'};">${d.correct}/${d.total}</div>
+    </div>`;
+  }).join('');
+
+  // Review list
+  document.getElementById('r-list').innerHTML = reviewList.map((r,i)=>{
     const q = r.q;
-    const correctL = 'ABCD'[q.ans];
-    const yourL = r.chosen !== null ? 'ABCD'[r.chosen] : '—';
     const yourText = r.chosen !== null ? q.opts[r.chosen] : '(chưa trả lời)';
+    const yourL = r.chosen !== null ? 'ABCD'[r.chosen] : '—';
     return `<div class="review-item ${r.isOk?'ok':'bad'}">
-      <div class="rq">Câu ${i+1}: ${q.text.replace(/_+/g,'____')}</div>
-      <div class="ra correct">✅ Đáp án đúng: <b>${correctL}. ${q.opts[q.ans]}</b></div>
+      <div class="rq">Câu ${i+1} · <span style="color:#718096;font-size:.82rem;">${q.topicName}</span></div>
+      <div class="rq" style="font-weight:500;">${q.text.replace(/_+/g,'____')}</div>
+      <div class="ra correct">✅ Đáp án đúng: <b>${'ABCD'[q.ans]}. ${q.opts[q.ans]}</b></div>
       <div class="ra ${r.isOk?'correct':'wrong'}">${r.isOk?'✔️':'❌'} Bạn chọn: <b>${yourL}. ${yourText}</b></div>
       <div class="re">💡 ${q.exp}</div>
     </div>`;
@@ -1415,7 +1709,8 @@ function submitTest(){
 }
 
 /* Khởi động */
-console.log(`Tổng số câu hỏi trong ngân hàng: ${totalQuestions}`);
+renderHome();
+console.log('Tổng số câu hỏi trong ngân hàng:', T.reduce((s,t)=>s+t.qs.length,0));
 </script>
 </body>
 </html>
