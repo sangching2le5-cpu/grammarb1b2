@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luyện Ngữ Pháp B1–B2</title>
+<title>Luyện Ngữ Pháp B1–B2 — Bộ 800 câu mới</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -20,8 +20,6 @@
     box-shadow: 0 10px 30px rgba(0,0,0,.15); margin-bottom: 16px;
   }
   .section-title { font-size: 1.1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-
-  /* Category cards */
   .cat-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 14px;
@@ -36,14 +34,12 @@
   .cat-card .icon { font-size: 2rem; }
   .cat-card .cat-name { font-weight: 700; font-size: 1.05rem; color: #2d3748; }
   .cat-card .cat-desc { font-size: .82rem; color: #718096; line-height: 1.4; }
-  .cat-card .cat-stats { display: flex; gap: 10px; margin-top: 6px; font-size: .78rem; }
+  .cat-card .cat-stats { display: flex; gap: 10px; margin-top: 6px; font-size: .78rem; flex-wrap: wrap; }
   .cat-card .cat-stats span {
     background: #fff; padding: 4px 10px; border-radius: 20px;
     color: #4a5568; border: 1px solid #e2e8f0;
   }
   .cat-card .cat-stats .best { background: #c6f6d5; color: #22543d; border-color: #9ae6b4; font-weight: 600; }
-
-  /* Subtopics */
   .topic-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 12px;
@@ -58,7 +54,6 @@
   .topic-card .count { font-size: .8rem; color: #667eea; font-weight: 500; }
   .topic-card .topic-progress { font-size: .78rem; color: #38a169; font-weight: 600; }
   .topic-card .topic-progress.none { color: #a0aec0; font-weight: 400; }
-
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 6px;
     background: #667eea; color: #fff; border: none; padding: 12px 22px;
@@ -74,13 +69,11 @@
   .btn.success:hover { background: #2f855a; }
   .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
   .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-
   .big-test-btn {
     width: 100%; padding: 22px; font-size: 1.1rem;
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   }
   .big-test-btn:hover { background: linear-gradient(135deg, #ec84f5 0%, #f0465c 100%); }
-
   .progress-bar { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-bottom: 20px; }
   .progress-bar > div {
     height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);
@@ -88,7 +81,6 @@
   }
   .q-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: .85rem; color: #718096; flex-wrap: wrap; gap: 6px; }
   .q-text { font-size: 1.15rem; line-height: 1.6; margin-bottom: 18px; font-weight: 500; color: #1a202c; }
-
   .options { display: flex; flex-direction: column; gap: 10px; }
   .option {
     background: #f7fafc; border: 2px solid #e2e8f0; border-radius: 10px;
@@ -108,15 +100,12 @@
   .option.wrong .letter { background: #e53e3e; }
   .option.selected { border-color: #667eea; background: #eef2ff; }
   .option:disabled { cursor: default; }
-
   .explanation {
     margin-top: 18px; padding: 14px 18px; border-radius: 10px;
     background: #fffaf0; border-left: 4px solid #ed8936; font-size: .95rem;
     line-height: 1.55;
   }
   .explanation strong { color: #c05621; }
-
-  /* Result */
   .result-summary { text-align: center; padding: 24px; }
   .grade-badge {
     display: inline-block; padding: 8px 22px; border-radius: 30px;
@@ -135,10 +124,7 @@
   }
   .result-summary .label { font-size: 1rem; color: #718096; margin-bottom: 12px; }
   .result-summary .msg { font-size: 1.1rem; font-weight: 600; color: #2d3748; margin-top: 8px; }
-
-  .stat-row {
-    display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 18px 0;
-  }
+  .stat-row { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 18px 0; }
   .stat-box {
     background: #f7fafc; padding: 12px 20px; border-radius: 12px;
     border: 1px solid #e2e8f0; min-width: 90px;
@@ -148,8 +134,6 @@
   .stat-box.ok .num { color: #38a169; }
   .stat-box.bad .num { color: #e53e3e; }
   .stat-box.skip .num { color: #a0aec0; }
-
-  .breakdown-title { font-size: 1rem; margin: 20px 0 10px; color: #4a5568; font-weight: 600; }
   .breakdown-item {
     display: flex; align-items: center; gap: 12px; padding: 8px 12px;
     background: #f7fafc; border-radius: 8px; margin-bottom: 6px; font-size: .88rem;
@@ -160,7 +144,6 @@
   .breakdown-bar > div { height: 100%; background: #38a169; }
   .breakdown-bar.mid > div { background: #ed8936; }
   .breakdown-bar.low > div { background: #e53e3e; }
-
   .review-item {
     background: #f7fafc; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px;
     border-left: 4px solid #cbd5e0; font-size: .92rem; line-height: 1.5;
@@ -172,15 +155,10 @@
   .review-item .ra.correct { color: #2f855a; }
   .review-item .ra.wrong { color: #c53030; }
   .review-item .re { color: #4a5568; font-style: italic; margin-top: 6px; padding-top: 6px; border-top: 1px dashed #cbd5e0; }
-
   .status-pill { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: .75rem; font-weight: 600; }
   .pill-test { background: #fed7e2; color: #97266d; }
   .pill-practice { background: #c6f6d5; color: #22543d; }
-
-  .q-nav {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    gap: 6px; margin: 16px 0;
-  }
+  .q-nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 6px; margin: 16px 0; }
   .q-nav button {
     aspect-ratio: 1; border-radius: 8px; border: 1px solid #cbd5e0;
     background: #fff; cursor: pointer; font-size: .85rem; font-weight: 600;
@@ -188,17 +166,13 @@
   }
   .q-nav button.answered { background: #bee3f8; border-color: #4299e1; color: #2c5282; }
   .q-nav button.current { outline: 3px solid #667eea; }
-
-  /* History table */
   .history-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
   .history-table th, .history-table td { padding: 10px; text-align: left; border-bottom: 1px solid #e2e8f0; }
   .history-table th { color: #718096; font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .5px; }
   .history-table .sc-good { color: #38a169; font-weight: 700; }
   .history-table .sc-mid { color: #ed8936; font-weight: 700; }
   .history-table .sc-bad { color: #e53e3e; font-weight: 700; }
-
   .hidden { display: none !important; }
-
   @media (max-width: 600px) {
     header h1 { font-size: 1.4rem; }
     .card { padding: 18px; }
@@ -210,11 +184,10 @@
 <body>
 <div class="container">
   <header>
-    <h1>📚 Luyện Ngữ Pháp B1–B2</h1>
-    <p>Chọn mục lớn → chọn chủ điểm nhỏ, hoặc làm bài kiểm tra 40 câu ngẫu nhiên</p>
+    <h1>📚 Luyện Ngữ Pháp B1–B2 — Bộ 800 câu MỚI</h1>
+    <p>Bộ 2 · 800 câu bổ sung (801–1600) · Cùng phạm trù kiến thức với bộ 1</p>
   </header>
 
-  <!-- ==================== HOME ==================== -->
   <div id="home-view">
     <div class="card">
       <button class="btn big-test-btn" onclick="startTest()">
@@ -238,7 +211,6 @@
     </div>
   </div>
 
-  <!-- ==================== CATEGORY ==================== -->
   <div id="category-view" class="hidden">
     <div class="card">
       <div class="btn-row" style="margin-top:0;">
@@ -250,7 +222,6 @@
     </div>
   </div>
 
-  <!-- ==================== PRACTICE ==================== -->
   <div id="practice-view" class="hidden">
     <div class="card">
       <div class="q-meta">
@@ -272,7 +243,6 @@
     </div>
   </div>
 
-  <!-- ==================== TEST ==================== -->
   <div id="test-view" class="hidden">
     <div class="card">
       <div class="q-meta">
@@ -296,7 +266,6 @@
     </div>
   </div>
 
-  <!-- ==================== RESULT ==================== -->
   <div id="result-view" class="hidden">
     <div class="card result-summary">
       <div class="label">Kết quả bài kiểm tra</div>
@@ -322,538 +291,539 @@
 
 <script>
 /* =========================================================
-   DỮ LIỆU CÂU HỎI  (giữ nguyên — mỗi câu: [q, [A,B,C,D], idx, exp])
+   DỮ LIỆU 800 CÂU MỚI (801–1600)
    ========================================================= */
 const T = [
-/* ---------- GIỚI TỪ ---------- */
-{group:"Giới từ", name:"Giới từ — Thời gian (at/on/in)", qs:[
-["The meeting starts ___ 8:30 tomorrow morning.",["in","on","at","by"],2,"'at' dùng trước giờ cụ thể (at 8:30)."],
-["My birthday is ___ 16 May.",["at","on","in","by"],1,"'on' dùng trước ngày cụ thể (on 16 May)."],
-["She was born ___ 2005.",["at","on","in","by"],2,"'in' dùng trước năm (in 2005)."],
-["We usually go on holiday ___ summer.",["at","on","in","by"],2,"'in' dùng trước mùa (in summer)."],
-["I don't like driving ___ night.",["on","at","in","by"],1,"'at night' là cụm cố định."],
-["I'll see you ___ Friday morning.",["at","in","on","by"],2,"'on' + thứ + buổi (on Friday morning)."],
-["He usually works ___ the evening.",["at","on","in","by"],2,"'in the evening' là cụm cố định."],
-["We always visit our grandparents ___ Christmas.",["on","in","at","by"],2,"'at Christmas' chỉ dịp lễ nói chung."],
-["They had a big family dinner ___ Christmas Day.",["at","in","on","by"],2,"'on' + ngày cụ thể (on Christmas Day)."],
-["I was woken up by a strange noise ___ the night.",["at","in","on","by"],1,"'in the night' = trong đêm."]
+
+/* ========== 1. GIỚI TỪ (150 câu) ========== */
+{group:"Giới từ", name:"Giới từ — Thời gian (2)", qs:[
+["The concert begins ___ 7:45 this evening.",["in","on","at","by"],2,"'at' + giờ cụ thể."],
+["Our wedding anniversary is ___ 3 December.",["at","on","in","by"],1,"'on' + ngày cụ thể."],
+["My grandparents got married ___ 1972.",["at","on","in","by"],2,"'in' + năm."],
+["We often go skiing ___ winter.",["at","on","in","by"],2,"'in' + mùa."],
+["She usually reads before going to sleep ___ night.",["on","at","in","by"],1,"'at night' cố định."],
+["The exam will take place ___ Monday afternoon.",["at","in","on","by"],2,"'on' + thứ + buổi."],
+["He does most of his work ___ the morning.",["at","on","in","by"],2,"'in the morning' cố định."],
+["We exchange gifts ___ Christmas.",["on","in","at","by"],2,"'at Christmas' chỉ dịp lễ."],
+["There will be a big parade ___ Independence Day.",["at","in","on","by"],2,"'on' + ngày lễ cụ thể."],
+["I heard a strange sound ___ the night.",["at","in","on","by"],1,"'in the night' = trong đêm."]
 ]},
-{group:"Giới từ", name:"Giới từ — last/next/this/every + in + period", qs:[
-["I'll call you ___ next Monday.",["on","at","in","—"],3,"Trước 'next Monday' không dùng giới từ."],
-["We moved here ___ last June.",["at","in","on","—"],3,"Trước 'last June' không dùng giới từ."],
-["She goes swimming ___ every Saturday.",["at","on","in","—"],3,"Trước 'every Saturday' không dùng giới từ."],
-["I'll see you ___ Friday.",["at","on","in","by"],1,"'on' + thứ trong tuần (on Friday)."],
-["They got married ___ this year.",["on","at","in","—"],3,"Trước 'this year' không dùng giới từ."],
-["The bus will arrive ___ ten minutes.",["at","on","in","by"],2,"'in + khoảng thời gian' chỉ tương lai."],
-["I learned how to use the software ___ two weeks.",["at","on","in","by"],2,"'in + khoảng thời gian' = trong vòng bao lâu."],
-["He'll be back ___ an hour.",["on","at","in","by"],2,"'in an hour' = sau một giờ nữa."]
+{group:"Giới từ", name:"Giới từ — last/next/this/every + in + period (2)", qs:[
+["I'll visit my parents ___ next weekend.",["on","at","in","—"],3,"Trước 'next weekend' không dùng giới từ."],
+["We bought this house ___ last April.",["at","in","on","—"],3,"Trước 'last April' không dùng giới từ."],
+["He plays tennis ___ every Sunday.",["at","on","in","—"],3,"Trước 'every Sunday' không dùng giới từ."],
+["The meeting is ___ Tuesday.",["at","on","in","by"],1,"'on' + thứ."],
+["They moved to Canada ___ this year.",["on","at","in","—"],3,"Trước 'this year' không dùng giới từ."],
+["The train will depart ___ fifteen minutes.",["at","on","in","by"],2,"'in + khoảng thời gian' chỉ tương lai."],
+["She mastered the piano ___ just two years.",["at","on","in","by"],2,"'in + khoảng thời gian'."],
+["The package will arrive ___ a few days.",["on","at","in","by"],2,"'in a few days' = sau vài ngày."]
 ]},
-{group:"Giới từ", name:"Giới từ — on time / in time / at the end / in the end", qs:[
-["The train arrived exactly ___ time.",["in","on","at","by"],1,"'on time' = đúng giờ."],
-["We arrived just ___ time to catch the bus.",["on","at","in","by"],2,"'in time' = kịp lúc."],
-["I got home ___ time for dinner.",["on","in","at","by"],1,"'in time for' = kịp cho việc gì."],
-["___ the end of the film, everyone left.",["In","On","At","By"],2,"'at the end of' = ở cuối (thời điểm)."],
-["We had many problems, but ___ the end everything worked out.",["at","in","on","by"],1,"'in the end' = cuối cùng, rút cuộc."],
-["___ first, I didn't like the course.",["At","In","On","By"],0,"'at first' = lúc đầu."]
+{group:"Giới từ", name:"Giới từ — on time / in time / at the end / in the end (2)", qs:[
+["The flight landed exactly ___ time.",["in","on","at","by"],1,"'on time' = đúng giờ."],
+["We reached the station just ___ time to catch the train.",["on","at","in","by"],2,"'in time' = kịp lúc."],
+["She got home ___ time for the football match.",["on","in","at","by"],1,"'in time for'."],
+["___ the end of the concert, the audience applauded.",["In","On","At","By"],2,"'at the end of'."],
+["We faced many difficulties, but ___ the end we succeeded.",["at","in","on","by"],1,"'in the end' = cuối cùng."],
+["___ first, I found the task impossible.",["At","In","On","By"],0,"'at first' = lúc đầu."]
 ]},
-{group:"Giới từ", name:"Giới từ — Nơi chốn (in/at/on)", qs:[
-["There is nobody ___ the room.",["at","on","in","by"],2,"'in' dùng cho không gian khép kín."],
-["I'll meet you ___ the bus stop.",["in","on","at","by"],2,"'at' dùng cho điểm hẹn cụ thể."],
-["There is a book ___ the table.",["at","in","on","by"],2,"'on' = trên bề mặt."],
-["She lives ___ Can Tho.",["at","on","in","by"],2,"'in' + thành phố/quốc gia."],
-["Someone is waiting ___ the door.",["in","on","at","by"],2,"'at the door' = ở cửa."],
-["There is a notice ___ the door.",["at","in","on","by"],2,"'on the door' = trên cánh cửa."],
-["There are many people ___ the shop.",["at","on","in","by"],2,"'in the shop' = bên trong cửa hàng."],
-["Turn left ___ the traffic lights.",["in","on","at","by"],2,"'at the traffic lights' = tại đèn giao thông."],
-["The children are playing ___ the grass.",["in","at","on","by"],2,"'on the grass' = trên bãi cỏ."],
-["There is some water ___ the bottle.",["on","at","in","by"],2,"'in the bottle' = bên trong chai."]
+{group:"Giới từ", name:"Giới từ — Nơi chốn (in/at/on) (2)", qs:[
+["There are no students ___ the classroom.",["at","on","in","by"],2,"'in' không gian khép kín."],
+["I'll wait for you ___ the train station.",["in","on","at","by"],2,"'at' + điểm hẹn."],
+["Your phone is ___ the sofa.",["at","in","on","by"],2,"'on' = trên bề mặt."],
+["He lives ___ Ho Chi Minh City.",["at","on","in","by"],2,"'in' + thành phố."],
+["Someone is standing ___ the gate.",["in","on","at","by"],2,"'at the gate'."],
+["There is a poster ___ the wall.",["at","in","on","by"],2,"'on the wall'."],
+["There are many customers ___ the restaurant.",["at","on","in","by"],2,"'in the restaurant'."],
+["Turn right ___ the corner.",["in","on","at","by"],2,"'at the corner'."],
+["The children are sitting ___ the floor.",["in","at","on","by"],2,"'on the floor'."],
+["There is some juice ___ the glass.",["on","at","in","by"],2,"'in the glass'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Các cụm in / on", qs:[
-["She is ___ the picture.",["on","at","in","by"],2,"'in the picture' = trong bức ảnh."],
-["I read about it ___ the newspaper.",["at","in","on","by"],1,"'in the newspaper' = trên báo."],
-["The information is ___ the website.",["in","at","on","by"],2,"'on the website' = trên trang web."],
-["Please write your answer ___ the page.",["at","in","on","by"],2,"'on the page' = trên trang giấy."],
-["The restaurant is ___ the first floor.",["in","at","on","by"],2,"'on the first floor' = ở tầng một."],
-["The answer is ___ the list.",["at","on","in","by"],1,"'on the list' = trong danh sách."],
-["Vienna is ___ the Danube.",["at","in","on","by"],2,"'on the river' = bên bờ sông."],
-["The children are ___ the queue.",["on","at","in","by"],2,"'in the queue' = trong hàng đợi."]
+{group:"Giới từ", name:"Giới từ — Các cụm in / on (2)", qs:[
+["She looks beautiful ___ this photograph.",["on","at","in","by"],2,"'in the photograph'."],
+["I saw the advertisement ___ the magazine.",["at","in","on","by"],1,"'in the magazine'."],
+["You can find the recipe ___ this website.",["in","at","on","by"],2,"'on the website'."],
+["Write your name ___ the answer sheet.",["at","in","on","by"],2,"'on the answer sheet'."],
+["The café is ___ the ground floor.",["in","at","on","by"],2,"'on the ground floor'."],
+["Her name is ___ the waiting list.",["at","on","in","by"],1,"'on the list'."],
+["Budapest is ___ the Danube.",["at","in","on","by"],2,"'on the river'."],
+["The students are ___ the queue for lunch.",["on","at","in","by"],2,"'in the queue'."]
 ]},
-{group:"Giới từ", name:"Giới từ — top/bottom/end/front/back/corner", qs:[
-["Write your name ___ the top of the page.",["in","on","at","by"],2,"'at the top of' = ở đầu trang."],
-["My house is ___ the end of the street.",["in","at","on","by"],1,"'at the end of' = ở cuối đường."],
-["The TV is ___ the corner of the room.",["at","on","in","by"],2,"'in the corner' = ở trong góc phòng."],
-["We sat ___ the back of the cinema.",["in","at","on","by"],1,"'at the back of' = ở phía sau."],
-["I was sitting ___ the back of the car.",["at","in","on","by"],1,"'in the back of the car' = ở ghế sau xe."],
-["I wrote the date ___ the back of the photo.",["in","at","on","by"],2,"'on the back of' = ở mặt sau của."]
+{group:"Giới từ", name:"Giới từ — top/bottom/end/front/back/corner (2)", qs:[
+["Put your signature ___ the bottom of the contract.",["in","on","at","by"],2,"'at the bottom of'."],
+["The pharmacy is ___ the end of the road.",["in","at","on","by"],1,"'at the end of'."],
+["There is a chair ___ the corner of the room.",["at","on","in","by"],2,"'in the corner'."],
+["We sat ___ the front of the theatre.",["in","at","on","by"],1,"'at the front of'."],
+["She was sitting ___ the front of the bus.",["at","in","on","by"],1,"'in the front of the bus'."],
+["He wrote his name ___ the back of the envelope.",["in","at","on","by"],2,"'on the back of'."]
 ]},
-{group:"Giới từ", name:"Giới từ — home/work/school/events", qs:[
-["She's ___ university at the moment.",["in","on","at","by"],2,"'at university' = đang học đại học."],
-["He's still ___ bed.",["at","in","on","by"],1,"'in bed' = đang nằm giường."],
-["My father is ___ work.",["in","at","on","by"],1,"'at work' = đang ở chỗ làm."],
-["We met her ___ a concert.",["in","on","at","by"],2,"'at a concert' = tại buổi hòa nhạc."],
-["They met ___ a wedding.",["at","in","on","by"],0,"'at a wedding' = tại đám cưới."],
-["I'll be ___ home all evening.",["in","at","on","by"],1,"'at home' = ở nhà."]
+{group:"Giới từ", name:"Giới từ — home/work/school/events (2)", qs:[
+["He's ___ college studying engineering.",["in","on","at","by"],2,"'at college'."],
+["She's still ___ bed with a cold.",["at","in","on","by"],1,"'in bed'."],
+["My mother is ___ work right now.",["in","at","on","by"],1,"'at work'."],
+["We saw them ___ a football match.",["in","on","at","by"],2,"'at a match'."],
+["They first met ___ a party.",["at","in","on","by"],0,"'at a party'."],
+["I'll be ___ home all day tomorrow.",["in","at","on","by"],1,"'at home'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Transport (phương tiện)", qs:[
-["I usually go to work ___ bus.",["on","in","by","at"],2,"'by bus' = bằng xe buýt."],
-["She arrived ___ a taxi.",["by","on","in","at"],2,"'in a taxi' = trong xe taxi."],
-["We were ___ the train when he called.",["in","on","at","by"],1,"'on the train' = trên tàu."],
-["He travelled to London ___ plane.",["in","at","on","by"],3,"'by plane' = bằng máy bay."],
-["They went to the beach ___ my car.",["by","on","in","at"],2,"'in my car' = trong xe của tôi."],
-["I saw her ___ the bus yesterday.",["by","in","at","on"],3,"'on the bus' = trên xe buýt."]
+{group:"Giới từ", name:"Giới từ — Transport (2)", qs:[
+["She goes to school ___ bicycle.",["on","in","by","at"],2,"'by bicycle'."],
+["They arrived ___ a taxi.",["by","on","in","at"],2,"'in a taxi'."],
+["We were ___ the plane when the turbulence started.",["in","on","at","by"],1,"'on the plane'."],
+["He travelled to Tokyo ___ plane.",["in","at","on","by"],3,"'by plane'."],
+["We drove to the mountains ___ my uncle's car.",["by","on","in","at"],2,"'in my uncle's car'."],
+["I met her ___ the bus this morning.",["by","in","at","on"],3,"'on the bus'."]
 ]},
-{group:"Giới từ", name:"Giới từ — To / Into / Out of / Home", qs:[
-["We're going ___ France next month.",["at","in","to","into"],2,"'to' chỉ hướng đến quốc gia."],
-["She lives ___ France.",["to","in","at","into"],1,"'in' + quốc gia (ở trong)."],
-["He walked ___ the room and sat down.",["in","to","into","at"],2,"'into' = đi vào trong phòng."],
-["The children ran ___ the house.",["out of","to","at","by"],0,"'out of' = chạy ra khỏi nhà."],
-["She went ___ the supermarket after work.",["at","to","in","into"],1,"'go to' = đi đến đâu."],
-["We got ___ the hotel at midnight.",["in","at","to","into"],2,"'get to' = đến nơi nào."],
-["They arrived ___ Madrid yesterday.",["at","to","in","into"],2,"'arrive in' + thành phố/quốc gia."],
-["We arrived ___ the airport two hours early.",["in","at","to","into"],1,"'arrive at' + địa điểm nhỏ."],
-["I usually go ___ after class.",["to home","at home","home","in home"],2,"'go home' không dùng giới từ."],
-["What time did you get ___ last night?",["to home","at home","home","in home"],2,"'get home' = về nhà."]
+{group:"Giới từ", name:"Giới từ — To / Into / Out of / Home (2)", qs:[
+["We're flying ___ Japan next week.",["at","in","to","into"],2,"'to' chỉ hướng."],
+["She lives ___ Japan.",["to","in","at","into"],1,"'in' + quốc gia."],
+["He walked ___ the office and closed the door.",["in","to","into","at"],2,"'into' = đi vào."],
+["The cat ran ___ the room.",["out of","to","at","by"],0,"'out of' = ra khỏi."],
+["She went ___ the pharmacy after work.",["at","to","in","into"],1,"'go to'."],
+["We got ___ the resort at midnight.",["in","at","to","into"],2,"'get to'."],
+["They arrived ___ Paris yesterday.",["at","to","in","into"],2,"'arrive in' + thành phố."],
+["We arrived ___ the station two hours early.",["in","at","to","into"],1,"'arrive at' + địa điểm nhỏ."],
+["I usually go ___ after work.",["to home","at home","home","in home"],2,"'go home' không dùng giới từ."],
+["What time did you get ___ last night?",["to home","at home","home","in home"],2,"'get home'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Over / Above / Under / Below", qs:[
-["The plane flew ___ the mountains.",["above","over","under","below"],1,"'over' = bay qua phía trên (có chuyển động)."],
-["There is a picture ___ the sofa.",["under","below","above","through"],2,"'above' = ở phía trên (không chạm)."],
-["The cat is hiding ___ the table.",["above","over","under","below"],2,"'under' = ở dưới (bị che)."],
-["The temperature is ___ zero.",["under","over","below","through"],2,"'below zero' = dưới 0 độ."],
-["The temperature is ___ 30°C today.",["above","under","below","through"],0,"'above 30°C' = trên 30 độ."],
-["She put a blanket ___ the baby.",["below","under","over","between"],2,"'over' = phủ lên trên."]
+{group:"Giới từ", name:"Giới từ — Over / Above / Under / Below (2)", qs:[
+["The helicopter flew ___ the city.",["above","over","under","below"],1,"'over' = bay qua trên."],
+["There is a clock ___ the door.",["under","below","above","through"],2,"'above' = phía trên (không chạm)."],
+["The dog is sleeping ___ the bed.",["above","over","under","below"],2,"'under' = ở dưới."],
+["The temperature dropped ___ zero last night.",["under","over","below","through"],2,"'below zero'."],
+["The temperature reached ___ 40°C yesterday.",["above","under","below","through"],0,"'above 40°C'."],
+["She spread a blanket ___ the child.",["below","under","over","between"],2,"'over' = phủ lên."]
 ]},
-{group:"Giới từ", name:"Giới từ — Across / Through / Past", qs:[
-["We walked ___ the road to reach the other side.",["through","across","past","among"],1,"'across' = băng qua bề mặt."],
-["The train went ___ the tunnel.",["across","past","through","over"],2,"'through' = xuyên qua bên trong."],
-["I walked ___ the bank without stopping.",["across","through","past","between"],2,"'past' = đi ngang qua (không dừng)."],
-["She swam ___ the river.",["through","past","across","among"],2,"'swim across' = bơi băng qua."],
-["We walked ___ the forest for two hours.",["across","through","past","between"],1,"'through the forest' = xuyên rừng."]
+{group:"Giới từ", name:"Giới từ — Across / Through / Past (2)", qs:[
+["We swam ___ the lake to reach the island.",["through","across","past","among"],1,"'across' = băng qua."],
+["The train went ___ the tunnel.",["across","past","through","over"],2,"'through' = xuyên qua."],
+["I walked ___ the post office without stopping.",["across","through","past","between"],2,"'past' = đi ngang qua."],
+["She ran ___ the field.",["through","past","across","among"],2,"'run across'."],
+["We walked ___ the jungle for three hours.",["across","through","past","between"],1,"'through the jungle'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Between / Among", qs:[
-["The bank is ___ the school and the hospital.",["among","between","beside","around"],1,"'between' dùng cho 2 đối tượng."],
-["She was sitting ___ her friends.",["between","among","beside","opposite"],1,"'among' dùng cho nhiều người (>2)."],
-["The ball is ___ the two chairs.",["among","around","between","throughout"],2,"'between' + hai vật."],
-["He found his wallet ___ the books.",["between","among","opposite","beside"],1,"'among' = giữa nhiều cuốn sách."]
+{group:"Giới từ", name:"Giới từ — Between / Among (2)", qs:[
+["The café is ___ the bakery and the bookstore.",["among","between","beside","around"],1,"'between' cho 2 đối tượng."],
+["She was sitting ___ her colleagues.",["between","among","beside","opposite"],1,"'among' cho nhiều người."],
+["The ball rolled ___ the two boxes.",["among","around","between","throughout"],2,"'between' + hai vật."],
+["He found his keys ___ the papers.",["between","among","opposite","beside"],1,"'among' = giữa nhiều thứ."]
 ]},
-{group:"Giới từ", name:"Giới từ — By / Beside / Next to", qs:[
-["The house is ___ the river.",["by","through","across","between"],0,"'by the river' = bên cạnh sông."],
-["She sat ___ me during the meeting.",["through","beside","above","opposite"],1,"'beside' = bên cạnh."],
-["The pharmacy is ___ the bank.",["over","next to","among","throughout"],1,"'next to' = ngay cạnh."],
-["Come and sit ___ me.",["by","across","behind","through"],0,"'sit by sb' = ngồi cạnh ai."]
+{group:"Giới từ", name:"Giới từ — By / Beside / Next to (2)", qs:[
+["The cottage is ___ the lake.",["by","through","across","between"],0,"'by the lake'."],
+["She sat ___ her sister during the ceremony.",["through","beside","above","opposite"],1,"'beside' = bên cạnh."],
+["The bakery is ___ the post office.",["over","next to","among","throughout"],1,"'next to' = ngay cạnh."],
+["Come and sit ___ me.",["by","across","behind","through"],0,"'sit by sb'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Inside / Outside", qs:[
-["The keys are ___ the box.",["outside","inside","among","across"],1,"'inside' = bên trong."],
-["He's waiting ___ the building.",["inside","over","between","through"],0,"'inside the building' = trong tòa nhà."],
-["There is a car ___ the house.",["inside","outside","among","above"],1,"'outside' = bên ngoài."]
+{group:"Giới từ", name:"Giới từ — Inside / Outside (2)", qs:[
+["The documents are ___ the drawer.",["outside","inside","among","across"],1,"'inside'."],
+["He's waiting ___ the hotel.",["inside","over","between","through"],0,"'inside the hotel'."],
+["There is a bicycle ___ the gate.",["inside","outside","among","above"],1,"'outside'."]
 ]},
-{group:"Giới từ", name:"Giới từ — In front of / Behind / Opposite / Across from", qs:[
-["The car is ___ the house.",["behind","in front of","among","throughout"],1,"'in front of' = phía trước."],
-["The garden is ___ the house.",["in front of","behind","above","across"],1,"'behind' = phía sau."],
-["The bank is ___ the supermarket.",["behind","under","opposite","inside"],2,"'opposite' = đối diện."],
-["The restaurant is ___ the post office.",["across from","through","among","below"],0,"'across from' = đối diện (bên kia đường)."],
-["She sat ___ me during the interview.",["opposite","outside","behind","above"],0,"'opposite sb' = ngồi đối diện ai."]
+{group:"Giới từ", name:"Giới từ — In front of / Behind / Opposite / Across from (2)", qs:[
+["The garden is ___ the house.",["behind","in front of","among","throughout"],1,"'in front of'."],
+["The garage is ___ the house.",["in front of","behind","above","across"],1,"'behind' = phía sau."],
+["The library is ___ the museum.",["behind","under","opposite","inside"],2,"'opposite' = đối diện."],
+["The café is ___ the cinema.",["across from","through","among","below"],0,"'across from'."],
+["She sat ___ me during the meeting.",["opposite","outside","behind","above"],0,"'opposite sb'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Around / Round / Throughout", qs:[
-["We walked ___ the park for an hour.",["between","around","below","past"],1,"'around' = đi vòng quanh."],
-["There were chairs ___ the table.",["round","through","across","below"],0,"'round the table' = quanh bàn."],
-["There are trees ___ the park.",["between","throughout","beside","past"],1,"'throughout' = khắp nơi."]
+{group:"Giới từ", name:"Giới từ — Around / Round / Throughout (2)", qs:[
+["We cycled ___ the lake for two hours.",["between","around","below","past"],1,"'around' = vòng quanh."],
+["There were flowers ___ the table.",["round","through","across","below"],0,"'round the table'."],
+["There are shops ___ the city.",["between","throughout","beside","past"],1,"'throughout' = khắp."]
 ]},
-{group:"Giới từ", name:"Giới từ — Cụm cố định (noun + prep)", qs:[
-["There has been an increase ___ prices.",["on","at","in","for"],2,"'increase in' = sự tăng lên về."],
-["We need to find a solution ___ this problem.",["of","to","for","with"],1,"'solution to' = giải pháp cho."],
-["There is a great demand ___ this product.",["to","of","for","in"],2,"'demand for' = nhu cầu về."],
-["What was the cause ___ the accident?",["to","for","in","of"],3,"'cause of' = nguyên nhân của."],
-["I have a good relationship ___ my parents.",["to","with","of","for"],1,"'relationship with sb' = mối quan hệ với ai."],
-["What is the difference ___ British and American English?",["among","with","between","to"],2,"'difference between' + 2 đối tượng."]
+{group:"Giới từ", name:"Giới từ — Cụm cố định (noun + prep) (2)", qs:[
+["There has been a rise ___ unemployment.",["on","at","in","for"],2,"'rise in'."],
+["We need to find an answer ___ this question.",["of","to","for","with"],1,"'answer to'."],
+["There is a growing need ___ skilled workers.",["to","of","for","in"],2,"'need for'."],
+["What was the reason ___ the delay?",["to","for","in","of"],3,"'reason for/of'."],
+["I have a close friendship ___ my cousin.",["to","with","of","for"],1,"'friendship with sb'."],
+["What is the connection ___ these two events?",["among","with","between","to"],2,"'connection between'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Adjective + preposition", qs:[
-["She's afraid ___ spiders.",["at","of","in","for"],1,"'afraid of' = sợ cái gì."],
-["He's very good ___ mathematics.",["in","on","at","for"],2,"'good at' = giỏi về môn gì."],
-["Are you interested ___ learning English?",["on","at","in","for"],2,"'interested in' = quan tâm tới."],
-["She is married ___ an American.",["with","to","at","for"],1,"'married to sb' = kết hôn với ai."],
-["This product is famous ___ its high quality.",["of","with","for","to"],2,"'famous for' = nổi tiếng vì."],
-["I'm really keen ___ learning languages.",["in","on","at","of"],1,"'keen on' = say mê cái gì."],
-["The company is dependent ___ foreign investment.",["at","in","on","for"],2,"'dependent on' = phụ thuộc vào."],
-["Who is responsible ___ this project?",["of","to","for","with"],2,"'responsible for' = chịu trách nhiệm về."]
+{group:"Giới từ", name:"Giới từ — Adjective + preposition (2)", qs:[
+["She's terrified ___ heights.",["at","of","in","for"],1,"'terrified of'."],
+["He's excellent ___ physics.",["in","on","at","for"],2,"'excellent at'."],
+["Are you curious ___ how it works?",["on","at","about","for"],2,"'curious about'."],
+["She is engaged ___ a businessman.",["with","to","at","for"],1,"'engaged to sb'."],
+["This region is famous ___ its tea.",["of","with","for","to"],2,"'famous for'."],
+["I'm really passionate ___ music.",["in","about","at","of"],1,"'passionate about'."],
+["The team is dependent ___ its captain.",["at","in","on","for"],2,"'dependent on'."],
+["Who is in charge ___ this department?",["of","to","for","with"],2,"'in charge of'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Verb + preposition", qs:[
-["Please listen ___ me carefully.",["at","for","to","about"],2,"'listen to sb' = nghe ai."],
-["She looked ___ the picture carefully.",["at","to","for","about"],0,"'look at' = nhìn vào."],
-["We're waiting ___ the bus.",["to","at","for","on"],2,"'wait for' = chờ đợi."],
-["They talked ___ their holiday.",["to","about","at","for"],1,"'talk about' = nói về."],
-["She applied ___ the job yesterday.",["to","about","for","at"],2,"'apply for' = ứng tuyển vào."],
-["He is looking ___ his keys.",["after","for","at","about"],1,"'look for' = tìm kiếm."],
-["Can you look ___ my cat while I'm away?",["for","about","after","at"],2,"'look after' = chăm sóc."],
-["We discussed the problem.",["about","on","—","for"],2,"'discuss' không cần giới từ."],
-["I don't care ___ what other people think.",["for","about","to","at"],1,"'care about' = quan tâm về."],
-["I've never heard ___ that singer.",["about","from","of","at"],2,"'hear of' = nghe nói đến."],
-["Have you heard ___ John recently?",["of","about","from","at"],2,"'hear from sb' = nhận tin từ ai."],
-["I need to think ___ your suggestion.",["of","about","at","for"],1,"'think about' = suy nghĩ về."],
-["What do you think ___ this film?",["about","of","at","for"],1,"'think of' = có ý kiến về."],
-["She dreams ___ becoming an English teacher.",["about","of","at","for"],1,"'dream of' = mơ ước trở thành."],
-["He was accused ___ stealing money.",["for","of","about","with"],1,"'accused of' = bị buộc tội về."],
-["The meal consisted ___ seven courses.",["in","with","of","for"],2,"'consist of' = bao gồm."]
+{group:"Giới từ", name:"Giới từ — Verb + preposition (2)", qs:[
+["Please pay attention ___ the instructions.",["at","for","to","about"],2,"'pay attention to'."],
+["She glanced ___ her watch.",["at","to","for","about"],0,"'glance at'."],
+["We're hoping ___ good weather.",["to","at","for","on"],2,"'hope for'."],
+["They argued ___ politics.",["to","about","at","for"],1,"'argue about'."],
+["She applied ___ a visa yesterday.",["to","about","for","at"],2,"'apply for'."],
+["He is searching ___ his passport.",["after","for","at","about"],1,"'search for'."],
+["Can you take care ___ my plants?",["for","about","of","at"],2,"'take care of'."],
+["We discussed the issue.",["about","on","—","for"],2,"'discuss' không cần giới từ."],
+["I don't worry ___ small things.",["for","about","to","at"],1,"'worry about'."],
+["I've never heard ___ this author.",["about","from","of","at"],2,"'hear of'."],
+["Have you heard ___ your sister lately?",["of","about","from","at"],2,"'hear from sb'."],
+["I need to think ___ your proposal.",["of","about","at","for"],1,"'think about'."],
+["What do you think ___ this painting?",["about","of","at","for"],1,"'think of'."],
+["She dreams ___ starting her own business.",["about","of","at","for"],1,"'dream of'."],
+["He was blamed ___ the mistake.",["for","of","about","with"],1,"'blamed for'."],
+["The team consists ___ five players.",["in","with","of","for"],2,"'consist of'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Verb + for/from/on/in", qs:[
-["I paid ___ the meal.",["to","for","at","of"],1,"'pay for' = trả tiền cho."],
-["She apologised ___ being late.",["about","of","for","to"],2,"'apologise for' = xin lỗi vì."],
-["He suffers ___ back pain.",["of","from","with","on"],1,"'suffer from' = chịu đựng (bệnh gì)."],
-["This cream protects your skin ___ the sun.",["with","on","from","of"],2,"'protect from' = bảo vệ khỏi."],
-["It depends ___ the weather.",["in","at","on","for"],2,"'depend on' = phụ thuộc vào."],
-["You can rely ___ him.",["in","at","on","for"],2,"'rely on' = tin cậy vào."],
-["Do you believe ___ ghosts?",["at","in","on","for"],1,"'believe in' = tin vào sự tồn tại."],
-["She specialises ___ company law.",["on","at","in","for"],2,"'specialise in' = chuyên về."],
-["He succeeded ___ finding a new job.",["on","at","in","for"],2,"'succeed in' = thành công trong việc."]
+{group:"Giới từ", name:"Giới từ — Verb + for/from/on/in (2)", qs:[
+["I paid ___ the groceries.",["to","for","at","of"],1,"'pay for'."],
+["She apologised ___ the delay.",["about","of","for","to"],2,"'apologise for'."],
+["He suffers ___ migraines.",["of","from","with","on"],1,"'suffer from'."],
+["This sunscreen protects your skin ___ UV rays.",["with","on","from","of"],2,"'protect from'."],
+["Everything depends ___ your decision.",["in","at","on","for"],2,"'depend on'."],
+["You can count ___ her.",["in","at","on","for"],2,"'count on'."],
+["Do you believe ___ karma?",["at","in","on","for"],1,"'believe in'."],
+["She excels ___ mathematics.",["on","at","in","for"],2,"'excel in/at'."],
+["He succeeded ___ convincing the board.",["on","at","in","for"],2,"'succeed in'."]
 ]},
-{group:"Giới từ", name:"Giới từ — Into / With / To / On", qs:[
-["Someone broke ___ our house last night.",["on","into","at","for"],1,"'break into' = đột nhập vào."],
-["The car crashed ___ a tree.",["to","with","into","on"],2,"'crash into' = đâm vào."],
-["The book is divided ___ three sections.",["in","into","on","to"],1,"'divide into' = chia thành."],
-["The bus collided ___ a car.",["to","at","with","for"],2,"'collide with' = va chạm với."],
-["Fill the bottle ___ water.",["to","for","with","in"],2,"'fill with' = đổ đầy bằng."],
-["The school provides students ___ free books.",["to","with","for","of"],1,"'provide sb with sth' = cung cấp cho ai."],
-["What happened ___ your phone?",["with","for","to","at"],2,"'happen to' = xảy ra với."],
-["She invited me ___ her wedding.",["at","for","to","on"],2,"'invite to' = mời đến."],
-["I prefer tea ___ coffee.",["than","from","to","with"],2,"'prefer A to B' = thích A hơn B."],
-["Concentrate ___ your work.",["at","for","in","on"],3,"'concentrate on' = tập trung vào."],
-["He insisted ___ paying for dinner.",["in","at","on","for"],2,"'insist on' = khăng khăng đòi."]
+{group:"Giới từ", name:"Giới từ — Into / With / To / On (2)", qs:[
+["Someone broke ___ the office last night.",["on","into","at","for"],1,"'break into'."],
+["The truck crashed ___ a barrier.",["to","with","into","on"],2,"'crash into'."],
+["The report is divided ___ four chapters.",["in","into","on","to"],1,"'divide into'."],
+["The ship collided ___ an iceberg.",["to","at","with","for"],2,"'collide with'."],
+["Fill the jug ___ milk.",["to","for","with","in"],2,"'fill with'."],
+["The charity provides families ___ free meals.",["to","with","for","of"],1,"'provide sb with sth'."],
+["What happened ___ your car?",["with","for","to","at"],2,"'happen to'."],
+["She invited me ___ her graduation.",["at","for","to","on"],2,"'invite to'."],
+["I prefer tea ___ coffee.",["than","from","to","with"],2,"'prefer A to B'."],
+["Focus ___ your goals.",["at","for","in","on"],3,"'focus on'."],
+["He insisted ___ driving me home.",["in","at","on","for"],2,"'insist on'."]
 ]},
 
-/* ---------- PHRASAL VERBS ---------- */
-{group:"Phrasal Verbs", name:"Phrasal Verbs — Introduction (Unit 137)", qs:[
-["The bus was full, so we couldn't ______.",["get on","get up","get out","get away"],0,"'get on' = lên xe."],
-["A woman got into the car and ______.",["drove back","drove off","drove out of","drove up"],1,"'drive off' = lái xe đi."],
-["Sarah is leaving tomorrow and ______ on Saturday.",["going on","coming back","getting away","turning round"],1,"'come back' = quay trở lại."],
-["When I touched him on the shoulder, he ______.",["turned out","turned down","turned round","turned off"],2,"'turn round' = quay người lại."],
-["Sorry I'm late. My car ______ on the way here.",["broke out","broke down","broke up","broke away"],1,"'break down' = hỏng máy."],
-["I never ______ who sent me the flowers.",["found out","found up","found away","found off"],0,"'find out' = tìm ra."],
-["The plane finally ______ after a long delay.",["took up","took out","took off","took away"],2,"'take off' = cất cánh."],
-["I tried many times to contact her, but eventually I ______.",["gave away","gave back","gave out","gave up"],3,"'give up' = từ bỏ."],
-["How did you ______ in your new job?",["get on","get off","get away","get out"],0,"'get on' = tiến triển."],
-["My French isn't very good, but I can ______.",["get over","get by","get through","get up"],1,"'get by' = xoay xở đủ sống."],
-["We looked ______ the plane as it flew above us.",["forward to","up at","away from","out of"],1,"'look up at' = nhìn lên."],
-["Why did you run ______ me?",["away from","out of","up with","back to"],0,"'run away from' = chạy trốn khỏi."],
-["You're walking too fast. I can't keep ______ you.",["on with","up with","away from","out of"],1,"'keep up with' = theo kịp."],
-["Are you looking forward ______ your holiday?",["at","for","to","with"],2,"'look forward to' = mong đợi."],
-["Which sentence is correct?",["I turned on it.","I turned it on.","I on turned it.","I turned it on the."],1,"Đại từ đứng giữa động từ và particle."],
-["Which sentence is correct?",["I'm going to take off them.","I'm going to take them off.","I'm going to them take off.","I'm going to off take them."],1,"'take sb off' — đại từ chen giữa."],
-["Which sentence is correct?",["Don't wake up her.","Don't wake her up.","Don't her wake up.","Don't wake up to her."],1,"'wake sb up' — đại từ chen giữa."],
-["Which sentence is correct?",["Throw away it.","Throw it away.","Throw it out of away.","Throw away to it."],1,"'throw sth away' — đại từ chen giữa."]
+/* ========== 2. PHRASAL VERBS (180 câu) ========== */
+{group:"Phrasal Verbs", name:"Phrasal Verbs — Introduction (2)", qs:[
+["The train was crowded, so we couldn't ______.",["get on","get up","get out","get away"],0,"'get on' = lên tàu."],
+["A man got into the van and ______.",["drove back","drove off","drove out of","drove up"],1,"'drive off'."],
+["Lisa is leaving today and ______ next Monday.",["going on","coming back","getting away","turning round"],1,"'come back'."],
+["When I called his name, he ______.",["turned out","turned down","turned round","turned off"],2,"'turn round'."],
+["Sorry I'm late. The bus ______ on the way.",["broke out","broke down","broke up","broke away"],1,"'break down'."],
+["I never ______ who left the package.",["found out","found up","found away","found off"],0,"'find out'."],
+["The flight finally ______ after a delay.",["took up","took out","took off","took away"],2,"'take off'."],
+["I tried many times to reach him, but eventually I ______.",["gave away","gave back","gave out","gave up"],3,"'give up'."],
+["How did you ______ at your new school?",["get on","get off","get away","get out"],0,"'get on'."],
+["My Spanish isn't great, but I can ______.",["get over","get by","get through","get up"],1,"'get by'."],
+["We looked ______ the stars as they appeared.",["forward to","up at","away from","out of"],1,"'look up at'."],
+["Why did you run ______ the dog?",["away from","out of","up with","back to"],0,"'run away from'."],
+["You're reading too fast. I can't keep ______ you.",["on with","up with","away from","out of"],1,"'keep up with'."],
+["Are you looking forward ______ the trip?",["at","for","to","with"],2,"'look forward to'."],
+["Which sentence is correct?",["I turned off it.","I turned it off.","I off turned it.","I turned it off the."],1,"Đại từ chen giữa."],
+["Which sentence is correct?",["I'm going to put on them.","I'm going to put them on.","I'm going to them put on.","I'm going to on put them."],1,"'put sth on' — đại từ chen giữa."],
+["Which sentence is correct?",["Don't pick up it.","Don't pick it up.","Don't it pick up.","Don't pick up to it."],1,"'pick sb up' — đại từ chen giữa."],
+["Which sentence is correct?",["Give away it.","Give it away.","Give it out of away.","Give away to it."],1,"'give sth away' — đại từ chen giữa."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — In / Out (Unit 138)", qs:[
-["How did the thieves ______?",["get in","get on","get up","get back"],0,"'get in' = vào trong (nhà)."],
-["Here's a key, so you can ______ yourself ______.",["take / in","let / in","put / in","bring / out"],1,"'let yourself in' = tự mở cửa vào."],
-["I'm moving ______ my new flat on Friday.",["in","into","out","away"],1,"'move into' = chuyển đến."],
-["As soon as I arrived at the airport, I ______.",["checked out","checked in","checked up","checked away"],1,"'check in' = làm thủ tục vào."],
-["Stay ______ the car. It's raining.",["in","into","at","on"],0,"'stay in the car' = ở trong xe."],
-["I had no key, so I was ______.",["locked in","locked up","locked out","locked away"],2,"'locked out' = bị khóa ngoài."],
-["We paid the hotel bill and ______.",["checked in","checked out","checked up","checked away"],1,"'check out' = trả phòng."],
-["I dropped ______ to see Chris on my way home.",["out","in","up","back"],1,"'drop in' = ghé thăm bất ngờ."],
-["They were playing cards, so I decided to ______.",["join in","join out","join up","join back"],0,"'join in' = tham gia vào."],
-["The fridge isn't working because you haven't ______ it ______.",["taken / in","plugged / in","filled / in","checked / in"],1,"'plug in' = cắm điện."],
-["Please ______ the application form.",["fill in","fill away","fill up with","fill off"],0,"'fill in' = điền vào."],
-["There wasn't anything to eat at home, so we decided to ______.",["eat in","eat out","eat away","eat off"],1,"'eat out' = ăn ngoài."],
-["Gary went to university but ______ after one year.",["dropped in","dropped out","dropped off","dropped away"],1,"'drop out' = bỏ học."],
-["I promised I'd go to the wedding, so I can't ______ it now.",["get out of","get in","get up with","get away from"],0,"'get out of' = thoát khỏi (nghĩa vụ)."],
-["You can ______ the word 'that' in this sentence.",["cross out","leave out","drop in","plug in"],1,"'leave out' = bỏ đi, lược bỏ."],
-["Some names on the list had been ______.",["crossed out","checked in","joined in","filled out"],0,"'cross out' = gạch chéo bỏ."]
+{group:"Phrasal Verbs", name:"Phrasal Verbs — In / Out (2)", qs:[
+["How did the burglars ______?",["get in","get on","get up","get back"],0,"'get in'."],
+["Here's the code, so you can ______ yourself ______.",["take / in","let / in","put / in","bring / out"],1,"'let in'."],
+["I'm moving ______ my new apartment next week.",["in","into","out","away"],1,"'move into'."],
+["As soon as I reached the hotel, I ______.",["checked out","checked in","checked up","checked away"],1,"'check in'."],
+["Stay ______ the house. It's storming outside.",["in","into","at","on"],0,"'stay in the house'."],
+["I lost my key, so I was ______.",["locked in","locked up","locked out","locked away"],2,"'locked out'."],
+["We settled the bill and ______.",["checked in","checked out","checked up","checked away"],1,"'check out'."],
+["I dropped ______ to see Mary on my way home.",["out","in","up","back"],1,"'drop in'."],
+["They were singing, so I decided to ______.",["join in","join out","join up","join back"],0,"'join in'."],
+["The printer isn't working because you haven't ______ it ______.",["taken / in","plugged / in","filled / in","checked / in"],1,"'plug in'."],
+["Please ______ the registration form.",["fill in","fill away","fill up with","fill off"],0,"'fill in'."],
+["There was nothing to eat at home, so we decided to ______.",["eat in","eat out","eat away","eat off"],1,"'eat out'."],
+["Mark went to college but ______ after one semester.",["dropped in","dropped out","dropped off","dropped away"],1,"'drop out'."],
+["I promised I'd attend the ceremony, so I can't ______ it now.",["get out of","get in","get up with","get away from"],0,"'get out of'."],
+["You can ______ the word 'very' in this sentence.",["cross out","leave out","drop in","plug in"],1,"'leave out'."],
+["Some items on the list had been ______.",["crossed out","checked in","joined in","filled out"],0,"'cross out'."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — Out (Unit 139)", qs:[
-["Suddenly, all the lights in the building ______.",["went out","went up","went away","went back"],0,"'go out' = tắt (đèn)."],
-["I ______ the fire with a fire extinguisher.",["turned out","put out","gave out","worked out"],1,"'put out' = dập tắt (lửa)."],
-["You can ______ the candle now.",["blow it out","blow out it","blow it off","blow away it"],0,"'blow out' — đại từ chen giữa."],
-["Rachel ______ at the gym three times a week.",["works out","works up","works off","works away"],0,"'work out' = tập thể dục."],
-["I hope everything ______ well for you.",["works out","works in","works off","works back"],0,"'work out' = diễn ra tốt đẹp."],
-["I can't ______ the answer in my head.",["work it out","work out it","work it away","work it up"],0,"'work out' — đại từ chen giữa."],
-["Investigators are trying to ______ what caused the accident.",["figure out","figure on","figure away","figure up"],0,"'figure out' = tìm ra, hiểu ra."],
-["Soldiers are expected to ______ orders.",["carry out","carry on","carry up","carry away"],0,"'carry out' = thực hiện (mệnh lệnh)."],
-["The police never ______ who committed the crime.",["found up","found out","found off","found back"],1,"'find out' = tìm ra."],
-["The speaker ______ information sheets to the audience.",["gave away","gave out","gave up","gave back"],1,"'give out' = phân phát."],
-["The tour guide ______ all the important sights.",["pointed out","pointed up","pointed away","pointed back"],0,"'point out' = chỉ ra."],
-["We ______ petrol on the motorway.",["ran out","ran out of","ran away from","ran up"],1,"'run out of' + tân ngữ."],
-["We've ______ petrol.",["run out","run out of","run away","run up"],1,"'run out of sth' = hết cái gì."],
-["There are several problems we need to ______.",["sort out","sort off","sort away","sort back"],0,"'sort out' = giải quyết."],
-["Nobody believed Paul, but he ______ to be right.",["turned up","turned out","turned off","turned away"],1,"'turn out' = hóa ra."],
-["The company is ______ some new software.",["trying out","trying up","trying away","trying back"],0,"'try out' = thử nghiệm."]
+{group:"Phrasal Verbs", name:"Phrasal Verbs — Out (2)", qs:[
+["Suddenly, all the lights in the theatre ______.",["went out","went up","went away","went back"],0,"'go out' = tắt."],
+["I ______ the flames with a blanket.",["turned out","put out","gave out","worked out"],1,"'put out'."],
+["You can ______ the candle now.",["blow it out","blow out it","blow it off","blow away it"],0,"Đại từ chen giữa."],
+["Lisa ______ at the gym every morning.",["works out","works up","works off","works away"],0,"'work out' = tập thể dục."],
+["I hope everything ______ well for you.",["works out","works in","works off","works back"],0,"'work out'."],
+["I can't ______ the answer in my head.",["work it out","work out it","work it away","work it up"],0,"Đại từ chen giữa."],
+["Detectives are trying to ______ what happened.",["figure out","figure on","figure away","figure up"],0,"'figure out'."],
+["Soldiers are expected to ______ orders.",["carry out","carry on","carry up","carry away"],0,"'carry out'."],
+["The police never ______ who stole the painting.",["found up","found out","found off","found back"],1,"'find out'."],
+["The speaker ______ handouts to the audience.",["gave away","gave out","gave up","gave back"],1,"'give out'."],
+["The guide ______ all the historical sites.",["pointed out","pointed up","pointed away","pointed back"],0,"'point out'."],
+["We ______ fuel on the highway.",["ran out","ran out of","ran away from","ran up"],1,"'run out of'."],
+["We've ______ time.",["run out","run out of","run away","run up"],1,"'run out of'."],
+["There are several issues we need to ______.",["sort out","sort off","sort away","sort back"],0,"'sort out'."],
+["Nobody believed Lisa, but she ______ to be right.",["turned up","turned out","turned off","turned away"],1,"'turn out'."],
+["The company is ______ some new software.",["trying out","trying up","trying away","trying back"],0,"'try out'."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — On / Off (Unit 140)", qs:[
-["Shall I leave the lights ______?",["on","in","up","away"],0,"'leave sth on' = để (đèn) bật."],
-["I switched ______ the television because nobody was watching it.",["on","out","off","away"],2,"'switch off' = tắt."],
-["Let's ______ some music.",["put on","put off","put out","put away"],0,"'put on' = bật (nhạc)."],
-["What's ______? Why is everyone shouting?",["going on","going off","going out","going away"],0,"'go on' = xảy ra, diễn ra."],
-["The concert was ______ because of the weather.",["put off","called off","taken off","turned off"],1,"'call off' = hủy bỏ."],
-["We can't ______ making a decision any longer.",["put off","put on","put out","put away"],0,"'put off' = trì hoãn."],
-["I've ______ two kilos in the last month.",["put off","put on","put out","put away"],1,"'put on weight' = tăng cân."],
-["Can I ______ this jacket?",["try on","try out","try off","try away"],0,"'try on' = mặc thử."],
-["It was warm, so I ______ my coat.",["took off","took on","took out","took away"],0,"'take off' = cởi ra."],
-["Tomorrow I'm ______ Paris.",["off to","off at","off with","off into"],0,"'be off to' = sắp đi đến."],
-["We ______ early to avoid the traffic.",["set off","set up","set out of","set on"],0,"'set off' = khởi hành."],
-["We went to the station to ______ Helen ______.",["see / off","see / out","see / away from","see / up"],0,"'see sb off' = tiễn ai."],
-["The plane finally ______.",["took up","took off","took away","took out"],1,"'take off' = cất cánh."]
+{group:"Phrasal Verbs", name:"Phrasal Verbs — On / Off (Unit 140) (2)", qs:[
+["Shall I leave the fan ______?",["on","in","up","away"],0,"'leave on'."],
+["I switched ______ the radio because nobody was listening.",["on","out","off","away"],2,"'switch off'."],
+["Let's ______ some music.",["put on","put off","put out","put away"],0,"'put on'."],
+["What's ______? Why is everyone laughing?",["going on","going off","going out","going away"],0,"'go on'."],
+["The match was ______ because of the rain.",["put off","called off","taken off","turned off"],1,"'call off'."],
+["We can't ______ making a decision any longer.",["put off","put on","put out","put away"],0,"'put off'."],
+["I've ______ three kilos this month.",["put off","put on","put out","put away"],1,"'put on'."],
+["Can I ______ this dress?",["try on","try out","try off","try away"],0,"'try on'."],
+["It was hot, so I ______ my jacket.",["took off","took on","took out","took away"],0,"'take off'."],
+["Tomorrow I'm ______ London.",["off to","off at","off with","off into"],0,"'off to'."],
+["We ______ early to avoid the traffic.",["set off","set up","set out of","set on"],0,"'set off'."],
+["We went to the airport to ______ Lisa ______.",["see / off","see / out","see / away from","see / up"],0,"'see off'."],
+["The plane finally ______.",["took up","took off","took away","took out"],1,"'take off'."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — On / Off (Unit 141)", qs:[
-["The party ______ until four o'clock.",["went on","went off","went out","went away"],0,"'go on' = kéo dài, tiếp diễn."],
-["We can't ______ spending money like this.",["go on","go off","go out","go away"],0,"'go on' = tiếp tục làm gì."],
-["I don't want to ______ working here.",["carry on","carry out","carry off","carry away"],0,"'carry on' = tiếp tục."],
-["Please ______ with what you're doing.",["carry on","carry off","carry away","carry up"],0,"'carry on with' = tiếp tục."],
-["He ______ criticising me.",["keeps on","keeps out","keeps off","keeps back"],0,"'keep on doing' = cứ tiếp tục làm."],
-["Shall we stop here or ______ to the next station?",["drive on","drive off","drive out","drive away from"],0,"'drive on' = tiếp tục lái."],
-["How are you ______ in your new job?",["getting on","getting off","getting away","getting out"],0,"'get on' = tiến triển."],
-["Joanne and Karen don't ______.",["get on","get off","get away","get back"],0,"'get on' = hòa thuận."],
-["I must ______ my work.",["get on with","get off with","get away with","get out with"],0,"'get on with' = tiếp tục làm."],
-["I ______ during the lecture because it was boring.",["dozed off","dozed out","dozed away","dozed back"],0,"'doze off' = ngủ gật."],
-["I'll ______ the last part tomorrow.",["finish off","finish on","finish away","finish up with"],0,"'finish off' = làm nốt."],
-["Did you hear the alarm ______?",["go on","go off","go out","go away"],1,"'go off' = kêu (chuông báo)."],
-["The long queue ______ us ______ going to the exhibition.",["put / off","put / on","put / out","put / away"],0,"'put sb off' = làm ai mất hứng."],
-["I think I was ______ when I bought that painting.",["ripped off","ripped out","ripped away","ripped up"],0,"'rip sb off' = lừa đảo giá."],
-["He's only ______. He wants to impress everyone.",["showing off","showing up","showing away","showing back"],0,"'show off' = khoe khoang."],
-["Clare's mother ______ her ______ for wearing dirty shoes.",["told / off","told / out","told / away","told / back"],0,"'tell sb off' = mắng ai."]
+{group:"Phrasal Verbs", name:"Phrasal Verbs — On / Off (Unit 141) (2)", qs:[
+["The celebration ______ until midnight.",["went on","went off","went out","went away"],0,"'go on'."],
+["We can't ______ wasting money like this.",["go on","go off","go out","go away"],0,"'go on'."],
+["I don't want to ______ working here.",["carry on","carry out","carry off","carry away"],0,"'carry on'."],
+["Please ______ with what you were saying.",["carry on","carry off","carry away","carry up"],0,"'carry on'."],
+["He ______ complaining about the food.",["keeps on","keeps out","keeps off","keeps back"],0,"'keep on'."],
+["Shall we stop here or ______ to the next town?",["drive on","drive off","drive out","drive away from"],0,"'drive on'."],
+["How are you ______ at your new school?",["getting on","getting off","getting away","getting out"],0,"'get on'."],
+["Mark and Lisa don't ______.",["get on","get off","get away","get back"],0,"'get on'."],
+["I must ______ my homework.",["get on with","get off with","get away with","get out with"],0,"'get on with'."],
+["I ______ during the film because it was boring.",["dozed off","dozed out","dozed away","dozed back"],0,"'doze off'."],
+["I'll ______ the last part tomorrow.",["finish off","finish on","finish away","finish up with"],0,"'finish off'."],
+["Did you hear the alarm ______?",["go on","go off","go out","go away"],1,"'go off'."],
+["The long queue ______ us ______ going to the museum.",["put / off","put / on","put / out","put / away"],0,"'put off'."],
+["I think I was ______ when I bought that watch.",["ripped off","ripped out","ripped away","ripped up"],0,"'rip off'."],
+["He's only ______. He wants attention.",["showing off","showing up","showing away","showing back"],0,"'show off'."],
+["Mary's father ______ her ______ for coming home late.",["told / off","told / out","told / away","told / back"],0,"'tell off'."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — Up / Down (Unit 142)", qs:[
-["I ______ a picture on the wall.",["put up","put down","put off","put away"],0,"'put up' = treo lên."],
-["There was a letter on the floor, so I ______ it ______.",["picked / up","picked / off","picked / away","picked / down"],0,"'pick up' = nhặt lên."],
-["Alan ______ and walked out.",["stood up","stood down","stood off","stood away"],0,"'stand up' = đứng dậy."],
-["I can't hear the TV. Can you ______ it ______?",["turn / up","turn / off","turn / away","turn / out"],0,"'turn up' = tăng âm lượng."],
-["I didn't like the picture, so I ______ it ______.",["took / down","took / up","took / away from","took / off"],0,"'take down' = hạ xuống."],
-["I stopped writing and ______ my pen.",["put down","put up","put off","put away"],0,"'put down' = đặt xuống."],
-["I bent ______ to tie my shoelace.",["down","up","off","away"],0,"'bend down' = cúi xuống."],
-["The oven is too hot. ______ it ______ to 150 degrees.",["Turn / down","Turn / up","Turn / off","Turn / away"],0,"'turn down' = giảm."],
-["The old houses were ______ to make way for a new shopping centre.",["knocked down","knocked up","knocked off","knocked away"],0,"'knock down' = đập đổ."],
-["Why did you ______ the tree?",["cut down","cut up","cut off","cut away"],0,"'cut down' = đốn (cây)."],
-["You're driving too fast. ______!",["Slow down","Slow up","Slow off","Slow away"],0,"'slow down' = đi chậm lại."],
-["______. There's no point getting angry.",["Calm down","Calm up","Calm off","Calm away"],0,"'calm down' = bình tĩnh lại."],
-["I'm trying to ______ coffee.",["cut down on","cut down to","cut off with","cut up on"],0,"'cut down on' = giảm bớt."],
-["The car ______ on the motorway.",["broke down","broke up","broke out","broke away"],0,"'break down' = hỏng (xe)."],
-["The company had to ______ several stores.",["close down","close up with","close off with","close away"],0,"'close down' = đóng cửa."],
-["You can always rely on Paul. He'll never ______ you ______.",["let / down","let / off","let / up","let / away"],0,"'let sb down' = làm ai thất vọng."],
-["My application was ______.",["turned down","turned up","turned away from","turned off"],0,"'turn down' = từ chối."],
-["I wrote Ben's address ______, but now I can't find it.",["down","up","off","away"],0,"'write down' = ghi lại."]
+{group:"Phrasal Verbs", name:"Phrasal Verbs — Up / Down (2)", qs:[
+["I ______ a poster on the wall.",["put up","put down","put off","put away"],0,"'put up'."],
+["There was a coin on the floor, so I ______ it ______.",["picked / up","picked / off","picked / away","picked / down"],0,"'pick up'."],
+["Tom ______ and walked out.",["stood up","stood down","stood off","stood away"],0,"'stand up'."],
+["I can't hear the radio. Can you ______ it ______?",["turn / up","turn / off","turn / away","turn / out"],0,"'turn up'."],
+["I didn't like the poster, so I ______ it ______.",["took / down","took / up","took / away from","took / off"],0,"'take down'."],
+["I stopped writing and ______ my pen.",["put down","put up","put off","put away"],0,"'put down'."],
+["I bent ______ to pick up the coin.",["down","up","off","away"],0,"'bend down'."],
+["The oven is too hot. ______ it ______ to 160 degrees.",["Turn / down","Turn / up","Turn / off","Turn / away"],0,"'turn down'."],
+["The old buildings were ______ to build a new mall.",["knocked down","knocked up","knocked off","knocked away"],0,"'knock down'."],
+["Why did you ______ the tree?",["cut down","cut up","cut off","cut away"],0,"'cut down'."],
+["You're driving too fast. ______!",["Slow down","Slow up","Slow off","Slow away"],0,"'slow down'."],
+["______. There's no need to panic.",["Calm down","Calm up","Calm off","Calm away"],0,"'calm down'."],
+["I'm trying to ______ sugar.",["cut down on","cut down to","cut off with","cut up on"],0,"'cut down on'."],
+["The truck ______ on the highway.",["broke down","broke up","broke out","broke away"],0,"'break down'."],
+["The company had to ______ several branches.",["close down","close up with","close off with","close away"],0,"'close down'."],
+["You can always trust Mark. He'll never ______ you ______.",["let / down","let / off","let / up","let / away"],0,"'let down'."],
+["My application was ______.",["turned down","turned up","turned away from","turned off"],0,"'turn down'."],
+["I wrote Tom's address ______, but now I can't find it.",["down","up","off","away"],0,"'write down'."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — Up (1) (Unit 143)", qs:[
-["A man ______ to me and asked for money.",["came up","came down","came away","came off"],0,"'come up to sb' = tiến đến gần ai."],
-["You go on. I'll ______ with you later.",["catch up","catch off","catch out","catch away"],0,"'catch up with' = đuổi kịp."],
-["You're walking too fast. I can't ______ you.",["keep up with","keep out of","keep away from","keep back from"],0,"'keep up with' = theo kịp."],
-["You're doing very well. ______!",["Keep it up","Keep it out","Keep it away","Keep it down"],0,"'keep it up' = tiếp tục phát huy."],
-["The government has ______ a committee.",["set up","set off","set down","set away"],0,"'set up' = thành lập."],
-["Laura ______ photography a few years ago.",["took up","took off","took out","took away"],0,"'take up' = bắt đầu (sở thích)."],
-["We've ______ a meeting for next Monday.",["fixed up","fixed off","fixed away","fixed down"],0,"'fix up' = sắp xếp (cuộc hẹn)."],
-["Amy ______ in Australia.",["grew up","grew out","grew off","grew away"],0,"'grow up' = lớn lên."],
-["Her grandparents ______ her.",["brought up","brought out","brought off","brought away"],0,"'bring up' = nuôi nấng."],
-["Who's going to ______ this mess?",["tidy up","tidy off","tidy away from","tidy down"],0,"'tidy up' = dọn dẹp."],
-["I hate ______ after meals.",["washing up","washing off","washing out","washing away"],0,"'wash up' = rửa bát đĩa."],
-["We couldn't find a hotel and ______ sleeping on a bench.",["ended up","ended off","ended away","ended down"],0,"'end up' = cuối cùng rơi vào tình huống."],
-["Don't ______. Keep trying!",["give up","give out","give away","give back"],0,"'give up' = từ bỏ."],
-["Sue decided to ______ her job.",["give it up","give up it","give it away from","give away it"],0,"'give up' — đại từ chen giữa."],
-["Children under 16 ______ half the population.",["make up","make out","make off","make away"],0,"'make up' = chiếm (tỉ lệ)."],
-["Air is ______ mainly of nitrogen and oxygen.",["made up","made out","made off","made away"],0,"'be made up of' = được tạo thành từ."],
-["The table ______ most of the space in the room.",["took up","took off","took out","took away"],0,"'take up' = chiếm (không gian)."],
-["David didn't ______ last night.",["turn up","turn down","turn off","turn away"],0,"'turn up' = xuất hiện."],
-["We have a lot of vegetables and I want to ______.",["use them up","use up them","use them off","use away them"],0,"'use up' — đại từ chen giữa."]
+{group:"Phrasal Verbs", name:"Phrasal Verbs — Up (1) (2)", qs:[
+["A stranger ______ to me and asked for directions.",["came up","came down","came away","came off"],0,"'come up'."],
+["You go ahead. I'll ______ with you later.",["catch up","catch off","catch out","catch away"],0,"'catch up'."],
+["You're reading too fast. I can't ______ you.",["keep up with","keep out of","keep away from","keep back from"],0,"'keep up with'."],
+["You're doing very well. ______!",["Keep it up","Keep it out","Keep it away","Keep it down"],0,"'keep it up'."],
+["The government has ______ a new committee.",["set up","set off","set down","set away"],0,"'set up'."],
+["Lisa ______ painting a few years ago.",["took up","took off","took out","took away"],0,"'take up'."],
+["We've ______ a meeting for next Tuesday.",["fixed up","fixed off","fixed away","fixed down"],0,"'fix up'."],
+["Mark ______ in Canada.",["grew up","grew out","grew off","grew away"],0,"'grow up'."],
+["His aunt ______ him.",["brought up","brought out","brought off","brought away"],0,"'bring up'."],
+["Who's going to ______ this mess?",["tidy up","tidy off","tidy away from","tidy down"],0,"'tidy up'."],
+["I hate ______ after dinner.",["washing up","washing off","washing out","washing away"],0,"'wash up'."],
+["We couldn't find a hotel and ______ sleeping in the car.",["ended up","ended off","ended away","ended down"],0,"'end up'."],
+["Don't ______. Keep trying!",["give up","give out","give away","give back"],0,"'give up'."],
+["Lisa decided to ______ her job.",["give it up","give up it","give it away from","give away it"],0,"Đại từ chen giữa."],
+["Adults over 60 ______ a quarter of the population.",["make up","make out","make off","make away"],0,"'make up'."],
+["The atmosphere is ______ mainly of nitrogen and oxygen.",["made up","made out","made off","made away"],0,"'be made up of'."],
+["The sofa ______ most of the space in the room.",["took up","took off","took out","took away"],0,"'take up'."],
+["Mark didn't ______ last night.",["turn up","turn down","turn off","turn away"],0,"'turn up'."],
+["We have a lot of food and I want to ______.",["use it up","use up it","use it off","use away it"],0,"Đại từ chen giữa."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — Up (2) (Unit 144)", qs:[
-["I don't want to ______ that subject again.",["bring up","bring out","bring off","bring away"],0,"'bring up' = đề cập (chủ đề)."],
-["Some interesting things ______ in our discussion.",["came up","came off","came down","came away"],0,"'come up' = nảy sinh, xuất hiện."],
-["She's always ______ new ideas.",["coming up with","coming up to","coming out of","coming away from"],0,"'come up with' = nảy ra (ý tưởng)."],
-["He ______ the whole story.",["made up","made out","made off","made away"],0,"'make up' = bịa ra."],
-["You look sad. ______!",["Cheer up","Cheer out","Cheer off","Cheer away"],0,"'cheer up' = vui lên."],
-["What can we do to ______ Helen ______?",["cheer / up","cheer / out","cheer / away","cheer / down"],0,"'cheer sb up' = làm ai vui."],
-["Dan is ______ a trip to New Zealand.",["saving up for","saving off","saving away from","saving down"],0,"'save up for' = tiết kiệm cho."],
-["It was raining when I got up, but it ______ later.",["cleared up","cleared off","cleared away from","cleared down"],0,"'clear up' = quang đãng (trời)."],
-["The engine caught fire and ______.",["blew up","blew out","blew down","blew away"],0,"'blow up' = nổ."],
-["I didn't read the letter. I just ______ it ______.",["tore / up","tore / off","tore / out","tore / away"],0,"'tear up' = xé nát."],
-["My friend was attacked and ______.",["beaten up","beaten out","beaten away","beaten off"],0,"'beat sb up' = đánh đập ai."],
-["Kate and Paul have ______.",["split up","split off","split out","split away"],0,"'split up' = chia tay."],
-["______ your coat before you go outside.",["Do up","Do out","Do away","Do off"],0,"'do up' = cài/kéo khóa."],
-["The kitchen looks great now that it has been ______.",["done up","done out","done off","done away"],0,"'do up' = trang hoàng."],
-["If you don't know the meaning of a word, ______ in a dictionary.",["look it up","look up it","look it out","look out it"],0,"'look up' — đại từ chen giữa."],
-["We live on a busy road, so we have to ______ a lot of noise.",["put up with","put up to","put out with","put away with"],0,"'put up with' = chịu đựng."],
-["I don't want to ______ you ______, so I'll leave now.",["hold / up","hold / off","hold / away","hold / down"],0,"'hold sb up' = giữ chân ai."],
-["People often ______ the two brothers ______.",["mix / up","mix / out","mix / away","mix / down"],0,"'mix sb/sth up' = nhầm lẫn."]
+{group:"Phrasal Verbs", name:"Phrasal Verbs — Up (2) (2)", qs:[
+["I don't want to ______ that topic again.",["bring up","bring out","bring off","bring away"],0,"'bring up'."],
+["Some interesting points ______ in our discussion.",["came up","came off","came down","came away"],0,"'come up'."],
+["She's always ______ new ideas.",["coming up with","coming up to","coming out of","coming away from"],0,"'come up with'."],
+["He ______ the whole story.",["made up","made out","made off","made away"],0,"'make up'."],
+["You look sad. ______!",["Cheer up","Cheer out","Cheer off","Cheer away"],0,"'cheer up'."],
+["What can we do to ______ Lisa ______?",["cheer / up","cheer / out","cheer / away","cheer / down"],0,"'cheer up'."],
+["Mark is ______ a trip to Japan.",["saving up for","saving off","saving away from","saving down"],0,"'save up for'."],
+["It was raining in the morning, but it ______ later.",["cleared up","cleared off","cleared away from","cleared down"],0,"'clear up'."],
+["The boiler caught fire and ______.",["blew up","blew out","blew down","blew away"],0,"'blow up'."],
+["I didn't read the note. I just ______ it ______.",["tore / up","tore / off","tore / out","tore / away"],0,"'tear up'."],
+["My neighbour was attacked and ______.",["beaten up","beaten out","beaten away","beaten off"],0,"'beat up'."],
+["Lisa and Mark have ______.",["split up","split off","split out","split away"],0,"'split up'."],
+["______ your jacket before you go outside.",["Do up","Do out","Do away","Do off"],0,"'do up'."],
+["The bathroom looks great now that it has been ______.",["done up","done out","done off","done away"],0,"'do up'."],
+["If you don't know the meaning of a word, ______ in a dictionary.",["look it up","look up it","look it out","look out it"],0,"Đại từ chen giữa."],
+["We live near a busy road, so we have to ______ a lot of noise.",["put up with","put up to","put out with","put away with"],0,"'put up with'."],
+["I don't want to ______ you ______, so I'll leave now.",["hold / up","hold / off","hold / away","hold / down"],0,"'hold up'."],
+["People often ______ the two sisters ______.",["mix / up","mix / out","mix / away","mix / down"],0,"'mix up'."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — Away / Back (Unit 145)", qs:[
-["We're ______ on holiday today.",["going away","going back","going off with","going out of"],0,"'go away' = đi xa (nghỉ)."],
-["Sarah got into her car and ______.",["drove away","drove back","drove up with","drove out of"],0,"'drive away' = lái đi xa."],
-["The bird flew ______.",["away","back to","up with","off to"],0,"'fly away' = bay đi."],
-["The police searched the house and ______ a computer.",["took away","took back","took up","took off"],0,"'take away' = mang đi."],
-["We tried to catch the thief, but she ______.",["got away","got back","got up","got in"],0,"'get away' = trốn thoát."],
-["I parked illegally, but I ______ it.",["got away with","got away from","got back to","got up with"],0,"'get away with' = thoát tội."],
-["______ from the edge of the pool.",["Keep away","Keep back to","Keep up with","Keep out of"],0,"'keep away from' = tránh xa."],
-["Did you sell your old bike? — No, I ______ it ______ to a friend.",["gave / away","gave / back","gave / up","gave / out"],0,"'give away' = cho tặng."],
-["Please ______ your toys when you've finished playing.",["put away","put back to","put off","put out"],0,"'put away' = cất đi."],
-["I kept the letter but ______ the envelope.",["threw away","threw back","threw up","threw off"],0,"'throw away' = vứt đi."],
-["I waved to her and she ______.",["waved back","waved away","waved off","waved up"],0,"'wave back' = vẫy lại."],
-["I can't talk now. I'll ______ you ______ in ten minutes.",["call / back","call / away","call / up with","call / off"],0,"'call sb back' = gọi lại."],
-["I sent him an email, but he never ______ me.",["got back to","got away with","got up to","got off with"],0,"'get back to sb' = hồi âm."],
-["Looking ______ my childhood, I realise I learnt a lot.",["back on","away from","up to","out of"],0,"'look back on' = nhìn lại."],
-["If you borrow money, you have to ______ it ______.",["pay / back","pay / away","pay / off with","pay / out"],0,"'pay back' = trả lại tiền."],
-["Thanks for lending me the money. I'll ______ you ______ next week.",["pay / back","pay / off","pay / away","pay / out"],0,"'pay sb back' = trả nợ ai."]
+{group:"Phrasal Verbs", name:"Phrasal Verbs — Away / Back (2)", qs:[
+["We're ______ on holiday tomorrow.",["going away","going back","going off with","going out of"],0,"'go away'."],
+["Lisa got into her car and ______.",["drove away","drove back","drove up with","drove out of"],0,"'drive away'."],
+["The bird flew ______.",["away","back to","up with","off to"],0,"'fly away'."],
+["The police searched the house and ______ a laptop.",["took away","took back","took up","took off"],0,"'take away'."],
+["We tried to catch the burglar, but he ______.",["got away","got back","got up","got in"],0,"'get away'."],
+["I parked illegally, but I ______ it.",["got away with","got away from","got back to","got up with"],0,"'get away with'."],
+["______ from the edge of the platform.",["Keep away","Keep back to","Keep up with","Keep out of"],0,"'keep away'."],
+["Did you sell your old car? — No, I ______ it ______ to my cousin.",["gave / away","gave / back","gave / up","gave / out"],0,"'give away'."],
+["Please ______ your books when you've finished reading.",["put away","put back to","put off","put out"],0,"'put away'."],
+["I kept the photo but ______ the frame.",["threw away","threw back","threw up","threw off"],0,"'throw away'."],
+["I waved to her and she ______.",["waved back","waved away","waved off","waved up"],0,"'wave back'."],
+["I can't talk now. I'll ______ you ______ in ten minutes.",["call / back","call / away","call / up with","call / off"],0,"'call back'."],
+["I sent him a message, but he never ______ me.",["got back to","got away with","got up to","got off with"],0,"'get back to sb'."],
+["Looking ______ my childhood, I realise I learnt a lot.",["back on","away from","up to","out of"],0,"'look back on'."],
+["If you borrow money, you have to ______ it ______.",["pay / back","pay / away","pay / off with","pay / out"],0,"'pay back'."],
+["Thanks for lending me the money. I'll ______ you ______ next week.",["pay / back","pay / off","pay / away","pay / out"],0,"'pay back'."]
 ]},
-{group:"Phrasal Verbs", name:"Phrasal Verbs — Mixed Review", qs:[
-["We had to ______ the meeting because the manager was ill.",["call off","call back","call up","call out"],0,"'call off' = hủy."],
-["I don't know the answer, but I'll try to ______ it ______.",["work / out","work / off","work / away","work / back"],0,"'work out' = tìm ra."],
-["She ______ a very interesting suggestion during the meeting.",["came up with","came out of","came away from","came back with"],0,"'come up with' = nảy ra (ý tưởng)."],
-["We've ______ milk. Could you buy some?",["run out of","run away from","run up with","run off"],0,"'run out of' = hết."],
-["He lied to me, but I eventually ______ the truth.",["found out","found up","found away","found back"],0,"'find out' = khám phá."],
-["You should ______ smoking. It's bad for your health.",["give up","give out","give away","give back"],0,"'give up' = bỏ."],
-["I don't know how she can ______ all that noise.",["put up with","put off","put away","put out"],0,"'put up with' = chịu đựng."],
-["The company is trying to ______ a new computer system.",["set up","set off","set down","set away"],0,"'set up' = thiết lập."],
-["He was late because his car ______.",["broke down","broke up","broke out","broke away"],0,"'break down' = hỏng."],
-["I'm not very good at maths, so I need to ______ the answer.",["work out","work on with","work away","work back"],0,"'work out' = tính ra."],
-["Don't ______ the lights. I'm still reading.",["turn off","turn down","turn out","turn away"],0,"'turn off' = tắt."],
-["The job was difficult, but everything eventually ______ well.",["worked out","worked off","worked away","worked back"],0,"'work out' = diễn biến tốt."],
-["I was surprised when John ______ at the party.",["turned up","turned down","turned off","turned away"],0,"'turn up' = xuất hiện."],
-["She decided to ______ photography as a hobby.",["take up","take off","take out","take away"],0,"'take up' = bắt đầu (sở thích)."],
+{group:"Phrasal Verbs", name:"Phrasal Verbs — Mixed Review (2)", qs:[
+["We had to ______ the party because of the storm.",["call off","call back","call up","call out"],0,"'call off'."],
+["I don't know the answer, but I'll try to ______ it ______.",["work / out","work / off","work / away","work / back"],0,"'work out'."],
+["She ______ a brilliant suggestion during the meeting.",["came up with","came out of","came away from","came back with"],0,"'come up with'."],
+["We've ______ eggs. Could you buy some?",["run out of","run away from","run up with","run off"],0,"'run out of'."],
+["He lied to me, but I eventually ______ the truth.",["found out","found up","found away","found back"],0,"'find out'."],
+["You should ______ smoking. It's bad for your health.",["give up","give out","give away","give back"],0,"'give up'."],
+["I don't know how she can ______ all that noise.",["put up with","put off","put away","put out"],0,"'put up with'."],
+["The company is trying to ______ a new computer system.",["set up","set off","set down","set away"],0,"'set up'."],
+["He was late because his car ______.",["broke down","broke up","broke out","broke away"],0,"'break down'."],
+["I'm not very good at maths, so I need to ______ the answer.",["work out","work on with","work away","work back"],0,"'work out'."],
+["Don't ______ the lights. I'm still reading.",["turn off","turn down","turn out","turn away"],0,"'turn off'."],
+["The job was difficult, but everything eventually ______ well.",["worked out","worked off","worked away","worked back"],0,"'work out'."],
+["I was surprised when Mark ______ at the party.",["turned up","turned down","turned off","turned away"],0,"'turn up'."],
+["She decided to ______ photography as a hobby.",["take up","take off","take out","take away"],0,"'take up'."],
 ["I'm looking forward ______ you again.",["to seeing","to see","seeing","for seeing"],0,"'look forward to + V-ing'."],
-["He keeps ______ about his achievements.",["showing off","showing up","showing away","showing back"],0,"'show off' = khoe khoang."],
-["We need to ______ this problem before it gets worse.",["sort out","sort off","sort away","sort back"],0,"'sort out' = giải quyết."],
-["I was tired, so I ______ during the film.",["dozed off","dozed out","dozed away","dozed back"],0,"'doze off' = ngủ gật."],
-["She ______ the invitation because she was too busy.",["turned down","turned up","turned on","turned out"],0,"'turn down' = từ chối."],
-["He made a mistake but managed to ______ it.",["get away with","get away from","get back to","get up with"],0,"'get away with' = thoát khỏi."],
-["Please ______ the information ______. You may need it later.",["write / down","write / up","write / off","write / away"],0,"'write down' = ghi lại."],
-["I couldn't hear him, so I asked him to ______.",["speak up","speak off","speak away","speak back"],0,"'speak up' = nói to hơn."],
-["They ______ after being together for five years.",["split up","split off","split out","split away"],0,"'split up' = chia tay."],
-["The teacher ______ the mistake to the students.",["pointed out","pointed off","pointed away","pointed back"],0,"'point out' = chỉ ra."],
-["I need to ______ this word ______ in the dictionary.",["look / up","look / out","look / away","look / back"],0,"'look up' = tra cứu."],
-["We were delayed because of traffic, but we eventually ______ home.",["got back","got away","got out","got up"],0,"'get back' = trở về."],
-["The children ______ their mother's instructions.",["carried out","carried on","carried away","carried up"],0,"'carry out' = thực hiện."],
-["He ______ an excuse because he didn't want to tell the truth.",["made up","made out","made off","made away"],0,"'make up' = bịa ra."],
-["The hotel was expensive, so we couldn't ______ staying there.",["go on","get by","keep up","get away"],0,"'go on' = tiếp tục."],
-["I've been working all day. I need to ______ for a while.",["slow down","slow up with","slow off","slow away"],0,"'slow down' = nghỉ ngơi."]
+["He keeps ______ about his achievements.",["showing off","showing up","showing away","showing back"],0,"'show off'."],
+["We need to ______ this problem before it gets worse.",["sort out","sort off","sort away","sort back"],0,"'sort out'."],
+["I was tired, so I ______ during the lecture.",["dozed off","dozed out","dozed away","dozed back"],0,"'doze off'."],
+["She ______ the invitation because she was too busy.",["turned down","turned up","turned on","turned out"],0,"'turn down'."],
+["He made a mistake but managed to ______ it.",["get away with","get away from","get back to","get up with"],0,"'get away with'."],
+["Please ______ the information ______. You may need it later.",["write / down","write / up","write / off","write / away"],0,"'write down'."],
+["I couldn't hear him, so I asked him to ______.",["speak up","speak off","speak away","speak back"],0,"'speak up'."],
+["They ______ after being together for ten years.",["split up","split off","split out","split away"],0,"'split up'."],
+["The teacher ______ the mistake to the students.",["pointed out","pointed off","pointed away","pointed back"],0,"'point out'."],
+["I need to ______ this word ______ in the dictionary.",["look / up","look / out","look / away","look / back"],0,"'look up'."],
+["We were delayed because of traffic, but we eventually ______ home.",["got back","got away","got out","got up"],0,"'get back'."],
+["The children ______ their mother's instructions.",["carried out","carried on","carried away","carried up"],0,"'carry out'."],
+["He ______ an excuse because he didn't want to tell the truth.",["made up","made out","made off","made away"],0,"'make up'."],
+["The hotel was expensive, so we couldn't ______ staying there.",["go on","get by","keep up","get away"],0,"'go on'."],
+["I've been working all day. I need to ______ for a while.",["slow down","slow up with","slow off","slow away"],0,"'slow down'."]
 ]},
 
-/* ---------- VERB PATTERNS ---------- */
-{group:"Verb Patterns", name:"Verb Patterns — V + -ing (Unit 53)", qs:[
-["I really enjoy ______ books in my free time.",["read","to read","reading","to reading"],2,"'enjoy + V-ing'."],
-["Would you mind ______ the window?",["close","closing","to close","closed"],1,"'mind + V-ing'."],
-["Chris suggested ______ to the cinema.",["going","to go","go","went"],0,"'suggest + V-ing'."],
-["Suddenly, everybody stopped ______.",["talk","to talk","talking","talked"],2,"'stop + V-ing' = dừng hẳn việc đang làm."],
-["I'll do the shopping when I've finished ______ the flat.",["clean","to clean","cleaning","cleaned"],2,"'finish + V-ing'."],
+/* ========== 3. VERB PATTERNS (220 câu) ========== */
+{group:"Verb Patterns", name:"Verb Patterns — V + -ing (2)", qs:[
+["I really enjoy ______ novels in my free time.",["read","to read","reading","to reading"],2,"'enjoy + V-ing'."],
+["Would you mind ______ the door?",["close","closing","to close","closed"],1,"'mind + V-ing'."],
+["Lisa suggested ______ to the theatre.",["going","to go","go","went"],0,"'suggest + V-ing'."],
+["Suddenly, everyone stopped ______.",["talk","to talk","talking","talked"],2,"'stop + V-ing'."],
+["I'll do the cooking when I've finished ______ the floor.",["clean","to clean","cleaning","cleaned"],2,"'finish + V-ing'."],
 ["He tried to avoid ______ my question.",["answer","answering","to answer","answered"],1,"'avoid + V-ing'."],
-["I don't fancy ______ out this evening.",["go","going","to go","went"],1,"'fancy + V-ing'."],
-["Have you ever considered ______ in another country?",["live","to live","living","lived"],2,"'consider + V-ing'."],
+["I don't fancy ______ out tonight.",["go","going","to go","went"],1,"'fancy + V-ing'."],
+["Have you ever considered ______ in another city?",["live","to live","living","lived"],2,"'consider + V-ing'."],
 ["They denied ______ anything wrong.",["doing","to do","do","done"],0,"'deny + V-ing'."],
 ["I don't mind ______ early tomorrow.",["get up","to get up","getting up","got up"],2,"'mind + V-ing'."],
-["She has given up ______ newspapers.",["buy","to buy","buying","bought"],2,"'give up + V-ing'."],
+["She has given up ______ cigarettes.",["buy","to buy","buying","bought"],2,"'give up + V-ing'."],
 ["You shouldn't put off ______ him what happened.",["tell","to tell","telling","told"],2,"'put off + V-ing'."],
-["Katherine wants to go on ______.",["work","working","to work","worked"],1,"'go on + V-ing' = tiếp tục."],
-["You keep ______ me while I'm talking.",["interrupt","to interrupt","interrupting","interrupted"],2,"'keep + V-ing'."],
+["Mark wants to go on ______.",["work","working","to work","worked"],1,"'go on + V-ing'."],
+["You keep ______ me while I'm speaking.",["interrupt","to interrupt","interrupting","interrupted"],2,"'keep + V-ing'."],
 ["Which sentence is correct?",["I enjoy to read novels.","I enjoy reading novels.","I enjoy read novels.","I enjoy to reading novels."],1,"'enjoy + V-ing'."],
 ["Which is the correct negative form?",["I enjoy not having to get up early.","I enjoy not to have to get up early.","I enjoy don't having to get up early.","I enjoy no have to get up early."],0,"Phủ định: not + V-ing."],
 ["You can't stop people ______ what they want.",["do","to do","doing","done"],2,"'stop sb doing sth'."],
-["I can't imagine George ______ a motorbike.",["ride","riding","to ride","rode"],1,"'imagine + V-ing'."],
+["I can't imagine Mark ______ a motorbike.",["ride","riding","to ride","rode"],1,"'imagine + V-ing'."],
 ["I don't remember her ______ that.",["say","to say","saying","said"],2,"'remember sb doing sth'."],
 ["Sorry to keep you ______ so long.",["wait","to wait","waiting","waited"],2,"'keep sb V-ing'."],
 ["They admitted ______ the money.",["steal","to steal","stealing","stolen"],2,"'admit + V-ing'."],
 ["They admitted ______ the money.",["having stolen","have stolen","to having stolen","having steal"],0,"Perfect gerund: having + V3."],
-["Which is also correct?",["They denied that they had done anything wrong.","They denied to do anything wrong.","They denied do anything wrong.","They denied to doing anything wrong."],0,"'deny that + clause' cũng đúng."],
-["Chris suggested that we ______ to the cinema.",["went","going","go","to go"],2,"'suggest that + S + V (bare)'."]
+["Which is also correct?",["They denied that they had done anything wrong.","They denied to do anything wrong.","They denied do anything wrong.","They denied to doing anything wrong."],0,"'deny that + clause'."],
+["Lisa suggested that we ______ to the theatre.",["went","going","go","to go"],2,"'suggest that + S + V (bare)'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — V + to-infinitive (Unit 54)", qs:[
-["We decided ______ a taxi home.",["take","taking","to take","took"],2,"'decide + to V'."],
-["Simon agreed ______ me.",["help","helping","to help","helped"],2,"'agree + to V'."],
+{group:"Verb Patterns", name:"Verb Patterns — V + to-infinitive (2)", qs:[
+["We decided ______ a bus home.",["take","taking","to take","took"],2,"'decide + to V'."],
+["Mark agreed ______ me.",["help","helping","to help","helped"],2,"'agree + to V'."],
 ["I failed ______ her attention.",["attract","attracting","to attract","attracted"],2,"'fail + to V'."],
-["Dan tends ______ too much.",["talk","talking","to talk","talked"],2,"'tend + to V'."],
+["Tom tends ______ too much.",["talk","talking","to talk","talked"],2,"'tend + to V'."],
 ["How old were you when you learnt ______?",["drive","driving","to drive","drove"],2,"'learn + to V'."],
 ["We decided ______ out because of the weather.",["not go","not going","not to go","don't go"],2,"Phủ định: not to V."],
 ["I promised ______ late.",["not be","not being","not to be","don't be"],2,"'promise not to V'."],
 ["Which verb normally takes -ing, not to-infinitive?",["decide","agree","enjoy","promise"],2,"'enjoy + V-ing'."],
-["Andy suggested ______ for coffee.",["meet","meeting","to meet","met"],1,"'suggest + V-ing'."],
-["Are you thinking of ______ a car?",["buy","buying","to buy","bought"],1,"'think of + V-ing'."],
+["Mark suggested ______ for coffee.",["meet","meeting","to meet","met"],1,"'suggest + V-ing'."],
+["Are you thinking of ______ a house?",["buy","buying","to buy","bought"],1,"'think of + V-ing'."],
 ["I didn't dare ______ him.",["tell","to telling","telling","told"],0,"'dare + bare V'."],
 ["I didn't dare ______ him.",["to tell","telling","told","to telling"],0,"'dare to V'."],
 ["I daren't ______ him what happened.",["to tell","telling","tell","told"],2,"'daren't + bare V'."],
 ["They seem ______ plenty of money.",["have","having","to have","had"],2,"'seem + to V'."],
-["Ann pretended ______ me.",["not see","not to see","not seeing","didn't see"],1,"'pretend not to V'."],
+["Lisa pretended ______ me.",["not see","not to see","not seeing","didn't see"],1,"'pretend not to V'."],
 ["I pretended ______ the newspaper.",["to be reading","reading to be","to reading","be reading"],0,"'pretend to be V-ing'."],
 ["I seem ______ my keys.",["lose","losing","to have lost","have losing"],2,"'seem to have + V3'."],
 ["She claimed ______ me.",["not to have seen","not having see","to not seeing","not see"],0,"'claim not to have + V3'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — Question word + to", qs:[
-["We asked ______ to get to the station.",["what","how","which","who"],1,"'how to get' = cách đi đến."],
-["Have you decided ______ on holiday?",["what to go","where to go","where going","to where go"],1,"'where to go' = đi đâu."],
+{group:"Verb Patterns", name:"Verb Patterns — Question word + to (2)", qs:[
+["We asked ______ to get to the airport.",["what","how","which","who"],1,"'how to get'."],
+["Have you decided ______ on holiday?",["what to go","where to go","where going","to where go"],1,"'where to go'."],
 ["I don't know ______.",["what to do","what do","what doing","to what do"],0,"'what to do'."],
 ["Do you understand ______ the application?",["how to complete","how complete","how completing","to how complete"],0,"'how to complete'."],
 ["She explained ______ the machine.",["how to use","how use","how using","to how use"],0,"'how to use'."],
 ["Can you tell me ______?",["what to do","what do","what doing","to what do"],0,"'what to do'."],
-["Ask Jack. He'll tell you ______.",["what do","what to do","to what do","what doing"],1,"'what to do'."]
+["Ask Mark. He'll tell you ______.",["what do","what to do","to what do","what doing"],1,"'what to do'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — V + O + to (Unit 55)", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — V + O + to (2)", qs:[
 ["I want ______ with us.",["you come","you to come","you coming","that you come"],1,"'want sb to V'."],
-["We expected Dan ______ late.",["be","being","to be","was"],2,"'expect sb to V'."],
+["We expected Mark ______ late.",["be","being","to be","was"],2,"'expect sb to V'."],
 ["Would you like ______ with me?",["me to go","me go","me going","that I go"],0,"'would like sb to V'."],
 ["He doesn't want anybody ______.",["know","knowing","to know","knew"],2,"'want sb to V'."],
 ["Can you help me ______ this table?",["move","to move","either A or B","moving only"],2,"'help sb (to) V'."],
 ["I wouldn't advise you ______ there.",["stay","staying","to stay","stayed"],2,"'advise sb to V'."],
-["Can you remind me ______ Sam tomorrow?",["call","calling","to call","called"],2,"'remind sb to V'."],
+["Can you remind me ______ Mark tomorrow?",["call","calling","to call","called"],2,"'remind sb to V'."],
 ["The teacher warned us ______ the switch.",["not touch","not touching","not to touch","don't touch"],2,"'warn sb not to V'."],
 ["My parents encouraged me ______ harder.",["study","studying","to study","studied"],2,"'encourage sb to V'."],
 ["They persuaded him ______ the job.",["accept","accepting","to accept","accepted"],2,"'persuade sb to V'."],
 ["Who taught you ______?",["drive","driving","to drive","drove"],2,"'teach sb to V'."],
 ["They don't allow people ______ here.",["park","parking","to park","parked"],2,"'allow sb to V'."],
-["Jane suggested ______ for advice.",["me to ask you","that I ask you","me asking you","that I to ask you"],1,"'suggest that + S + V'."],
-["Which sentence is correct?",["Jane suggested me to ask you.","Jane suggested to me ask you.","Jane suggested that I ask you.","Jane suggested me ask you."],2,"'suggest that + S + V'."]
+["Lisa suggested ______ for advice.",["me to ask you","that I ask you","me asking you","that I to ask you"],1,"'suggest that + S + V'."],
+["Which sentence is correct?",["Lisa suggested me to ask you.","Lisa suggested to me ask you.","Lisa suggested that I ask you.","Lisa suggested me ask you."],2,"'suggest that + S + V'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — make / let", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — make / let (2)", qs:[
 ["The teacher made us ______ for an hour.",["wait","to wait","waiting","waited"],0,"'make sb + bare V'."],
-["Hot weather makes me ______ tired.",["feel","to feel","feeling","felt"],0,"'make sb + bare V'."],
+["Cold weather makes me ______ tired.",["feel","to feel","feeling","felt"],0,"'make sb + bare V'."],
 ["Her parents wouldn't let her ______ out alone.",["go","to go","going","went"],0,"'let sb + bare V'."],
 ["Let me ______ your bag.",["carry","to carry","carrying","carried"],0,"'let sb + bare V'."],
-["We were made ______ for two hours.",["wait","waiting","to wait","waited"],2,"Câu bị động: 'be made to V'."],
+["We were made ______ for two hours.",["wait","waiting","to wait","waited"],2,"Bị động: 'be made to V'."],
 ["Which is correct?",["They made him to apologise.","They made him apologising.","They made him apologise.","They made him apologised."],2,"'make sb + bare V'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — remember / regret / go on (Unit 56)", qs:[
-["I clearly remember ______ the door.",["lock","locking","to lock","locked"],1,"'remember + V-ing' = nhớ đã làm."],
-["Remember ______ some bananas.",["buy","buying","to buy","bought"],2,"'remember + to V' = nhớ phải làm."],
+{group:"Verb Patterns", name:"Verb Patterns — remember / regret / go on (2)", qs:[
+["I clearly remember ______ the door.",["lock","locking","to lock","locked"],1,"'remember + V-ing'."],
+["Remember ______ some bananas.",["buy","buying","to buy","bought"],2,"'remember + to V'."],
 ["I remembered ______ the door, so I locked it.",["to lock","locking","lock","locked"],0,"'remember to V'."],
 ["I forgot ______ the windows.",["shut","shutting","to shut","shut to"],2,"'forget + to V'."],
-["I regret ______ what I said.",["say","saying","to say","said"],1,"'regret + V-ing' = hối tiếc đã làm."],
-["I regret ______ you that your application was unsuccessful.",["tell","telling","to tell","told"],2,"'regret + to V' = tiếc phải thông báo."],
+["I regret ______ what I said.",["say","saying","to say","said"],1,"'regret + V-ing'."],
+["I regret ______ you that your application was unsuccessful.",["tell","telling","to tell","told"],2,"'regret + to V'."],
 ["Do you regret not ______ to college?",["go","going","to go","went"],1,"'regret not V-ing'."],
-["The president paused and then went on ______.",["talk","to talk","talking","talked"],1,"'go on to V' = chuyển sang việc mới."],
-["We can't go on ______ like this.",["live","to live","living","lived"],2,"'go on + V-ing' = tiếp tục."],
+["The president paused and then went on ______.",["talk","to talk","talking","talked"],1,"'go on to V'."],
+["We can't go on ______ like this.",["live","to live","living","lived"],2,"'go on + V-ing'."],
 ["After discussing the economy, he went on ______ about foreign policy.",["talk","talking","to talk","talked"],2,"'go on to V'."],
 ["Which sentence means continue doing the same thing?",["He went on to talk.","He went on talking.","He went to talk on.","He continued to talked."],1,"'go on + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — Không khác nghĩa", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — Không khác nghĩa (2)", qs:[
 ["It started ______.",["raining","to rain","either A or B","rain"],2,"'start + V-ing / to V'."],
-["Andy intends ______ a house.",["buy","buying","to buy","bought"],2,"'intend + to V'."],
-["Andy intends ______ a house.",["buying","to buying","buy","bought"],0,"'intend + V-ing' cũng được."],
+["Mark intends ______ a house.",["buy","buying","to buy","bought"],2,"'intend + to V'."],
+["Mark intends ______ a house.",["buying","to buying","buy","bought"],0,"'intend + V-ing'."],
 ["Don't bother ______ the door.",["lock","locking","to lock","B or C"],3,"'bother + V-ing / to V'."],
 ["Normally, we don't say:",["It's starting to rain.","It started raining.","It's starting raining.","It started to rain."],2,"'start + V-ing' không dùng ở tiếp diễn."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — try (Unit 57)", qs:[
-["I tried ______ my eyes open, but I couldn't.",["keep","keeping","to keep","kept"],2,"'try to V' = cố gắng làm."],
+{group:"Verb Patterns", name:"Verb Patterns — try (2)", qs:[
+["I tried ______ my eyes open, but I couldn't.",["keep","keeping","to keep","kept"],2,"'try to V'."],
 ["Please try ______ quiet.",["be","being","to be","been"],2,"'try to be'."],
 ["These cakes look delicious. You should try ______.",["one","to one","trying one only","one to try"],0,"'try + N'."],
-["The photocopier isn't working. Try ______ the green button.",["press","pressing","to pressing","pressed"],1,"'try + V-ing' = thử làm."],
-["I tried ______ the table, but it was too heavy.",["moving","to move","move","moved"],1,"'try to V' = cố gắng."],
+["The photocopier isn't working. Try ______ the green button.",["press","pressing","to pressing","pressed"],1,"'try + V-ing'."],
+["I tried ______ the table, but it was too heavy.",["moving","to move","move","moved"],1,"'try to V'."],
 ["I didn't like the furniture arrangement, so I tried ______ the table.",["move","to move","moving","moved"],2,"'try + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — need", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — need (2)", qs:[
 ["I need ______ harder.",["work","working","to work","worked"],2,"'need + to V'."],
 ["My phone needs ______.",["charge","charging","to charging","charged"],1,"'need + V-ing'."],
 ["My phone needs ______.",["to be charged","to charging","charge","being charge"],0,"'need to be + V3'."],
 ["Does your suit need ______?",["clean","cleaning","to cleaning","cleaned"],1,"'need + V-ing'."],
 ["This problem needs ______ carefully.",["thinking about","to thinking about","think about","thought about"],0,"'need + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — help / can't help", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — help / can't help (2)", qs:[
 ["Everybody helped ______ after the party.",["to clean up","clean up","A or B","cleaning up only"],2,"'help + (to) V'."],
 ["Can you help me ______ this table?",["move","to move","A or B","moving"],2,"'help sb (to) V'."],
 ["I can't help ______ sorry for him.",["feel","to feel","feeling","felt"],2,"'can't help + V-ing'."],
 ["She couldn't help ______.",["laugh","laughing","to laugh","laughed"],1,"'can't help + V-ing'."],
 ["I can't help it. I can't help ______ nervous.",["be","being","to be","been"],1,"'can't help + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — like / love / hate (Unit 58)", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — like / love / hate (2)", qs:[
 ["Do you like ______ up early?",["get","getting","to getting","got"],1,"'like + V-ing'."],
-["Stephanie hates ______.",["fly","flying","to flying","flew"],1,"'hate + V-ing'."],
+["Lisa hates ______.",["fly","flying","to flying","flew"],1,"'hate + V-ing'."],
 ["I love ______ new people.",["meet","meeting","to meeting","met"],1,"'love + V-ing'."],
-["Paul lives in Berlin and likes ______ there.",["live","to live","living","lived"],2,"'like + V-ing'."],
+["Mark lives in Berlin and likes ______ there.",["live","to live","living","lived"],2,"'like + V-ing'."],
 ["I like ______ the kitchen. I actually enjoy it.",["clean","to clean","cleaning","cleaned"],2,"'like + V-ing'."],
 ["It's not my favourite job, but I like ______ the kitchen regularly.",["clean","cleaning","to clean","cleaned"],2,"'like + to V'."],
 ["I enjoy ______ the kitchen.",["clean","to clean","cleaning","cleaned"],2,"'enjoy + V-ing'."],
 ["I don't mind ______ the kitchen.",["clean","to clean","cleaning","cleaned"],2,"'mind + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — would like / would love / would hate", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — would like / would love / would hate (2)", qs:[
 ["I'd like ______ away for a few days.",["go","going","to go","went"],2,"'would like + to V'."],
 ["What would you like ______ this evening?",["do","doing","to do","did"],2,"'would like + to V'."],
 ["I'd love ______ your family.",["meet","meeting","to meet","met"],2,"'would love + to V'."],
@@ -862,14 +832,14 @@ const T = [
 ["I'd love ______ to the party, but it was impossible.",["go","going","to have gone","to going"],2,"'would love to have + V3'."],
 ["I would hate ______ in his position.",["be","being","to have been","have being"],2,"'would hate to have been'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — prefer (Unit 59)", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — prefer (2)", qs:[
 ["I prefer ______ in the country.",["live","to live","living","B or C"],3,"'prefer + to V / V-ing'."],
 ["I prefer driving ______ travelling by train.",["than","to","from","with"],1,"'prefer A to B'."],
 ["I prefer driving rather than ______ by train.",["travel","travelling","to travel","travelled"],1,"'prefer V-ing rather than V-ing'."],
 ["I prefer ______ rather than ______ by train.",["drive / travel","driving / travelling","to drive / travel","both B and C"],3,"'prefer to V rather than V'."],
 ["Which is correct?",["I prefer this coat than the other one.","I prefer this coat to the other one.","I prefer this coat from the other one.","I prefer this coat with the other one."],1,"'prefer sth to sth'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — would prefer / would rather", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — would prefer / would rather (2)", qs:[
 ["'Tea or coffee?' 'I'd prefer ______.'",["coffee","drinking coffee","to coffee","drink coffee"],0,"'would prefer + N'."],
 ["I'd prefer ______ at home tonight.",["stay","staying","to stay","stayed"],2,"'would prefer + to V'."],
 ["I'd rather ______ at home tonight.",["stay","to stay","staying","stayed"],0,"'would rather + bare V'."],
@@ -878,43 +848,43 @@ const T = [
 ["Which is correct?",["I'd rather to drive.","I'd rather driving.","I'd rather drive.","I'd rather drove."],2,"'would rather + bare V'."],
 ["Which is correct?",["I'd prefer drive.","I'd prefer to drive.","I'd prefer driving only.","I'd prefer drove."],1,"'would prefer + to V'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — would rather + somebody", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — would rather + somebody (2)", qs:[
 ["I'd rather you ______.",["drove","drive","to drive","driving"],0,"'would rather + S + V (past)'."],
 ["I'd rather you ______ dinner now.",["make","made","to make","making"],1,"'would rather you + V (past)'."],
 ["I'd rather you ______ anyone what I said.",["don't tell","didn't tell","not tell","not to tell"],1,"'would rather you didn't + V'."],
 ["'Are you going to tell Anna?' 'No. I'd rather she ______.'",["didn't know","doesn't know","not know","wouldn't know"],0,"'would rather + S + V (past)'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — Preposition + -ing (Unit 60)", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — Preposition + -ing (2)", qs:[
 ["Are you interested ______ English?",["learn","to learn","in learning","in to learn"],2,"'interested in + V-ing'."],
 ["I'm not good ______ languages.",["at learning","to learn","at to learn","in learn"],0,"'good at + V-ing'."],
-["Kate must be fed up ______ at home all the time.",["stay","staying","to stay","stayed"],1,"'fed up with + V-ing'."],
+["Lisa must be fed up ______ at home all the time.",["stay","staying","to stay","stayed"],1,"'fed up with + V-ing'."],
 ["What are the advantages ______ a car?",["of having","to have","of have","for having"],0,"'advantage of + V-ing'."],
 ["Thanks very much ______ me to your party.",["for inviting","to invite","for invite","about inviting"],0,"'thanks for + V-ing'."],
 ["Why don't you go out ______ at home all the time?",["instead of stay","instead of staying","instead to stay","instead staying"],1,"'instead of + V-ing'."],
-["Before ______ out, I phoned Sarah.",["go","going","to go","went"],1,"'before + V-ing'."],
+["Before ______ out, I phoned Lisa.",["go","going","to go","went"],1,"'before + V-ing'."],
 ["What did you do after ______ school?",["leave","leaving","to leave","left"],1,"'after + V-ing'."],
 ["You can improve your English ______ more.",["by reading","by read","to reading","with read"],0,"'by + V-ing'."],
 ["She made herself ill ______ properly.",["by not eating","by not eat","without eat","to not eating"],0,"'by not + V-ing'."],
 ["We ran ten kilometres without ______.",["stop","stopping","to stop","stopped"],1,"'without + V-ing'."],
 ["I said it without ______.",["think","thinking","to think","thought"],1,"'without + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — to + -ing", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — to + -ing (2)", qs:[
 ["Are you looking forward to ______ on holiday?",["go","going","to go","went"],1,"'look forward to + V-ing'."],
 ["I'm fed up with ______ by train.",["travel","travelling","to travel","travelled"],1,"'fed up with + V-ing'."],
 ["How about ______ away this weekend?",["go","going","to go","went"],1,"'how about + V-ing'."],
 ["I prefer driving to ______ by train.",["travel","travelling","to travel","travelled"],1,"'prefer A to B'."],
 ["Which sentence is correct?",["I'm looking forward to meet you.","I'm looking forward to meeting you.","I'm looking forward meeting you.","I'm looking forward to met you."],1,"'look forward to + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — be/get used to (Unit 61)", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — be/get used to (2)", qs:[
 ["Lisa wasn't used to ______ on the left.",["drive","driving","to drive","drove"],1,"'be used to + V-ing'."],
 ["Now she is used to ______ on the left.",["drive","driving","to drive","drove"],1,"'be used to + V-ing'."],
 ["You'll soon get used to ______ here.",["live","living","to live","lived"],1,"'get used to + V-ing'."],
 ["I'm used to ______ alone.",["live","living","to live","lived"],1,"'be used to + V-ing'."],
 ["We're not used to ______ so much noise.",["have","having","to have","had"],1,"'be used to + V-ing'."],
-["Katherine is used to her husband ______ away.",["be","being","to be","been"],1,"'used to sb V-ing'."],
+["Lisa is used to her husband ______ away.",["be","being","to be","been"],1,"'used to sb V-ing'."],
 ["Which is correct?",["I'm used to live here.","I'm used to living here.","I'm used to to live here.","I'm used living here."],1,"'be used to + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — used to vs be used to", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — used to vs be used to (2)", qs:[
 ["I ______ drive to work every day, but now I go by bike.",["am used to","used to","get used to","use to"],1,"'used to + bare V'."],
 ["I live in Britain, so I'm ______ driving on the left.",["used to","used to drive","use to","used driving"],0,"'be used to + V-ing'."],
 ["We ______ live outside the town, but now we live near the centre.",["are used to","used to","get used to","are use to"],1,"'used to + bare V'."],
@@ -922,17 +892,17 @@ const T = [
 ["Which sentence means 'Tôi từng làm việc đó trong quá khứ nhưng bây giờ không còn làm nữa'?",["I am used to doing it.","I get used to doing it.","I used to do it.","I was used to do it."],2,"'used to + V'."],
 ["Which sentence means 'Việc đó không còn lạ đối với tôi'?",["I used to do it.","I am used to doing it.","I use to do it.","I used doing it."],1,"'be used to + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — V + preposition + -ing (Unit 62)", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — V + preposition + -ing (2)", qs:[
 ["He doesn't approve ______.",["of swear","of swearing","to swearing","of to swear"],1,"'approve of + V-ing'."],
 ["We have decided ______ London.",["against moving to","against move to","against to move","against moved to"],0,"'decide against + V-ing'."],
 ["I wouldn't dream ______ them for money.",["of asking","to ask","of ask","about ask"],0,"'dream of + V-ing'."],
 ["I don't feel ______ tonight.",["like going out","like go out","to go out","like to go out"],0,"'feel like + V-ing'."],
 ["They insisted ______ the meal.",["on pay","on paying for","to paying","on to pay"],1,"'insist on + V-ing'."],
 ["Are you looking forward ______?",["to go away","to going away","to gone away","going away"],1,"'look forward to + V-ing'."],
-["Has Paul succeeded ______ a job?",["in finding","to find","in find","at finding"],0,"'succeed in + V-ing'."],
+["Has Mark succeeded ______ a job?",["in finding","to find","in find","at finding"],0,"'succeed in + V-ing'."],
 ["I'm thinking ______ a house.",["of buying","to buy","of buy","about to buy"],0,"'think of + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — object + prep + -ing", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — object + prep + -ing (2)", qs:[
 ["He accused me ______.",["of lying","to lie","of lie","for lying"],0,"'accuse sb of + V-ing'."],
 ["We congratulated Lisa ______ the first prize.",["on winning","to win","on win","for winning"],0,"'congratulate sb on + V-ing'."],
 ["What prevented you ______ us?",["from coming to see","to come to see","from come to see","of coming to see"],0,"'prevent sb from + V-ing'."],
@@ -944,7 +914,7 @@ const T = [
 ["He accused me ______ the truth.",["of not telling","not to tell","of not tell","for not telling"],0,"'accuse sb of not + V-ing'."],
 ["We were accused ______.",["of lying","to lie","of lie","for lie"],0,"'be accused of + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — no point / no use / worth (Unit 63)", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — no point / no use / worth (2)", qs:[
 ["There's no point ______ a car if you never use it.",["have","having","to have","had"],1,"'there's no point (in) + V-ing'."],
 ["It's no use ______ about what happened.",["worry","worrying","to worry","worried"],1,"'it's no use + V-ing'."],
 ["It's no good ______ to persuade me.",["try","trying","to try","tried"],1,"'it's no good + V-ing'."],
@@ -954,25 +924,25 @@ const T = [
 ["It's a great movie. It's worth ______.",["see","seeing","to see","seen"],1,"'be worth + V-ing'."],
 ["It's an interesting idea. It's worth ______ about.",["think","thinking","to think","thought"],1,"'be worth + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — trouble / difficulty / problem", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — trouble / difficulty / problem (2)", qs:[
 ["I had no trouble ______ a place to stay.",["find","finding","to find","found"],1,"'have trouble + V-ing'."],
 ["Did you have a problem ______ a visa?",["get","getting","to get","got"],1,"'have a problem + V-ing'."],
 ["People sometimes have difficulty ______ my writing.",["read","reading","to read","readed"],1,"'have difficulty + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — spend / waste / busy", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — spend / waste / busy (2)", qs:[
 ["He spent hours ______ to repair the clock.",["try","trying","to try","tried"],1,"'spend time + V-ing'."],
 ["I waste a lot of time ______ nothing.",["do","doing","to do","done"],1,"'waste time + V-ing'."],
 ["She was too busy ______ other things.",["do","doing","to doing","did"],1,"'busy + V-ing'."],
 ["She said she couldn't meet me because she was busy ______.",["work","working","to work","worked"],1,"'busy + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — go + -ing", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — go + -ing (2)", qs:[
 ["How often do you go ______?",["swim","swimming","to swim","swam"],1,"'go swimming'."],
 ["We went ______ last year.",["ski","skiing","to skiing","skied"],1,"'go skiing'."],
 ["I've never been ______.",["sail","sailing","to sail","sailed"],1,"'go sailing'."],
-["Tom isn't here. He's gone ______.",["shop","shopping","to shopping","shopped"],1,"'go shopping'."],
+["Mark isn't here. He's gone ______.",["shop","shopping","to shopping","shopped"],1,"'go shopping'."],
 ["Which is correct?",["go to swimming","go swimming","go to swim only","go swiming"],1,"'go + V-ing'."]
 ]},
-{group:"Verb Patterns", name:"Verb Patterns — Mixed Review", qs:[
+{group:"Verb Patterns", name:"Verb Patterns — Mixed Review (2)", qs:[
 ["I remember ______ this film before.",["see","seeing","to see","seen"],1,"'remember + V-ing'."],
 ["Remember ______ the door when you leave.",["lock","locking","to lock","locked"],2,"'remember + to V'."],
 ["I regret ______ him the truth.",["tell","telling","to telling","told"],1,"'regret + V-ing'."],
@@ -995,43 +965,43 @@ const T = [
 ["There's no point ______ about it now.",["worry","worrying","to worry","worried"],1,"'no point (in) + V-ing'."]
 ]},
 
-/* ---------- PARTICIPLES ---------- */
-{group:"Participles", name:"Participles — V-ing (hiện tại phân từ)", qs:[
-["The girl ______ next to Tom is my sister.",["sit","sitting","sat","sits"],1,"Rút gọn MĐQH chủ động: V-ing."],
-["The man ______ a blue jacket is our teacher.",["wearing","worn","wear","wore"],0,"Chủ động → V-ing."],
-["The children ______ in the garden are my cousins.",["played","playing","play","are played"],1,"Chủ động → V-ing."],
-["The woman ______ to the manager is my mother.",["talked","talking","talks","talk"],1,"Chủ động → V-ing."],
-["The boy ______ over there is my brother.",["stand","stood","standing","stands"],2,"Chủ động → V-ing."],
-["I saw a dog ______ across the road.",["run","ran","running","runs"],2,"Sau động từ tri giác + V-ing."],
-["The students ______ for the exam looked nervous.",["preparing","prepared","prepare","were prepared"],0,"Chủ động → V-ing."],
-["The people ______ outside are waiting for the bus.",["stood","standing","stand","are stood"],1,"Chủ động → V-ing."],
-["She watched the birds ______ in the sky.",["fly","flying","flew","flies"],1,"Sau 'watch' + V-ing."],
-["The man ______ a newspaper is my grandfather.",["read","reading","reads","was read"],1,"Chủ động → V-ing."],
-["The woman ______ the piano is very talented.",["played","playing","plays","is played"],1,"Chủ động → V-ing."],
-["We saw several tourists ______ photographs.",["taking","taken","took","take"],0,"Chủ động → V-ing."],
-["The students ______ in the classroom are waiting for their teacher.",["studied","studying","study","were studied"],1,"Chủ động → V-ing."],
-["The dog ______ behind the house belongs to my neighbour.",["sleeping","slept","sleeps","is slept"],0,"Chủ động → V-ing."],
-["I noticed a man ______ at us.",["looked","looking","looks","is looked"],1,"Chủ động → V-ing."],
+/* ========== 4. PARTICIPLES (150 câu) ========== */
+{group:"Participles", name:"Participles — V-ing (2)", qs:[
+["The boy ______ next to Lisa is my cousin.",["sit","sitting","sat","sits"],1,"Rút gọn MĐQH chủ động: V-ing."],
+["The woman ______ a red coat is our principal.",["wearing","worn","wear","wore"],0,"Chủ động → V-ing."],
+["The children ______ in the yard are my neighbours.",["played","playing","play","are played"],1,"Chủ động → V-ing."],
+["The man ______ to the doctor is my father.",["talked","talking","talks","talk"],1,"Chủ động → V-ing."],
+["The girl ______ over there is my classmate.",["stand","stood","standing","stands"],2,"Chủ động → V-ing."],
+["I saw a cat ______ across the street.",["run","ran","running","runs"],2,"Sau động từ tri giác + V-ing."],
+["The students ______ for the test looked nervous.",["preparing","prepared","prepare","were prepared"],0,"Chủ động → V-ing."],
+["The people ______ outside are waiting for the doctor.",["stood","standing","stand","are stood"],1,"Chủ động → V-ing."],
+["She watched the children ______ in the pool.",["swim","swimming","swam","swims"],1,"Sau 'watch' + V-ing."],
+["The man ______ a magazine is my uncle.",["read","reading","reads","was read"],1,"Chủ động → V-ing."],
+["The woman ______ the violin is very talented.",["played","playing","plays","is played"],1,"Chủ động → V-ing."],
+["We saw several visitors ______ photos.",["taking","taken","took","take"],0,"Chủ động → V-ing."],
+["The students ______ in the hall are waiting for their teacher.",["studied","studying","study","were studied"],1,"Chủ động → V-ing."],
+["The cat ______ under the table belongs to my neighbour.",["sleeping","slept","sleeps","is slept"],0,"Chủ động → V-ing."],
+["I noticed a woman ______ at us.",["looked","looking","looks","is looked"],1,"Chủ động → V-ing."],
 ["The people ______ in the queue were very patient.",["waited","waiting","wait","were waited"],1,"Chủ động → V-ing."],
-["The child ______ with a ball is my nephew.",["played","playing","plays","was played"],1,"Chủ động → V-ing."],
+["The boy ______ with a kite is my nephew.",["played","playing","plays","was played"],1,"Chủ động → V-ing."],
 ["She heard someone ______ outside.",["shouted","shouting","shouts","was shouted"],1,"Chủ động → V-ing."],
-["The workers ______ on the road were repairing a bridge.",["worked","working","work","were worked"],1,"Chủ động → V-ing."],
+["The workers ______ on the bridge were repairing it.",["worked","working","work","were worked"],1,"Chủ động → V-ing."],
 ["The man ______ to the police was arrested.",["talking","talked","talks","was talked"],0,"Chủ động → V-ing."],
 ["The woman ______ at the reception desk can help you.",["sitting","sat","sits","is sat"],0,"Chủ động → V-ing."],
 ["I found some children ______ football in the park.",["played","playing","play","were played"],1,"Chủ động → V-ing."],
 ["The students ______ around the table were discussing the problem.",["sitting","sat","sit","were sat"],0,"Chủ động → V-ing."],
 ["We saw a man ______ towards the station.",["walked","walking","walks","was walked"],1,"Chủ động → V-ing."],
-["The girl ______ a red dress won the competition.",["worn","wearing","wore","wears"],1,"Chủ động → V-ing."]
+["The girl ______ a blue dress won the competition.",["worn","wearing","wore","wears"],1,"Chủ động → V-ing."]
 ]},
-{group:"Participles", name:"Participles — V3/-ed (quá khứ phân từ)", qs:[
-["The car ______ in Japan is very expensive.",["making","made","make","makes"],1,"Bị động → V3."],
+{group:"Participles", name:"Participles — V3/-ed (2)", qs:[
+["The car ______ in Germany is very expensive.",["making","made","make","makes"],1,"Bị động → V3."],
 ["The letters ______ yesterday have already arrived.",["sending","sent","send","sends"],1,"Bị động → V3."],
 ["The house ______ by my grandfather is over 100 years old.",["building","built","build","builds"],1,"Bị động → V3."],
 ["The books ______ on the table belong to me.",["putting","put","puts","were putting"],1,"Bị động → V3."],
-["The cake ______ by Mary was delicious.",["making","made","make","makes"],1,"Bị động → V3."],
+["The cake ______ by Lisa was delicious.",["making","made","make","makes"],1,"Bị động → V3."],
 ["The documents ______ by the manager were confidential.",["signing","signed","sign","signs"],1,"Bị động → V3."],
 ["The money ______ from the bank was recovered.",["stealing","stolen","stole","steals"],1,"Bị động → V3."],
-["The painting ______ by Picasso was sold for millions of dollars.",["painting","painted","paint","paints"],1,"Bị động → V3."],
+["The painting ______ by Picasso was sold for millions.",["painting","painted","paint","paints"],1,"Bị động → V3."],
 ["The food ______ in this restaurant is excellent.",["serving","served","serve","serves"],1,"Bị động → V3."],
 ["The window ______ by the children needs to be repaired.",["breaking","broken","broke","breaks"],1,"Bị động → V3."],
 ["The computer ______ yesterday is working perfectly now.",["repairing","repaired","repair","repairs"],1,"Bị động → V3."],
@@ -1048,14 +1018,14 @@ const T = [
 ["The email ______ this morning contained important information.",["receiving","received","receive","receives"],1,"Bị động → V3."],
 ["The students ______ in the competition were given prizes.",["participating","participated","participate","were participated"],0,"Chủ động → V-ing."],
 ["The stolen car ______ by the police was returned to its owner.",["finding","found","find","finds"],1,"Bị động → V3."],
-["The song ______ by Adele became very popular.",["singing","sung","sang","sings"],1,"Bị động → V3 (sing - sang - sung)."]
+["The song ______ by Adele became very popular.",["singing","sung","sang","sings"],1,"Bị động → V3 (sing-sang-sung)."]
 ]},
-{group:"Participles", name:"Participles — Tính từ đuôi -ing / -ed", qs:[
-["The movie was very ______.",["bored","boring","bore","boredom"],1,"V-ing miêu tả tính chất sự vật."],
-["I was ______ by the movie.",["boring","bored","bore","boredom"],1,"V3/-ed miêu tả cảm xúc người."],
-["The lesson was ______.",["confused","confusing","confuse","confusion"],1,"V-ing miêu tả tính chất."],
+{group:"Participles", name:"Participles — Tính từ đuôi -ing / -ed (2)", qs:[
+["The film was very ______.",["bored","boring","bore","boredom"],1,"V-ing miêu tả tính chất sự vật."],
+["I was ______ by the film.",["boring","bored","bore","boredom"],1,"V3/-ed miêu tả cảm xúc người."],
+["The lecture was ______.",["confused","confusing","confuse","confusion"],1,"V-ing miêu tả tính chất."],
 ["The students were ______ by the difficult question.",["confusing","confused","confuse","confusion"],1,"V3/-ed miêu tả cảm xúc."],
-["The football match was really ______.",["excited","exciting","excite","excitement"],1,"V-ing miêu tả tính chất."],
+["The basketball match was really ______.",["excited","exciting","excite","excitement"],1,"V-ing miêu tả tính chất."],
 ["The fans were very ______.",["exciting","excited","excite","excitement"],1,"V3/-ed miêu tả cảm xúc."],
 ["The news was ______.",["surprised","surprising","surprise","surprisingly"],1,"V-ing miêu tả tính chất."],
 ["We were ______ by the news.",["surprising","surprised","surprise","surprisingly"],1,"V3/-ed miêu tả cảm xúc."],
@@ -1082,15 +1052,15 @@ const T = [
 ["The work is ______.",["satisfied","satisfying","satisfy","satisfaction"],1,"V-ing miêu tả tính chất."],
 ["The customers were ______ with the service.",["satisfying","satisfied","satisfy","satisfaction"],1,"V3/-ed miêu tả cảm xúc."]
 ]},
-{group:"Participles", name:"Participles — Rút gọn MĐQH", qs:[
+{group:"Participles", name:"Participles — Rút gọn MĐQH (2)", qs:[
 ["The man ______ to the woman is my uncle.",["talked","talking","was talked","talks"],1,"Chủ động → V-ing."],
 ["The books ______ on the shelf are mine.",["placing","placed","place","places"],1,"Bị động → V3."],
 ["The woman ______ in the office is my manager.",["working","worked","works","was worked"],0,"Chủ động → V-ing."],
-["The cars ______ in Germany are often expensive.",["making","made","make","makes"],1,"Bị động → V3."],
+["The cars ______ in Japan are often expensive.",["making","made","make","makes"],1,"Bị động → V3."],
 ["The students ______ in the library are preparing for their exams.",["studying","studied","study","were studied"],0,"Chủ động → V-ing."],
 ["The house ______ last year has already been sold.",["building","built","build","builds"],1,"Bị động → V3."],
 ["The people ______ outside are waiting for the doctor.",["standing","stood","stand","were stood"],0,"Chủ động → V-ing."],
-["The letter ______ by John was very long.",["writing","written","wrote","writes"],1,"Bị động → V3."],
+["The letter ______ by Mark was very long.",["writing","written","wrote","writes"],1,"Bị động → V3."],
 ["The man ______ the guitar is a famous musician.",["played","playing","plays","was played"],1,"Chủ động → V-ing."],
 ["The song ______ by this singer is very popular.",["singing","sung","sang","sings"],1,"Bị động → V3."],
 ["The students ______ the project worked very hard.",["completing","completed","complete","were completed"],0,"Chủ động → V-ing."],
@@ -1109,7 +1079,7 @@ const T = [
 ["The certificates ______ to the students were beautiful.",["giving","given","gave","give"],1,"Bị động → V3."],
 ["The man ______ near the entrance is the security guard.",["standing","stood","stands","was stood"],0,"Chủ động → V-ing."]
 ]},
-{group:"Participles", name:"Participles — Participle clauses", qs:[
+{group:"Participles", name:"Participles — Participle clauses (2)", qs:[
 ["______ along the street, I met an old friend.",["Walked","Walking","Having walked","Walk"],1,"MĐ phân từ chủ động song song."],
 ["______ the door, she went into the room.",["Opened","Opening","Having opened","Opens"],1,"Hai hành động liên tiếp, chủ động."],
 ["______ the problem, we decided to ask for help.",["Understanding","Understood","Understand","Having understand"],0,"Chủ động → V-ing."],
@@ -1131,7 +1101,7 @@ const T = [
 ["______ the instructions, she was able to complete the task.",["Following","Followed","Follow","Having follow"],0,"Chủ động → V-ing."],
 ["______ the instructions, she completed the task successfully.",["Having followed","Followed","Following","Follows"],0,"Hành động xong trước → Having + V3."]
 ]},
-{group:"Participles", name:"Participles — Perfect participles", qs:[
+{group:"Participles", name:"Participles — Perfect participles (2)", qs:[
 ["______ his homework, Tom went out with his friends.",["Having finished","Finished","Finishing","Having finish"],0,"Having + V3."],
 ["______ the email, she realised that she had made a mistake.",["Having sent","Sending","Sent","Having send"],0,"Having + V3."],
 ["______ the film before, I didn't want to see it again.",["Having seen","Seeing","Seen","Having see"],0,"Having + V3."],
@@ -1148,7 +1118,7 @@ const T = [
 ["______ the opportunity to study abroad, he accepted it immediately.",["Having been offered","Having offered","Offering","Offered"],0,"Having been + V3."],
 ["______ for several hours, the workers finally took a break.",["Having worked","Having been worked","Worked","Having work"],0,"Having + V3."]
 ]},
-{group:"Participles", name:"Participles — Tổng hợp B1–B2", qs:[
+{group:"Participles", name:"Participles — Tổng hợp B1–B2 (2)", qs:[
 ["The lecture was so ______ that several students fell asleep.",["bored","boring","interested","exciting"],1,"V-ing miêu tả tính chất sự vật."],
 ["______ by the results, the researchers decided to continue the study.",["Encouraging","Encouraged","Encourage","Having encourage"],1,"Bị động → V3."],
 ["The woman ______ to the manager is my English teacher.",["talking","talked","talk","was talked"],0,"Chủ động → V-ing."],
@@ -1161,8 +1131,8 @@ const T = [
 ["______ all the necessary information, she was able to make a decision.",["Having collected","Collected","Collecting","Having collect"],0,"Having + V3."]
 ]},
 
-/* ---------- SENTENCES ---------- */
-{group:"Sentences", name:"Sentences — Nhận diện câu đơn / ghép / phức", qs:[
+/* ========== 5. SENTENCES (100 câu) ========== */
+{group:"Sentences", name:"Sentences — Nhận diện câu đơn / ghép / phức (2)", qs:[
 ["Which sentence is a simple sentence?",["I went home because I was tired.","I was tired, so I went home.","I went home after school.","I went home, and I watched TV."],2,"Câu đơn chỉ có 1 mệnh đề độc lập."],
 ["Which sentence is a compound sentence?",["She stayed home because she was sick.","She was sick, so she stayed home.","Because she was sick, she stayed home.","Being sick, she stayed home."],1,"Câu ghép nối 2 mệnh đề độc lập."],
 ["Which sentence is a complex sentence?",["Tom studied hard, and he passed the exam.","Tom studied hard because he wanted to pass.","Tom studied hard every night.","Tom studied hard and passed the exam."],1,"Câu phức có mệnh đề phụ thuộc."],
@@ -1189,8 +1159,8 @@ const T = [
 ["'I bought a new phone yesterday.'",["simple","compound","complex","compound-complex"],0,"Câu đơn."],
 ["'I bought a new phone because my old one was broken.'",["simple","compound","complex","fragment"],2,"Câu phức với 'because'."]
 ]},
-{group:"Sentences", name:"Sentences — Coordinating conjunctions (FANBOYS)", qs:[
-["I was hungry, ______ I made a sandwich.",["but","so","or","yet"],1,"'so' = vì vậy (kết quả)."],
+{group:"Sentences", name:"Sentences — Coordinating conjunctions (FANBOYS) (2)", qs:[
+["I was hungry, ______ I made a sandwich.",["but","so","or","yet"],1,"'so' = vì vậy."],
 ["She wanted to go out, ______ it was raining heavily.",["so","but","for","and"],1,"'but' = nhưng."],
 ["You can take the bus, ______ you can walk.",["but","so","or","for"],2,"'or' = hoặc."],
 ["He studied hard, ______ he passed the exam.",["so","but","yet","or"],0,"'so' = vì vậy."],
@@ -1211,7 +1181,7 @@ const T = [
 ["She was late, ______ she missed the beginning of the meeting.",["so","but","or","yet"],0,"'so' = vì vậy."],
 ["I didn't buy the shirt, ______ it was too expensive.",["yet","for","or","and"],1,"'for' = bởi vì."]
 ]},
-{group:"Sentences", name:"Sentences — Subordinating conjunctions", qs:[
+{group:"Sentences", name:"Sentences — Subordinating conjunctions (2)", qs:[
 ["______ I was tired, I continued studying.",["Because","Although","So","And"],1,"'Although' = mặc dù."],
 ["I stayed home ______ I was sick.",["because","but","so","or"],0,"'because' = bởi vì."],
 ["______ you study hard, you will pass the exam.",["If","Although","Because","But"],0,"'If' = nếu."],
@@ -1238,9 +1208,9 @@ const T = [
 ["______ she finishes her homework, she can watch TV.",["After","Although","Because","But"],0,"'After' = sau khi."],
 ["I usually listen to music ______ I am studying.",["while","because","although","so"],0,"'while' = trong khi."]
 ]},
-{group:"Sentences", name:"Sentences — Ghép câu", qs:[
-["'I was tired. I went to bed early.' Which is correct?",["I was tired because I went to bed early.","I was tired, so I went to bed early.","I was tired although I went to bed early.","I was tired if I went to bed early."],1,"'so' = vì vậy (kết quả)."],
-["'She was sick. She went to school.'",["She was sick, so she went to school.","She was sick, but she went to school.","She was sick because she went to school.","She was sick if she went to school."],1,"'but' = nhưng (tương phản)."],
+{group:"Sentences", name:"Sentences — Ghép câu (2)", qs:[
+["'I was tired. I went to bed early.' Which is correct?",["I was tired because I went to bed early.","I was tired, so I went to bed early.","I was tired although I went to bed early.","I was tired if I went to bed early."],1,"'so' = vì vậy."],
+["'She was sick. She went to school.'",["She was sick, so she went to school.","She was sick, but she went to school.","She was sick because she went to school.","She was sick if she went to school."],1,"'but' = nhưng."],
 ["'He studied hard. He passed the exam.'",["He studied hard, so he passed the exam.","He studied hard, but he passed the exam.","He studied hard although he passed the exam.","He studied hard or he passed the exam."],0,"'so' = kết quả."],
 ["'I didn't go out. It was raining.'",["I didn't go out, but it was raining.","I didn't go out because it was raining.","I didn't go out, or it was raining.","I didn't go out although it was raining."],1,"'because' = lý do."],
 ["'She was hungry. She made dinner.'",["She was hungry, so she made dinner.","She was hungry, but she made dinner.","She was hungry although she made dinner.","She was hungry because she made dinner."],0,"'so' = kết quả."],
@@ -1255,11 +1225,11 @@ const T = [
 ["'She practises English every day. She wants to improve her fluency.'",["She practises English every day although she wants to improve her fluency.","She practises English every day because she wants to improve her fluency.","She practises English every day, but she wants to improve her fluency.","She practises English every day if she wants to improve her fluency."],1,"'because' = lý do."],
 ["'The weather was hot. We continued playing football.'",["Because the weather was hot, we continued playing football.","Although the weather was hot, we continued playing football.","The weather was hot, so we continued playing football.","The weather was hot because we continued playing football."],1,"'Although' = mặc dù."]
 ]},
-{group:"Sentences", name:"Sentences — Lỗi câu (fragment, run-on, comma splice)", qs:[
+{group:"Sentences", name:"Sentences — Lỗi câu (2)", qs:[
 ["Which sentence is grammatically correct?",["I was tired I went to bed.","I was tired, I went to bed.","I was tired, so I went to bed.","Because I was tired."],2,"'so' nối 2 mệnh đề đúng cách."],
 ["Which is a sentence fragment?",["I went home because I was tired.","Because I was tired.","I was tired, so I went home.","I went home."],1,"Mệnh đề phụ đứng một mình = fragment."],
 ["Which sentence correctly fixes 'She was hungry, she made a sandwich'?",["She was hungry she made a sandwich.","She was hungry, so she made a sandwich.","She was hungry because, she made a sandwich.","She was hungry, she made a sandwich."],1,"'so' nối 2 mệnh đề."],
-["Which sentence contains a comma splice?",["I was tired, so I went home.","I was tired because I had worked all day.","I was tired, I went home.","I went home after work."],2,"Comma splice: dùng dấu phẩy nối 2 mệnh đề độc lập."],
+["Which sentence contains a comma splice?",["I was tired, so I went home.","I was tired because I had worked all day.","I was tired, I went home.","I went home after work."],2,"Comma splice: dấu phẩy nối 2 mệnh đề độc lập."],
 ["Which sentence is a fragment?",["Although it was raining.","Although it was raining, we went outside.","It was raining, but we went outside.","We went outside."],0,"Mệnh đề phụ đứng một mình."],
 ["Which sentence is correct?",["Because I was late, I took a taxi.","Because I was late.","Because I was late, so I took a taxi.","Because late I took a taxi."],0,"'Because + clause, main clause'."],
 ["Which sentence correctly joins: 'I wanted to go. I was too tired.'",["I wanted to go because I was too tired.","I wanted to go, but I was too tired.","I wanted to go, I was too tired.","I wanted to go although."],1,"'but' = tương phản."],
@@ -1272,12 +1242,13 @@ const T = [
 ["Which sentence is correct?",["I finished my homework, and I went to bed.","I finished my homework, I went to bed.","I finished my homework I went to bed.","I finished my homework, because I went to bed."],0,"'and' nối 2 mệnh đề độc lập."],
 ["Which sentence is correct?",["If you study hard, you will pass the exam.","If you study hard, so you will pass the exam.","If you study hard, but you will pass the exam.","If you study hard. You will pass the exam."],0,"'If + clause, main clause'."]
 ]}
+
 ];
 
 /* =========================================================
-   LOCAL STORAGE — LƯU TIẾN ĐỘ
+   LOCAL STORAGE
    ========================================================= */
-const STORAGE_KEY = 'grammar_app_progress_v1';
+const STORAGE_KEY = 'grammar_app_batch2_v1';
 
 function loadProgress(){
   try {
@@ -1306,7 +1277,6 @@ function randomizeQuestion(q){
   return { text, opts: sh.map(p=>p.o), ans: sh.findIndex(p=>p.correct), exp };
 }
 
-/* Thông tin 5 mục lớn */
 const CATEGORY_INFO = {
   "Giới từ":        { icon:"📖", name:"Giới từ (Prepositions)",  desc:"at/on/in, time, place, movement, spatial, collocations" },
   "Phrasal Verbs":  { icon:"🔗", name:"Phrasal Verbs",           desc:"Units 137–145 — in/out/on/off/up/down/away/back" },
@@ -1315,7 +1285,6 @@ const CATEGORY_INFO = {
   "Sentences":      { icon:"📝", name:"Sentences",               desc:"Simple, compound, complex, fragments, run-ons" }
 };
 
-/* Nhóm câu hỏi theo mục lớn */
 function buildCategoryMap(){
   const map = {};
   T.forEach((topic, idx) => {
@@ -1330,13 +1299,11 @@ const CAT_MAP = buildCategoryMap();
    HOME
    ========================================================= */
 function renderHome(){
-  // Category grid
   const grid = document.getElementById('cat-grid');
   grid.innerHTML = Object.keys(CATEGORY_INFO).map(catKey => {
     const info = CATEGORY_INFO[catKey];
     const topics = CAT_MAP[catKey] || [];
     const totalQ = topics.reduce((s,t)=>s+t.qs.length, 0);
-    // Điểm tốt nhất trong nhóm (best/tổng câu của 1 topic; ở đây chỉ hiện tổng)
     let attempted = 0, bestSum = 0;
     topics.forEach(t => {
       const p = PROGRESS.practice[t._idx];
@@ -1358,7 +1325,6 @@ function renderHome(){
     </div>`;
   }).join('');
 
-  // Best test
   const bestInfo = document.getElementById('best-test-info');
   if(PROGRESS.tests.length){
     const best = Math.max(...PROGRESS.tests.map(t=>t.score));
@@ -1368,7 +1334,6 @@ function renderHome(){
     bestInfo.textContent = 'Bạn chưa làm bài test nào.';
   }
 
-  // History
   const historyCard = document.getElementById('history-card');
   const histContent = document.getElementById('history-content');
   if(PROGRESS.tests.length === 0){
@@ -1514,7 +1479,6 @@ function practiceAnswer(choice){
 function practiceNext(){
   const s = pState;
   if(s.idx === s.qs.length-1){
-    // Lưu tiến độ
     const total = s.qs.length;
     const old = PROGRESS.practice[s.topicIdx] || { bestScore:0, total, attempts:0 };
     old.attempts += 1;
@@ -1524,7 +1488,6 @@ function practiceNext(){
     saveProgress();
 
     const pct = Math.round(s.score/total*100);
-    const isNewBest = s.score >= old.bestScore;
     alert(`🎉 Hoàn thành chủ điểm!\n\nĐúng: ${s.score}/${total} (${pct}%)\nSố lần luyện: ${old.attempts}\nĐiểm tốt nhất: ${old.bestScore}/${total}`);
     backToCategory();
     return;
@@ -1541,7 +1504,6 @@ let tState = null;
 
 function startTest(){
   const all = [];
-  // Lưu kèm category để phân tích sau
   T.forEach(topic=>{
     topic.qs.forEach(q => all.push({ q, category: topic.group, topicName: topic.name }));
   });
@@ -1624,7 +1586,7 @@ function submitTest(){
   s.submitted = true;
 
   let score = 0, correct = 0, wrong = 0, skipped = 0;
-  const breakdown = {}; // category -> {correct, total}
+  const breakdown = {};
   const reviewList = [];
 
   s.qs.forEach((q,i)=>{
@@ -1642,7 +1604,6 @@ function submitTest(){
   const pct = Math.round(score/s.qs.length*100);
   const grade = getGrade(pct);
 
-  // Lưu lịch sử
   PROGRESS.tests.push({
     date: Date.now(),
     score,
@@ -1650,11 +1611,9 @@ function submitTest(){
     grade: grade.label,
     breakdown
   });
-  // Giữ tối đa 30 bài
   if(PROGRESS.tests.length > 30) PROGRESS.tests = PROGRESS.tests.slice(-30);
   saveProgress();
 
-  // Render result view
   document.getElementById('r-score').textContent = score;
   document.getElementById('r-grade').innerHTML = `<span class="grade-badge ${grade.cls}">Xếp loại: ${grade.label} (${pct}%)</span>`;
 
@@ -1673,12 +1632,11 @@ function submitTest(){
     <div class="stat-box"><div class="num">${pct}%</div><div class="lbl">Tỉ lệ đúng</div></div>
   `;
 
-  // Breakdown theo category
   const bdEl = document.getElementById('r-breakdown');
   const bdKeys = Object.keys(breakdown).sort((a,b)=>{
     const ra = breakdown[a].correct/breakdown[a].total;
     const rb = breakdown[b].correct/breakdown[b].total;
-    return ra - rb; // yếu trước
+    return ra - rb;
   });
   bdEl.innerHTML = bdKeys.map(cat => {
     const d = breakdown[cat];
@@ -1691,7 +1649,6 @@ function submitTest(){
     </div>`;
   }).join('');
 
-  // Review list
   document.getElementById('r-list').innerHTML = reviewList.map((r,i)=>{
     const q = r.q;
     const yourText = r.chosen !== null ? q.opts[r.chosen] : '(chưa trả lời)';
